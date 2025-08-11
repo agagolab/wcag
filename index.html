@@ -9,14 +9,32 @@
     background-color: #f5f5f5; /* bardzo jasny szary */
     display: flex;
     font-family: Arial, sans-serif;
-    margin: 0; padding: 20;
+    margin: 0; padding: 10 px;
     height: 100vh;
     overflow: hidden;
   }
- 
+  /* domyślnie focus jest niewidoczny */
+:focus {
+  outline: none;
+}
+
+/* focus pokazany tylko, gdy jest klasa user-is-tabbing */
+.user-is-tabbing :focus {
+  outline: 2px solid red;
+  outline-offset: 2px;
+}
+
+.user-is-tabbing button:focus,
+.user-is-tabbing input[type="button"]:focus,
+.user-is-tabbing input[type="submit"]:focus,
+.user-is-tabbing a:focus {
+  outline: 2px solid red;  /*  kolor focusa */
+  outline-offset: 2px;
+}
   nav {
     width: 300px;
-	height: 100vh;
+	max-width:100%;
+	height: auto;
     background: #222;
 	color: white;
     border-right: 1px solid #ccc;
@@ -26,6 +44,16 @@
   left: 0;
   box-sizing: border-box;
   }
+  .nav-main {
+  font-size: 1.4em;   /* większy tekst dla linku Strona główna */
+  font-weight: bold;
+}
+
+.nav-header {
+  font-size: 1.3em;   /* większy tekst dla nagłówka Kryteria */
+  margin-top: 20px;
+  font-weight: bold;
+}
   nav ul {
   list-style: none;  /* usuwa kropki */
   padding: 0;
@@ -108,12 +136,82 @@ section, article {
 .back-button:hover {
   background-color: #5a6268;
 }
+/* --- Responsywność --- */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+    overflow: auto;
+  }
+
+  nav {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #ccc;
+  }
+
+  main {
+    padding: 10px;
+  }
+}
+/* Układ mobilny */
+@media (max-width: 768px) {
+  nav {
+    position: fixed;
+    left: -300px; /* schowane poza ekranem */
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background: #222;
+    transition: left 0.3s ease;
+    z-index: 1000;
+  }
+
+  nav.open {
+    left: 0; /* pokazujemy menu */
+  }
+
+  .menu-toggle {
+    display: block;
+    background: #003E8A;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1100;
+    border-radius: 5px;
+  }
+
+  main {
+    padding-top: 60px; /* miejsce na przycisk */
+  }
+}
+
+/* Na większych ekranach ukrywamy przycisk menu */
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  nav {
+    position: relative;
+    left: 0;
+    height: auto;
+  }
+}
 </style>
 </head>
 <body>
 
+<button class="menu-toggle">☰ Menu</button>
 <nav>
   <ul>
+<li><a href="index.html" class="nav-main">Strona główna</a></li>
+    <li><h4 class="nav-header">Kryteria:</h4></li>
     <li><a href="#group-1_1" class="nav-link">1.1 - Tekst alternatywny</a></li>
     <li><a href="#group-1_2" class="nav-link">1.2 - Media oparte na czasie</a></li>
     <li><a href="#group-1_3" class="nav-link">1.3 - Adaptowalność</a></li>
@@ -249,7 +347,25 @@ section, article {
     <p><strong>Krótkie:</strong> Jeśli na stronie jest nagrane wcześniej wideo z dźwiękiem (np. rozmowa, wykład, film), to musi mieć napisy.</p>
     <button id="show-more-1_2_2" class="show-more-btn">Zobacz więcej o 1.2.2</button>
     <div class="full-text" style="display:none;">
-      <p>Wideo i inne media z dźwiękiem powinny mieć napisy synchronizowane z dźwiękiem dla osób niesłyszących.</p>
+      <p>
+Napisy rozszerzone to tekst wyświetlany na ekranie podczas odtwarzania materiałów wideo z dźwiękiem, który nie tylko zawiera dialogi, ale również opisuje ważne dźwięki i efekty dźwiękowe.
+</p>
+<p>
+Dzięki nim osoby niesłyszące lub niedosłyszące mogą lepiej zrozumieć, co dzieje się w filmie, nawet jeśli nie słyszą dźwięku. Napisy rozszerzone opisują np. muzykę, odgłosy otoczenia, emocje wyrażane głosem, kroki czy inne istotne informacje dźwiękowe, które wpływają na odbiór materiału.
+</p>
+<p>
+Jest to bardzo ważne, ponieważ dźwięki często niosą dodatkowe informacje, które pomagają zrozumieć kontekst i emocje sceny. Bez nich osoby niesłyszące mogą mieć trudności z pełnym odbiorem treści wideo.
+</p>
+
+<h4>Kto jest dotknięty?</h4>
+<p>
+Przede wszystkim osoby niesłyszące i niedosłyszące, które nie mogą odbierać informacji dźwiękowych zawartych w filmach. Również osoby uczące się języka lub oglądające wideo w głośnym otoczeniu, gdzie dźwięk jest niedostępny lub utrudniony.
+</p>
+
+<h4>Jak to zrobić?</h4>
+<p>
+Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający nie tylko dialogi, ale również opisy ważnych dźwięków i efektów dźwiękowych. Można to zrobić ręcznie lub skorzystać z narzędzi do tworzenia napisów, które pozwalają na dodanie takich informacji. Upewnij się, że napisy są zsynchronizowane z dźwiękiem i czytelne dla odbiorców.
+</p>
 	  <h4>Przykłady błędów 1.2.2</h4>
 	  <ul>
 		<li>Film wgrany na stronę nie ma włączonych ani dołączonych napisów.</li>
@@ -322,18 +438,164 @@ section, article {
       <button class="back-button">Zwiń opis</button>
     </div>
   </article>
+
+<article id="k1_2_4" tabindex="-1">
+    <h3>1.2.4  Napisy rozszerzone (na żywo) (AA)</h3>
+    <p><strong>Krótkie:</strong> Napisy na żywo muszą przekazywać mowę oraz ważne dźwięki podczas transmisji audio-wideo, aby osoby niesłyszące i niedosłyszące mogły zrozumieć treść na bieżąco.</p>
+    <button id="show-more-1_2_4" class="show-more-btn">Zobacz więcej o 1.2.4</button>
+    <div class="full-text" style="display:none;">
+		<p>Do wszystkich treści audio w transmisjach na żywo, które mają obraz i dźwięk zsynchronizowany, muszą być zapewnione napisy rozszerzone.</p>
+
+  <h4>Co to jest?</h4>
+  <p>Napisy rozszerzone to tekst wyświetlany podczas transmisji na żywo, który dokładnie oddaje słowa oraz ważne dźwięki i efekty audio, takie jak dźwięki otoczenia czy reakcje, które pomagają lepiej zrozumieć treść. Są one synchronizowane z obrazem i dźwiękiem na żywo.</p>
+
+  <h4>Dlaczego to jest ważne?</h4>
+  <p>Transmisje na żywo bez napisów rozszerzonych są niedostępne dla osób niesłyszących lub niedosłyszących, które nie mogą usłyszeć ani zrozumieć mowy lub ważnych dźwięków na ekranie. Dzięki napisom rozszerzonym mogą one śledzić wydarzenia i odbierać wszystkie ważne informacje tak, jak osoby słyszące.</p>
+
+  <h4>Kto jest dotknięty?</h4>
+  <p>Przede wszystkim osoby niesłyszące i niedosłyszące, które korzystają z napisów, by zrozumieć treści na żywo. Również osoby, które uczą się języka lub mają trudności ze słuchem, mogą korzystać z napisów rozszerzonych, by lepiej odbierać przekaz.</p>
+
+  <h4>Jak to zrobić?</h4>
+  <ul>
+    <li>Zapewnij napisy, które na bieżąco przekładają zarówno mowę, jak i ważne dźwięki (np. muzykę, efekty dźwiękowe, reakcje widowni).</li>
+    <li>Użyj profesjonalnych systemów do generowania napisów na żywo lub zatrudnij osoby, które na bieżąco transkrybują i opisują dźwięki.</li>
+    <li>Napisy muszą być zsynchronizowane z transmisją i widoczne na ekranie.</li>
+  </ul>
+  <button class="back-button">Zwiń opis</button>
+    </div>
+</article>
+
+<article id="k1_2_5" tabindex="-1">
+    <h3>1.2.5 Audiodeskrypcja (nagranie)(AA)</h3>
+    <p><strong>Krótkie:</strong> Zapewniona jest audiodeskrypcja dla wszystkich nagrań wideo.</p>
+    <button id="show-more-1_2_5" class="show-more-btn">Zobacz więcej o 1.2.5</button>
+    <div class="full-text" style="display:none;">
+	 <p>Audiodeskrypcja to dodatkowy komentarz dźwiękowy, który opisuje ważne elementy wizualne w nagranych filmach z dźwiękiem, jeśli nie są one wyjaśnione w głównym nagraniu audio.</p>
+
+  <h4>Dlaczego to jest ważne?</h4>
+  <p>Osoby niewidome lub słabowidzące często polegają na dźwięku, by zrozumieć, co dzieje się na ekranie. Bez audiodeskrypcji tracą ważne informacje, które nie są wypowiadane w dialogach. Na przykład w filmie o wystawie sztuki audiodeskrypcja pozwala dowiedzieć się, jakie obrazy są pokazywane lub jak wygląda aranżacja galerii.</p>
+  <p>Audiodeskrypcje pomagają także osobom z trudnościami poznawczymi, dla których wizualne informacje mogą być trudne do zrozumienia bez dodatkowego słownego wsparcia.</p>
+
+  <h4>Kto jest dotknięty?</h4>
+  <ul>
+    <li>Osoby niewidome i słabowidzące</li>
+    <li>Osoby z ograniczonym widzeniem</li>
+    <li>Osoby z niektórymi trudnościami poznawczymi</li>
+  </ul>
+
+  <h4>Jak to zrobić?</h4>
+  <ul>
+    <li>Dodaj osobną ścieżkę dźwiękową z audiodeskrypcją, która opisuje to, co dzieje się wizualnie, najlepiej w przerwach między dialogami lub dźwiękami</li>
+    <li>Użyj elementu HTML5 <code>&lt;track&gt;</code> do dołączenia audiodeskrypcji</li>
+    <li>Możesz także przygotować alternatywny plik wideo lub ścieżkę dźwiękową z audiodeskrypcją</li>
+    <li>Dla filmów typu „mówiąca głowa” (np. konferencje prasowe) można zastosować statyczny opis tekstowy zamiast audiodeskrypcji</li>
+  </ul>
+	 <button class="back-button">Zwiń opis</button>
+    </div>
+</article>
+
+<article id="k1_2_6" tabindex="-1">
+    <h3>1.2.6 Język migowy (nagranie)(AAA)</h3>
+    <p><strong>Krótkie:</strong> Zapewnione jest tłumaczenie w języku migowym wszystkich nagrań audio.</p>
+    <button id="show-more-1_2_6" class="show-more-btn">Zobacz więcej o 1.2.6</button>
+    <div class="full-text" style="display:none;">
+	<h4>Co to jest?</h4>
+  <p>Wszystkie nagrania audio w nagranych wcześniej filmach muszą mieć tłumaczenie na język migowy.</p>
+
+  <h4>Dlaczego to jest ważne?</h4>
+  <p>Osoby niesłyszące, które używają języka migowego jako pierwszego języka, często nie rozumieją dobrze napisów. Język migowy przekazuje emocje i niuanse, które napisy mogą pomijać.</p>
+
+  <h4>Kogo to dotyczy?</h4>
+  <p>Osoby niesłyszące i głuche, które korzystają z języka migowego.</p>
+
+  <h4>Jak to zrobić?</h4>
+  <ul>
+    <li>Nagraj tłumacza języka migowego i dodaj go do filmu – np. w rogu ekranu.</li>
+    <li>Lub jeśli odtwarzacz na to pozwala, udostępnij osobny zsynchronizowany film z tłumaczem, który użytkownik może włączyć lub wyłączyć.</li>
+  </ul>
+
+  <h4>Podsumowanie</h4>
+  <p>Dodanie języka migowego sprawia, że film jest zrozumiały i przyjazny dla osób niesłyszących, nie tylko przez dodanie napisów, ale także przez pełne, wizualne tłumaczenie.</p>
+
+	 <button class="back-button">Zwiń opis</button>
+    </div>
+</article>
+
+<article id="k1_2_7" tabindex="-1">
+    <h3>1.2.7 Rozszerzona audiodeskrypcja (nagranie)</h3>
+    <p><strong>Krótkie:</strong> Filmy muszą mieć rozszerzone opisy dźwiękowe, które zatrzymują obraz, by dokładniej wyjaśnić ważne wizualne elementy.</p>
+    <button id="show-more-1_2_7" class="show-more-btn">Zobacz więcej o 1.2.7</button>
+    <div class="full-text" style="display:none;">
+	 <h4>Co to jest?</h4>
+  <p>Wszystkie nagrania wideo muszą mieć rozszerzoną audiodeskrypcję, czyli dodatkowe opisy dźwiękowe, które zatrzymują obraz, aby dokładniej wyjaśnić ważne elementy wizualne.</p>
+
+  <h4>Dlaczego to jest ważne?</h4>
+  <p>Pomaga osobom niewidomym lub słabowidzącym lepiej zrozumieć szczegóły, które są trudne do uchwycenia tylko z krótkich opisów w przerwach dialogów.</p>
+
+  <h4>Kogo to dotyczy?</h4>
+  <p>Osoby niewidome, słabowidzące i osoby potrzebujące dokładniejszych opisów wizualnych.</p>
+
+  <h4>Jak to zrobić?</h4>
+  <ul>
+    <li>Dodaj do filmu drugą ścieżkę audio z opisami, które mogą chwilowo zatrzymać obraz, aby dokładnie opisać ważne szczegóły.</li>
+    <li>Upewnij się, że opisy są dobrze zsynchronizowane z obrazem i nie nachodzą na dialogi czy inne dźwięki.</li>
+  </ul>
+  <h4>Podsumowanie</h4>
+  <p>Rozszerzona audiodeskrypcja sprawia, że wideo jest bardziej dostępne, dając widzom pełniejszy dostęp do treści wizualnych niż standardowa audiodeskrypcja.</p>
+	 <button class="back-button">Zwiń opis</button>
+    </div>
+</article>
 </section>
 
  <section id="group-1_3" tabindex="-1">
-    <h2>1.3 - Adaptowalność</h2>
+    <h2>1.3 - Możliwość adaptacji</h2>
 	
   <article id="k1_3_1" tabindex="-1">
     <h3>1.3.1 Informacje i relacje (A)</h3>
     <p><strong>Krótkie:</strong> Struktura strony jest jasna i logiczna.</p>
     <button id="show-more-1_3_1" class="show-more-btn">Zobacz więcej o 1.3.1</button>
     <div class="full-text" style="display:none;">
-      <p>Informacje muszą być przedstawione tak, aby ich relacje były zrozumiałe (np. odpowiednie nagłówki i listy).</p>
-      <button class="back-button">Powrót do strony głównej</button>
+      <p>Na stronach internetowych bardzo często używamy różnych elementów wizualnych lub dźwiękowych, aby pokazać, jak poszczególne części treści są ze sobą powiązane. Mogą to być na przykład nagłówki, pogrubienia, grupowanie elementów, kolory czy nawet efekty dźwiękowe. Takie wskazówki pomagają osobom widzącym lub słyszącym szybciej zrozumieć strukturę i znaczenie informacji.</p>
+
+<p>Jednak osoby korzystające z technologii wspomagających, takich jak czytniki ekranu, nie mają dostępu do tych wizualnych lub dźwiękowych sygnałów. Dlatego bardzo ważne jest, aby informacje o relacjach i strukturze strony były zakodowane w odpowiedni sposób w samym kodzie HTML lub za pomocą atrybutów ARIA. Dzięki temu technologie wspomagające mogą odczytać i przekazać te informacje użytkownikowi.</p>
+
+<h4>Dlaczego to jest ważne?</h4>
+<p>Osoby niewidome, słabowidzące, a także osoby głuchoniewidome lub z innymi niepełnosprawnościami sensorycznymi polegają na tym, co jest zakodowane w strukturze strony, aby zrozumieć, jak treści są ze sobą powiązane. Jeżeli oznaczenia semantyczne są niepełne lub brak ich w ogóle, takie osoby mogą mieć problem z orientacją na stronie i ze zrozumieniem informacji. Może to skutkować niepełnym odbiorem treści lub całkowitym brakiem dostępu do istotnych danych.</p>
+
+<p>Przykładowo, nagłówki odpowiednio uporządkowane (<code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code> itd.) pomagają użytkownikom czytników ekranu szybko przeskakiwać między sekcjami strony. Grupy powiązanych pól formularza oznaczone za pomocą <code>&lt;fieldset&gt;</code> i <code>&lt;legend&gt;</code> dają jasną informację, jakie dane są ze sobą powiązane. Atrybuty ARIA dodatkowo wspierają, gdy nie da się użyć natywnych elementów HTML.</p>
+
+<h4>Kto jest dotknięty?</h4>
+<p>Przede wszystkim osoby z dysfunkcjami wzroku oraz osoby korzystające z czytników ekranu lub innych technologii wspomagających. Również osoby z ograniczonym widzeniem, które mogą polegać na powiększeniu ekranu lub kontrastach, a także osoby z trudnościami poznawczymi, które potrzebują jasnej i logicznej struktury strony.</p>
+
+<h4>Jak to zrobić?</h4>
+<ul>
+  <li>Używaj semantycznych tagów HTML: <code>&lt;h1&gt;</code> do <code>&lt;h6&gt;</code> do nagłówków, <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code> do list, <code>&lt;table&gt;</code>, <code>&lt;th&gt;</code>, <code>&lt;td&gt;</code> do tabel itp.</li>
+  <li>Zadbaj o logiczną kolejność nagłówków – nie pomijaj poziomów (np. nie przechodź nagle z <code>&lt;h1&gt;</code> do <code>&lt;h4&gt;</code>).</li>
+  <li>Grupuj powiązane pola formularzy w <code>&lt;fieldset&gt;</code> i opisz je <code>&lt;legend&gt;</code>.</li>
+  <li>Używaj odpowiednich atrybutów <code>label</code> dla pól formularzy.</li>
+  <li>Jeśli natywne elementy HTML nie wystarczą, korzystaj z atrybutów ARIA, takich jak <code>role</code>, <code>aria-labelledby</code>, <code>aria-describedby</code>.</li>
+  <li>Testuj swoją stronę przy pomocy czytników ekranu, aby upewnić się, że struktura jest dobrze odczytywana.</li>
+</ul>
+
+<p>Dzięki temu Twoja strona będzie dostępna dla szerszej grupy odbiorców i zgodna z wytycznymi WCAG, co nie tylko pomaga użytkownikom z niepełnosprawnościami, ale często poprawia także SEO i użyteczność dla wszystkich.</p>
+ <h4>Przykłady błędów 1.3.1</h4>
+<ul>
+  <li>Na stronie są duże pogrubione napisy wyglądające jak nagłówki, ale nie są oznaczone jako <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code> itp.</li>
+  <li>Lista elementów (np. kroków) nie jest oznaczona jako lista (<code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>), tylko jako zwykły tekst.</li>
+  <li>Pola formularza nie mają etykiet (<code>&lt;label&gt;</code>).</li>
+  <li>Tabela nie ma nagłówków kolumn (<code>&lt;th&gt;</code>) ani powiązań między danymi a nagłówkami.</li>
+  <li>Ważne informacje są pokazane tylko przez kolor lub pozycję, a nie są opisane w kodzie.</li>
+</ul>
+
+<h4>Komentarze 1.3.1</h4>
+<ul>
+  <li>Na stronie zastosowano elementy wyglądające jak nagłówki, ale nie oznaczono ich za pomocą znaczników semantycznych (<code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code> itd.).</li>
+  <li>Informacje przedstawione wizualnie jako lista nie są zakodowane przy użyciu znaczników listy (<code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>).</li>
+  <li>Pola formularza nie posiadają widocznych lub powiązanych etykiet (<code>&lt;label&gt;</code>), co utrudnia obsługę przy użyciu czytników ekranu.</li>
+  <li>Tabela danych nie zawiera nagłówków (<code>&lt;th&gt;</code>) ani powiązań między komórkami danych i nagłówkami.</li>
+</ul>     
+	  
+	  <button class="back-button">Zwiń opis</button>
     </div>
   </article>
 
@@ -566,6 +828,39 @@ document.querySelectorAll('.back-button').forEach(button => {
       showMoreBtn.setAttribute('aria-expanded', 'false');
       const idPart = showMoreBtn.id.replace('show-more-', '').replace(/_/g, '.');
       showMoreBtn.textContent = `Zobacz więcej o ${idPart}`;
+    }
+  });
+});
+
+function handleFirstTab(e) {
+  if (e.key === 'Tab') {
+    document.body.classList.add('user-is-tabbing');
+
+    window.removeEventListener('keydown', handleFirstTab);
+    window.addEventListener('mousedown', handleMouseDownOnce);
+  }
+}
+
+function handleMouseDownOnce() {
+  document.body.classList.remove('user-is-tabbing');
+
+  window.removeEventListener('mousedown', handleMouseDownOnce);
+  window.addEventListener('keydown', handleFirstTab);
+}
+
+window.addEventListener('keydown', handleFirstTab);
+
+const toggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('nav');
+
+toggle.addEventListener('click', () => {
+  nav.classList.toggle('open');
+});
+
+nav.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    if (window.innerWidth <= 768) {
+      nav.classList.remove('open');
     }
   });
 });
