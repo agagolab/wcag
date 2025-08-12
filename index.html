@@ -51,7 +51,7 @@
 
 .nav-header {
   font-size: 1.3em;   /* większy tekst dla nagłówka Kryteria */
-  margin-top: 20px;
+  margin-top: 10px;
   font-weight: bold;
 }
   nav ul {
@@ -60,7 +60,7 @@
   margin: 0;
 }
   nav ul li a {
-  font-size: 1.1em;    /* trochę większy tekst */
+  font-size: 1em;    /* trochę większy tekst */
   color: #e0e0e0 ;
   text-decoration: none;
   display: block;
@@ -75,7 +75,13 @@ nav ul li a.active {
   color: white;
 }
 
-section, article {
+section {
+background: transparent;
+  padding: 0;
+  border: none;
+}
+
+article {
   background-color: white;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* lekki cień */
   border-radius: 8px;
@@ -101,11 +107,23 @@ section, article {
     color: #003E8A;
   }
   .full-text {
-    margin-top: 8px;
-    background: #eef6ff;
-    padding: 12px;
-    border-left: 5px solid #0077ff;
-  }
+  background-color: #f0f4ff;      /* jasne, delikatne niebieskie tło */
+  border: 1px solid #a0b9ff;     /* delikatna niebieska ramka */
+  border-radius: 12px;            /* ładne, zaokrąglone rogi */
+  padding: 1rem;                  /* przestrzeń w środku */
+  margin-top: 0.7rem;            /* odstęp od góry */
+}
+.full-text p {
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #1a1a1a;
+}
+
+.full-text h4 {
+  margin-top: 1rem;
+  color: #003366;
+}
+
   .show-more-btn {
   background-color: #003E8A;  /* niebieski */
   color: white;
@@ -115,10 +133,13 @@ section, article {
   cursor: pointer;
   font-size: 14px;
   transition: background-color 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* lekki cień */
+  transition: box-shadow 0.3s ease;
 }
 
 .show-more-btn:hover {
   background-color: #002C5C;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* cień się trochę powiększa przy najechaniu */
 }
 
 .back-button {
@@ -131,6 +152,8 @@ section, article {
   font-size: 14px;
   margin-top: 10px;
   transition: background-color 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* lekki cień */
+  transition: box-shadow 0.3s ease;
 }
 
 .back-button:hover {
@@ -213,14 +236,14 @@ section, article {
 <li><a href="index.html" class="nav-main">Strona główna</a></li>
     <li><h4 class="nav-header">Kryteria:</h4></li>
     <li><a href="#group-1_1" class="nav-link">1.1 - Tekst alternatywny</a></li>
-    <li><a href="#group-1_2" class="nav-link">1.2 - Media oparte na czasie</a></li>
-    <li><a href="#group-1_3" class="nav-link">1.3 - Adaptowalność</a></li>
-    <li><a href="#group-1_4" class="nav-link">1.4 - Wyróżnialność</a></li>
-    <li><a href="#group-2_1" class="nav-link">2.1 - Dostępność klawiatury</a></li>
+    <li><a href="#group-1_2" class="nav-link">1.2 - Multimedia</a></li>
+    <li><a href="#group-1_3" class="nav-link">1.3 - Możliwość adaptacji</a></li>
+    <li><a href="#group-1_4" class="nav-link">1.4 - Rozróżnialność</a></li>
+    <li><a href="#group-2_1" class="nav-link">2.1 - Dostępność z klawiatury</a></li>
     <li><a href="#group-2_2" class="nav-link">2.2 - Wystarczający czas</a></li>
     <li><a href="#group-2_3" class="nav-link">2.3 - Napady i reakcje fizyczne</a></li>
     <li><a href="#group-2_4" class="nav-link">2.4 - Nawigacja</a></li>
-    <li><a href="#group-2_5" class="nav-link">2.5 - Modalności wprowadzania</a></li>
+    <li><a href="#group-2_5" class="nav-link">2.5 - Metody obsługi</a></li>
     <li><a href="#group-3_1" class="nav-link">3.1 - Czytelność</a></li>
     <li><a href="#group-3_2" class="nav-link">3.2 - Przewidywalność</a></li>
     <li><a href="#group-3_3" class="nav-link">3.3 - Pomoc przy wprowadzaniu</a></li>
@@ -231,12 +254,19 @@ section, article {
 <main id="main-content">
   <h1>WCAG - Kryteria dostępności stron internetowych</h1>
   
+<div style=" top: 0; background: #fff; padding: 10px; border-radius: 8px; border-bottom: 1px solid #ccc; z-index: 1000;">
+  <p><strong>Wyszukiwanie na stronie</strong></p>
+  <input type="text" id="search" placeholder="Wpisz szukaną frazę..."  autocomplete="off" style="width: 70%; padding: 8px;" />
+  <button id="search-btn" class="show-more-btn">Wyszukaj</button>
+  <p id="search-info" style="margin-top: 10px; color: green;"></p>
+</div>
+  
  <section id="group-1_1" tabindex="-1">
     <h2>1.1 - Tekst alternatywny</h2>
 	
 <article id="k1_1_1">
-  <h3>1.1.1 Treść nietekstowa</h3>
-  <p><strong>Krótkie:</strong> Wszystkie obrazki, ikony i inne elementy nietekstowe muszą mieć tekstowy opis.</p>
+  <h3>1.1.1 Treść nietekstowa (A)</h3>
+  <p>Wszystkie obrazki, ikony i inne elementy nietekstowe muszą mieć tekstowy opis.</p>
   <button id="show-more-1_1_1" class="show-more-btn" aria-expanded="false">Przeczytaj więcej o 1.1.1</button>
   <div class="full-text" style="display:none;">
     <p>Na stronach internetowych obok tekstu często pojawiają się różne elementy, takie jak obrazki, filmy, dźwięki, ikony czy wykresy. Dla wielu osób te elementy są bardzo ważne, ponieważ przekazują dodatkowe informacje. Jednak osoby z niepełnosprawnościami, na przykład niewidome lub niedowidzące, mogą mieć trudności z odbiorem takich treści, jeśli nie mają one odpowiednich opisów tekstowych.</p>
@@ -290,11 +320,11 @@ section, article {
 </section>
 
  <section id="group-1_2" tabindex="-1">
-    <h2>1.2 - Media oparte na czasie</h2>
+    <h2>1.2 - Multimedia</h2>
 	
 <article id="k1_2_1">
-  <h3>1.2.1 Tylko audio lub tylko wideo</h3>
-  <p><strong>Krótkie:</strong> Jeśli jest plik audio lub wideo bez dźwięku, trzeba dodać tekstowy opis.</p>
+  <h3>1.2.1 Tylko audio lub tylko wideo (A)</h3>
+  <p>Jeśli jest plik audio lub wideo bez dźwięku, trzeba dodać tekstowy opis.</p>
   <button id="show-more-1_2_1" class="show-more-btn">Przeczytaj więcej o 1.2.1</button>
   <div class="full-text" style="display:none;">
     <p>Media oparte na czasie to takie elementy jak filmy, nagrania audio, transmisje na żywo czy animacje, które zmieniają się w czasie i przekazują informacje poprzez obraz i dźwięk. Dla wielu osób dostęp do tych mediów jest bardzo ważny, ale mogą napotkać bariery, jeśli materiały nie są odpowiednio przystosowane.</p>
@@ -343,8 +373,8 @@ section, article {
   </article>
 
   <article id="k1_2_2" tabindex="-1">
-    <h3>1.2.2 Napisy rozszerzone(A)</h3>
-    <p><strong>Krótkie:</strong> Jeśli na stronie jest nagrane wcześniej wideo z dźwiękiem (np. rozmowa, wykład, film), to musi mieć napisy.</p>
+    <h3>1.2.2 Napisy rozszerzone (A)</h3>
+    <p>Jeśli na stronie jest nagrane wcześniej wideo z dźwiękiem (np. rozmowa, wykład, film), to musi mieć napisy.</p>
     <button id="show-more-1_2_2" class="show-more-btn">Przeczytaj więcej o 1.2.2</button>
     <div class="full-text" style="display:none;">
       <p>
@@ -383,7 +413,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
 
   <article id="k1_2_3" tabindex="-1">
     <h3>1.2.3 Audiodeskrypcja lub alternatywa dla mediów (A)</h3>
-    <p><strong>Krótkie:</strong> Jeśli na stronie jest nagrane wideo z obrazem i dźwiękiem (np. film, wywiad), to osoby niewidome 
+    <p>Jeśli na stronie jest nagrane wideo z obrazem i dźwiękiem (np. film, wywiad), to osoby niewidome 
 	muszą wiedzieć, co się dzieje na ekranie. Dlatego trzeba dodać audiodeskrypcję (czyli lektor opisujący obraz) lub pełny opis tekstowy, 
 	który wyjaśnia całą akcję.</p>
     <button id="show-more-1_2_3" class="show-more-btn">Przeczytaj więcej o 1.2.3</button>
@@ -439,111 +469,282 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     </div>
   </article>
 
-<article id="k1_2_4" tabindex="-1">
-    <h3>1.2.4  Napisy rozszerzone (na żywo) (AA)</h3>
-    <p><strong>Krótkie:</strong> Napisy na żywo muszą przekazywać mowę oraz ważne dźwięki podczas transmisji audio-wideo, aby osoby niesłyszące i niedosłyszące mogły zrozumieć treść na bieżąco.</p>
-    <button id="show-more-1_2_4" class="show-more-btn">Przeczytaj więcej o 1.2.4</button>
-    <div class="full-text" style="display:none;">
-		<p>Do wszystkich treści audio w transmisjach na żywo, które mają obraz i dźwięk zsynchronizowany, muszą być zapewnione napisy rozszerzone.</p>
+<article id="k1_2_4">
+  <h3>1.2.4 Napisy rozszerzone (na żywo) (AA)</h3>
+  <p> Napisy na żywo muszą przekazywać mowę oraz ważne dźwięki podczas transmisji audio-wideo, aby osoby niesłyszące i niedosłyszące mogły zrozumieć treść na bieżąco.</p>
+  
+  <button id="show-more-1_2_4" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 1.2.4
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Do wszystkich treści audio w transmisjach na żywo, które mają obraz i dźwięk zsynchronizowany, muszą być zapewnione napisy rozszerzone.</p>
 
-  <h4>Co to jest?</h4>
-  <p>Napisy rozszerzone to tekst wyświetlany podczas transmisji na żywo, który dokładnie oddaje słowa oraz ważne dźwięki i efekty audio, takie jak dźwięki otoczenia czy reakcje, które pomagają lepiej zrozumieć treść. Są one synchronizowane z obrazem i dźwiękiem na żywo.</p>
+    <h4>Co to jest?</h4>
+    <p>Napisy rozszerzone to tekst wyświetlany podczas transmisji na żywo, który dokładnie oddaje słowa oraz ważne dźwięki i efekty audio, takie jak dźwięki otoczenia czy reakcje publiczności. Są one zsynchronizowane z obrazem i dźwiękiem na żywo.</p>
 
-  <h4>Dlaczego to jest ważne?</h4>
-  <p>Transmisje na żywo bez napisów rozszerzonych są niedostępne dla osób niesłyszących lub niedosłyszących, które nie mogą usłyszeć ani zrozumieć mowy lub ważnych dźwięków na ekranie. Dzięki napisom rozszerzonym mogą one śledzić wydarzenia i odbierać wszystkie ważne informacje tak, jak osoby słyszące.</p>
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Bez napisów rozszerzonych transmisje na żywo są niedostępne dla osób niesłyszących lub niedosłyszących. Dzięki nim odbiorcy mogą śledzić wydarzenia i otrzymywać wszystkie ważne informacje tak, jak osoby słyszące.</p>
 
-  <h4>Kto jest dotknięty?</h4>
-  <p>Przede wszystkim osoby niesłyszące i niedosłyszące, które korzystają z napisów, by zrozumieć treści na żywo. Również osoby, które uczą się języka lub mają trudności ze słuchem, mogą korzystać z napisów rozszerzonych, by lepiej odbierać przekaz.</p>
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby niesłyszące</li>
+      <li>Osoby niedosłyszące</li>
+      <li>Osoby uczące się języka</li>
+      <li>Osoby z trudnościami w odbiorze mowy</li>
+    </ul>
 
-  <h4>Jak to zrobić?</h4>
-  <ul>
-    <li>Zapewnij napisy, które na bieżąco przekładają zarówno mowę, jak i ważne dźwięki (np. muzykę, efekty dźwiękowe, reakcje widowni).</li>
-    <li>Użyj profesjonalnych systemów do generowania napisów na żywo lub zatrudnij osoby, które na bieżąco transkrybują i opisują dźwięki.</li>
-    <li>Napisy muszą być zsynchronizowane z transmisją i widoczne na ekranie.</li>
-  </ul>
-  <button class="back-button">Zwiń opis</button>
-    </div>
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Zapewnij napisy na żywo, które obejmują mowę oraz istotne dźwięki.</li>
+      <li>Wykorzystaj systemy do generowania napisów w czasie rzeczywistym lub osoby, które transkrybują i opisują dźwięki.</li>
+      <li>Zadbaj o synchronizację napisów z obrazem i dźwiękiem.</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Pełna dostępność treści na żywo dla osób z problemami słuchu oraz ułatwienie odbioru dla szerszej publiczności.</p>
+
+    <h4>Przykłady błędów 1.2.4</h4>
+    <ul>
+      <li>Brak napisów podczas transmisji na żywo.</li>
+      <li>Napisy nie zawierają istotnych dźwięków (np. reakcji publiczności).</li>
+      <li>Napisy są opóźnione względem obrazu.</li>
+    </ul>
+
+    <h4>Komentarze do audytu 1.2.4</h4>
+    <ul>
+      <li>Transmisje na żywo nie posiadają napisów rozszerzonych.</li>
+      <li>Napisy nie zawierają pełnych informacji o dźwiękach.</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
 </article>
 
-<article id="k1_2_5" tabindex="-1">
-    <h3>1.2.5 Audiodeskrypcja (nagranie)(AA)</h3>
-    <p><strong>Krótkie:</strong> Zapewniona jest audiodeskrypcja dla wszystkich nagrań wideo.</p>
-    <button id="show-more-1_2_5" class="show-more-btn">Przeczytaj więcej o 1.2.5</button>
-    <div class="full-text" style="display:none;">
-	 <p>Audiodeskrypcja to dodatkowy komentarz dźwiękowy, który opisuje ważne elementy wizualne w nagranych filmach z dźwiękiem, jeśli nie są one wyjaśnione w głównym nagraniu audio.</p>
+<article id="k1_2_5">
+  <h3>1.2.5 Audiodeskrypcja (nagranie) (AA)</h3>
+  <p> Zapewniona jest audiodeskrypcja dla wszystkich nagrań wideo.</p>
+  
+  <button id="show-more-1_2_5" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 1.2.5
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <h4>Co to jest?</h4>
+    <p>Audiodeskrypcja to dodatkowy komentarz dźwiękowy, który opisuje ważne elementy wizualne w nagranych filmach z dźwiękiem, jeśli nie są one wyjaśnione w głównym nagraniu audio.</p>
 
-  <h4>Dlaczego to jest ważne?</h4>
-  <p>Osoby niewidome lub słabowidzące często polegają na dźwięku, by zrozumieć, co dzieje się na ekranie. Bez audiodeskrypcji tracą ważne informacje, które nie są wypowiadane w dialogach. Na przykład w filmie o wystawie sztuki audiodeskrypcja pozwala dowiedzieć się, jakie obrazy są pokazywane lub jak wygląda aranżacja galerii.</p>
-  <p>Audiodeskrypcje pomagają także osobom z trudnościami poznawczymi, dla których wizualne informacje mogą być trudne do zrozumienia bez dodatkowego słownego wsparcia.</p>
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Osoby niewidome lub słabowidzące często polegają na dźwięku, by zrozumieć, co dzieje się na ekranie. Bez audiodeskrypcji tracą ważne informacje, które nie są wypowiadane w dialogach. Pomaga to także osobom z trudnościami poznawczymi w odbiorze wizualnych treści.</p>
 
-  <h4>Kto jest dotknięty?</h4>
-  <ul>
-    <li>Osoby niewidome i słabowidzące</li>
-    <li>Osoby z ograniczonym widzeniem</li>
-    <li>Osoby z niektórymi trudnościami poznawczymi</li>
-  </ul>
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby niewidome</li>
+      <li>Osoby słabowidzące</li>
+      <li>Osoby z ograniczonym widzeniem</li>
+      <li>Osoby z niektórymi trudnościami poznawczymi</li>
+    </ul>
 
-  <h4>Jak to zrobić?</h4>
-  <ul>
-    <li>Dodaj osobną ścieżkę dźwiękową z audiodeskrypcją, która opisuje to, co dzieje się wizualnie, najlepiej w przerwach między dialogami lub dźwiękami</li>
-    <li>Użyj elementu HTML5 <code>&lt;track&gt;</code> do dołączenia audiodeskrypcji</li>
-    <li>Możesz także przygotować alternatywny plik wideo lub ścieżkę dźwiękową z audiodeskrypcją</li>
-    <li>Dla filmów typu „mówiąca głowa” (np. konferencje prasowe) można zastosować statyczny opis tekstowy zamiast audiodeskrypcji</li>
-  </ul>
-	 <button class="back-button">Zwiń opis</button>
-    </div>
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Dodaj osobną ścieżkę dźwiękową z audiodeskrypcją w przerwach między dialogami.</li>
+      <li>Użyj elementu <code>&lt;track&gt;</code> HTML5 do dołączenia audiodeskrypcji.</li>
+      <li>Przygotuj alternatywny plik wideo lub audio z audiodeskrypcją.</li>
+      <li>Dla prostych nagrań typu „mówiąca głowa” można użyć statycznego opisu tekstowego.</li>
+    </ul>
+
+    <h4>Przykłady błędów 1.2.5</h4>
+    <ul>
+      <li>Brak audiodeskrypcji w filmach.</li>
+      <li>Audiodeskrypcja nie obejmuje wszystkich istotnych elementów wizualnych.</li>
+    </ul>
+
+    <h4>Komentarze do audytu 1.2.5</h4>
+    <ul>
+      <li>Nagrania wideo nie posiadają dodatkowej ścieżki audiodeskrypcji.</li>
+      <li>Audiodeskrypcja jest zbyt ogólna lub niepełna.</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
 </article>
 
-<article id="k1_2_6" tabindex="-1">
-    <h3>1.2.6 Język migowy (nagranie)(AAA)</h3>
-    <p><strong>Krótkie:</strong> Zapewnione jest tłumaczenie w języku migowym wszystkich nagrań audio.</p>
-    <button id="show-more-1_2_6" class="show-more-btn">Przeczytaj więcej o 1.2.6</button>
-    <div class="full-text" style="display:none;">
-	<h4>Co to jest?</h4>
-  <p>Wszystkie nagrania audio w nagranych wcześniej filmach muszą mieć tłumaczenie na język migowy.</p>
 
-  <h4>Dlaczego to jest ważne?</h4>
-  <p>Osoby niesłyszące, które używają języka migowego jako pierwszego języka, często nie rozumieją dobrze napisów. Język migowy przekazuje emocje i niuanse, które napisy mogą pomijać.</p>
+<article id="k1_2_6">
+  <h3>1.2.6 Język migowy (nagranie) (AAA)</h3>
+  <p> Zapewnione jest tłumaczenie w języku migowym wszystkich nagrań audio.</p>
+  
+  <button id="show-more-1_2_6" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 1.2.6
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <h4>Co to jest?</h4>
+    <p>Wszystkie nagrania audio w filmach muszą mieć tłumaczenie na język migowy.</p>
 
-  <h4>Kogo to dotyczy?</h4>
-  <p>Osoby niesłyszące i głuche, które korzystają z języka migowego.</p>
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Osoby niesłyszące, które używają języka migowego jako pierwszego języka, często nie rozumieją dobrze napisów. Język migowy przekazuje emocje i niuanse, które mogą zostać pominięte w samych napisach.</p>
 
-  <h4>Jak to zrobić?</h4>
-  <ul>
-    <li>Nagraj tłumacza języka migowego i dodaj go do filmu – np. w rogu ekranu.</li>
-    <li>Lub jeśli odtwarzacz na to pozwala, udostępnij osobny zsynchronizowany film z tłumaczem, który użytkownik może włączyć lub wyłączyć.</li>
-  </ul>
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby niesłyszące</li>
+      <li>Osoby głuche</li>
+      <li>Osoby korzystające z języka migowego</li>
+    </ul>
 
-  <h4>Podsumowanie</h4>
-  <p>Dodanie języka migowego sprawia, że film jest zrozumiały i przyjazny dla osób niesłyszących, nie tylko przez dodanie napisów, ale także przez pełne, wizualne tłumaczenie.</p>
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Nagraj tłumacza języka migowego i dodaj go do filmu (np. w rogu ekranu).</li>
+      <li>Jeśli odtwarzacz pozwala, udostępnij osobny zsynchronizowany film z tłumaczem.</li>
+    </ul>
 
-	 <button class="back-button">Zwiń opis</button>
-    </div>
+    <h4>Korzyści</h4>
+    <p>Dodanie języka migowego sprawia, że film jest w pełni zrozumiały dla osób niesłyszących i głuchych, nie tylko przez napisy, ale także pełne, wizualne tłumaczenie.</p>
+
+    <h4>Przykłady błędów 1.2.6</h4>
+    <ul>
+      <li>Brak tłumaczenia na język migowy w filmach.</li>
+      <li>Tłumacz jest źle widoczny lub niewyraźny.</li>
+    </ul>
+
+    <h4>Komentarze do audytu 1.2.6</h4>
+    <ul>
+      <li>Filmy nie posiadają wersji z tłumaczem języka migowego.</li>
+      <li>Tłumaczenie jest niedokładne lub niepełne.</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
 </article>
 
-<article id="k1_2_7" tabindex="-1">
-    <h3>1.2.7 Rozszerzona audiodeskrypcja (nagranie)</h3>
-    <p><strong>Krótkie:</strong> Filmy muszą mieć rozszerzone opisy dźwiękowe, które zatrzymują obraz, by dokładniej wyjaśnić ważne wizualne elementy.</p>
-    <button id="show-more-1_2_7" class="show-more-btn">Przeczytaj więcej o 1.2.7</button>
-    <div class="full-text" style="display:none;">
-	 <h4>Co to jest?</h4>
-  <p>Wszystkie nagrania wideo muszą mieć rozszerzoną audiodeskrypcję, czyli dodatkowe opisy dźwiękowe, które zatrzymują obraz, aby dokładniej wyjaśnić ważne elementy wizualne.</p>
 
-  <h4>Dlaczego to jest ważne?</h4>
-  <p>Pomaga osobom niewidomym lub słabowidzącym lepiej zrozumieć szczegóły, które są trudne do uchwycenia tylko z krótkich opisów w przerwach dialogów.</p>
+<article id="k1_2_7">
+  <h3>1.2.7 Rozszerzona audiodeskrypcja (nagranie) (AAA)</h3>
+  <p>Filmy muszą mieć rozszerzone opisy dźwiękowe, które zatrzymują obraz, by dokładniej wyjaśnić ważne wizualne elementy.</p>
+  
+  <button id="show-more-1_2_7" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 1.2.7
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <h4>Co to jest?</h4>
+    <p>Rozszerzona audiodeskrypcja to dodatkowe opisy dźwiękowe, które mogą zatrzymać obraz, aby szczegółowo wyjaśnić ważne elementy wizualne w nagraniach wideo.</p>
 
-  <h4>Kogo to dotyczy?</h4>
-  <p>Osoby niewidome, słabowidzące i osoby potrzebujące dokładniejszych opisów wizualnych.</p>
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Pomaga osobom niewidomym i słabowidzącym lepiej zrozumieć szczegóły trudne do uchwycenia w krótkich opisach między dialogami.</p>
 
-  <h4>Jak to zrobić?</h4>
-  <ul>
-    <li>Dodaj do filmu drugą ścieżkę audio z opisami, które mogą chwilowo zatrzymać obraz, aby dokładnie opisać ważne szczegóły.</li>
-    <li>Upewnij się, że opisy są dobrze zsynchronizowane z obrazem i nie nachodzą na dialogi czy inne dźwięki.</li>
-  </ul>
-  <h4>Podsumowanie</h4>
-  <p>Rozszerzona audiodeskrypcja sprawia, że wideo jest bardziej dostępne, dając widzom pełniejszy dostęp do treści wizualnych niż standardowa audiodeskrypcja.</p>
-	 <button class="back-button">Zwiń opis</button>
-    </div>
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby niewidome</li>
+      <li>Osoby słabowidzące</li>
+      <li>Osoby wymagające dokładniejszych opisów wizualnych</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Dodaj drugą ścieżkę audio z opisami, które mogą wstrzymać obraz w celu szczegółowego opisu.</li>
+      <li>Zapewnij synchronizację opisów z obrazem.</li>
+      <li>Unikaj nakładania opisów na dialogi lub ważne dźwięki.</li>
+    </ul>
+
+    <h4>Przykłady błędów 1.2.7</h4>
+    <ul>
+      <li>Brak rozszerzonej audiodeskrypcji w materiałach wymagających szczegółowego opisu.</li>
+      <li>Opisy nie obejmują wszystkich kluczowych elementów wizualnych.</li>
+    </ul>
+
+    <h4>Komentarze do audytu 1.2.7</h4>
+    <ul>
+      <li>Wideo nie zawiera rozszerzonej audiodeskrypcji pomimo złożonych scen wizualnych.</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+
+<article id="k1_2_8">
+  <h3>1.2.8 Alternatywa dla mediów (nagranie) (AAA)</h3>
+  <p>Zapewniona jest alternatywa tekstowa dla wszystkich nagrań multimedialnych zsynchronizowanych (dźwięk i obraz) oraz nagrań tylko wideo.</p>
+  
+  <button id="show-more-1_2_8" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 1.2.8
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <h4>Co to jest?</h4>
+    <p>Alternatywa dla mediów (nagranie) to pełny opis tekstowy, który przekazuje wszystkie informacje z nagrania audio-wideo lub samego wideo.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Zapewnia dostęp do treści osobom, które nie mogą korzystać z wideo lub audio, np. z powodu ograniczeń sprzętowych, wolnego łącza lub niepełnosprawności sensorycznych.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby niewidome</li>
+      <li>Osoby niesłyszące</li>
+      <li>Osoby w środowiskach bez możliwości odtwarzania dźwięku/wideo</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Przygotuj transkrypcję opisującą wszystkie elementy audio i wideo.</li>
+      <li>Udostępnij opis w łatwo dostępnym formacie, np. HTML lub pliku tekstowym.</li>
+    </ul>
+
+    <h4>Przykłady błędów 1.2.8</h4>
+    <ul>
+      <li>Brak alternatywy tekstowej dla wideo.</li>
+      <li>Opis jest niepełny i nie obejmuje wszystkich elementów.</li>
+    </ul>
+
+    <h4>Komentarze do audytu 1.2.8</h4>
+    <ul>
+      <li>Nagrania wideo nie posiadają pełnego opisu tekstowego.</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+
+<article id="k1_2_9">
+  <h3>1.2.9 Tylko audio (na żywo) (AAA)</h3>
+  <p>Zapewniona jest alternatywa dla przekazów tylko audio na żywo, która przekazuje te same informacje.</p>
+  
+  <button id="show-more-1_2_9" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 1.2.9
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <h4>Co to jest?</h4>
+    <p>Alternatywa dla przekazu tylko audio na żywo to treść, która w czasie rzeczywistym przekazuje te same informacje co dźwięk.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Zapewnia dostęp do treści osobom niesłyszącym lub mającym problemy ze słuchem podczas wydarzeń transmitowanych tylko w formie audio.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby niesłyszące</li>
+      <li>Osoby niedosłyszące</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Zapewnij napisy na żywo lub transkrypcję w czasie rzeczywistym.</li>
+      <li>Udostępnij pisemne streszczenie wydarzenia równolegle z transmisją.</li>
+    </ul>
+
+    <h4>Przykłady błędów 1.2.9</h4>
+    <ul>
+      <li>Brak napisów lub alternatywy tekstowej dla transmisji audio na żywo.</li>
+    </ul>
+
+    <h4>Komentarze do audytu 1.2.9</h4>
+    <ul>
+      <li>Brak równoległego przekazu tekstowego w transmisjach audio na żywo.</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
 </article>
 </section>
 
@@ -552,7 +753,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
 	
   <article id="k1_3_1" tabindex="-1">
     <h3>1.3.1 Informacje i relacje (A)</h3>
-    <p><strong>Krótkie:</strong> Struktura strony jest jasna i logiczna.</p>
+    <p>Struktura strony jest jasna i logiczna.</p>
     <button id="show-more-1_3_1" class="show-more-btn">Przeczytaj więcej o 1.3.1</button>
     <div class="full-text" style="display:none;">
       <p>Na stronach internetowych bardzo często używamy różnych elementów wizualnych lub dźwiękowych, aby pokazać, jak poszczególne części treści są ze sobą powiązane. Mogą to być na przykład nagłówki, pogrubienia, grupowanie elementów, kolory czy nawet efekty dźwiękowe. Takie wskazówki pomagają osobom widzącym lub słyszącym szybciej zrozumieć strukturę i znaczenie informacji.</p>
@@ -600,90 +801,1518 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   </article>
 
   <article id="k1_3_2" tabindex="-1">
-    <h3>1.3.2 Porządek sensu (A)</h3>
-    <p><strong>Krótkie:</strong> Kolejność treści jest logiczna.</p>
-    <button id="show-more-1_3_2" class="show-more-btn">Przeczytaj więcej o 1.3.2</button>
+    <h3>1.3.2 Zrozumiała kolejność (A)</h3>
+    <p>Jeśli kolejność, w jakiej przedstawiona jest treść, ma znaczenie dla zrozumienia treści - prawidłowa kolejność odczytu musi być określona programowo</p>
+    <button id="show-more-1_3_2" class="show-more-btn" aria-expanded="false">Przeczytaj więcej o 1.3.2</button>
     <div class="full-text" style="display:none;">
-      <p>Treści muszą być ułożone tak, aby ich odczyt był logiczny i zrozumiały na różnych urządzeniach.</p>
-      <button class="back-button">Zwiń opis</button>
+  <p>Zawartość musi być ułożona w logicznym i sensownym porządku w kodzie, aby technologia wspomagająca mogła ją prawidłowo odczytać, nawet jeśli układ wizualny jest inny.</p>
+  
+  <h4>Dlaczego to jest ważne?</h4>
+  <p>Nieprawidłowa kolejność elementów dezorientuje użytkowników korzystających z czytników ekranu i utrudnia im zrozumienie treści.</p>
+  
+  <h4>Kto jest dotknięty?</h4>
+  <ul>
+    <li>Osoby z niskim lub ograniczonym wzrokiem</li>
+    <li>Osoby z trudnościami w czytaniu i uczeniu się</li>
+  </ul>
+  
+  <h4>Jak to zrobić?</h4>
+  <ul>
+    <li>Upewnij się, że elementy wymagające kolejności (np. listy numerowane, pola formularzy) mają poprawny porządek w kodzie HTML.</li>
+    <li>Sprawdź liniową kolejność treści, usuwając styl CSS i testując stronę za pomocą czytnika ekranu lub narzędzi do testowania dostępności.</li>
+    <li>Unikaj rozbijania słów lub zdań w sposób, który zmienia ich znaczenie podczas odczytu.</li>
+  </ul>
+  
+  <h4>Przykłady błędów 1.3.2</h4>
+  <ul>
+    <li>Kolejność pól formularza jest inna w kodzie niż wizualnie, co myli użytkowników korzystających z czytników ekranu.</li>
+    <li>Nagłówki i powiązane paragrafy są oddzielone innymi elementami, przez co odczyt jest chaotyczny.</li>
+    <li>Tekst jest podzielony na różne linijki, które wizualnie są czytelne, ale czytnik ekranu odczytuje je w złej kolejności.</li>
+  </ul>
+  
+  <h4>Komentarze do audytu 1.3.2</h4>
+  <ul>
+    <li>Na stronie głównej tekst powitalny jest rozbity na kilka linijek, a czytnik ekranu odczytuje fragmenty w kolejności: „Witaj”, „na”, „naszej stronie”, zamiast „Witaj na naszej stronie”.</li>
+    <li>Menu nawigacyjne jest zorganizowane wizualnie w kolumny, ale w kodzie HTML jest liniowo ułożone inaczej, przez co czytnik ekranu odczytuje elementy w nieintucyjnej kolejności.</li>
+    <li>Instrukcja krok po kroku jest rozsiana po stronie, co sprawia, że osoby korzystające z czytników ekranu muszą wyszukiwać kolejność samodzielnie.</li>
+  </ul>
+      <button class="back-button" aria-expanded="true">Zwiń opis</button>
     </div>
   </article>
+  
+  <article id="k1_3_3">
+  <h3>1.3.3 Właściwości zmysłowe (A)</h3>
+  <p>Instrukcje i informacje nie mogą opierać się wyłącznie na właściwościach zmysłowych, takich jak kształt, kolor, rozmiar czy dźwięk.</p>
+  <button id="show-more-1_3_3" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 1.3.3
+  </button>
+  <div class="full-text" style="display:none;">
+    <p>Informacje i instrukcje powinny być przedstawione tak, aby osoby z różnymi niepełnosprawnościami mogły je zrozumieć, bez polegania tylko na bodźcach zmysłowych, np. kolorze czy dźwięku.</p>
+  
+  <h4>Dlaczego to jest ważne?</h4>
+  <p>Osoby z problemami wzroku, słuchu lub innymi niepełnosprawnościami mogą nie zauważyć różnic opartych tylko na kolorze, kształcie czy dźwięku, co może prowadzić do nieporozumień lub błędów.</p>
+  
+  <h4>Kto jest dotknięty?</h4>
+  <ul>
+    <li>Osoby z zaburzeniami widzenia (np. daltonizm)</li>
+    <li>Osoby z zaburzeniami słuchu</li>
+    <li>Osoby z trudnościami poznawczymi</li>
+  </ul>
+  
+  <h4>Jak to zrobić?</h4>
+  <ul>
+    <li>Nie używaj tylko koloru, aby przekazać informację (np. nie oznaczaj błędu formularza wyłącznie czerwonym kolorem).</li>
+    <li>Dodaj tekstowe lub graficzne oznaczenia do informacji, np. ikony błędu, komunikaty tekstowe.</li>
+    <li>W przypadku przycisków lub opcji, użyj dodatkowych oznaczeń niż tylko kolor (np. symbole, etykiety, tekst).</li>
+    <li>Używaj kontrastu i innych środków wizualnych wraz z dodatkowymi informacjami.</li>
+  </ul>
+  
+  <h4>Przykłady błędów 1.3.3</h4>
+  <ul>
+    <li>W formularzu błąd jest sygnalizowany tylko czerwonym kolorem obramowania pola bez żadnego tekstu lub ikony.</li>
+    <li>W quizie odpowiedzi oznaczone są tylko kolorem (zielony = prawidłowa, czerwony = błędna) bez dodatkowego oznaczenia.</li>
+    <li>Informacje o stanie systemu podawane są tylko za pomocą dźwięku bez wizualnego wskaźnika.</li>
+  </ul>
+  
+  <h4>Komentarze do audytu 1.3.3</h4>
+  <ul>
+    <li>Na stronie formularza przy błędnych polach jest tylko czerwone podkreślenie, brak komunikatu tekstowego lub ikony informującej o błędzie.</li>
+    <li>Test wyboru odpowiedzi oznacza prawidłowe i błędne opcje wyłącznie kolorem, co może być nieczytelne dla osób z daltonizmem.</li>
+    <li>Powiadomienia o ważnych zdarzeniach pojawiają się tylko w formie dźwiękowej, bez wizualnego potwierdzenia.</li>
+  </ul>
+   <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k1_3_4">
+  <h3>1.3.4 Orientacja (AA)</h3>
+  <p> Treść nie ogranicza swojego widoku i działania do jednej orientacji wyświetlania, takiej jak pionowa lub pozioma, chyba że określona orientacja jest istotna.</p>
+  
+  <button id="show-more-1_3_4" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 1.3.4
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Treść strony lub aplikacji powinna działać poprawnie zarówno w orientacji pionowej, jak i poziomej, chyba że specyfika materiału wymaga ograniczenia (np. aplikacja do pianina).</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Użytkownicy korzystają z różnych urządzeń i mogą obracać ekrany. Jeśli strona działa tylko w jednej orientacji, może to utrudnić lub uniemożliwić korzystanie z niej.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby korzystające z urządzeń mobilnych lub tabletów.</li>
+      <li>Użytkownicy, którzy zmieniają orientację ekranu dla wygody lub z powodów medycznych.</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Zapewnij poprawne działanie strony w orientacji pionowej i poziomej.</li>
+      <li>Nie blokuj zmiany orientacji, jeśli nie jest to konieczne.</li>
+      <li>W sytuacjach, gdy orientacja jest ważna (np. aplikacja pianino), wyraźnie o tym poinformuj.</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Dzięki temu strona jest bardziej dostępna i wygodna dla użytkowników na różnych urządzeniach i w różnych warunkach użytkowania.</p>
+
+    <h4>Przykłady błędów 1.3.4</h4>
+    <ul>
+      <li>Strona mobilna działa tylko w orientacji pionowej i blokuje obrót ekranu, przez co tekst lub elementy są nieczytelne w orientacji poziomej.</li>
+    </ul>
+
+    <h4>Komentarze do audytu 1.3.4</h4>
+    <ul>
+      <li>Na stronie nie umożliwiono zmiany orientacji ekranu, co utrudnia korzystanie osobom, które potrzebują orientacji poziomej.</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k1_3_5">
+  <h3>1.3.5 Określenie pożądanej wartości (AA)</h3>
+  <p> Formularze powinny mieć pola, które programowo określają, jakiego rodzaju dane są w nich wpisywane, aby ułatwić wypełnianie i automatyczne uzupełnianie.</p>
+  
+  <button id="show-more-1_3_5" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 1.3.5
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Każde pole formularza powinno mieć jasno określony cel, na przykład poprzez atrybut <code>autocomplete</code>, co pomaga technologiom wspomagającym i ułatwia automatyczne uzupełnianie danych.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Bez programowego określenia celu pola użytkownicy z ograniczeniami ruchowymi muszą dużo pisać ręcznie, co bywa męczące. Osoby z trudnościami poznawczymi mogą mieć problem ze zrozumieniem, co należy wpisać, gdy brak jest jasnych etykiet lub wskazówek.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z ograniczoną sprawnością ruchową lub zaburzeniami motorycznymi.</li>
+      <li>Osoby z niepełnosprawnościami poznawczymi, w tym trudnościami w czytaniu i zapamiętywaniu.</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Używaj atrybutu <code>autocomplete</code> w polach formularzy, np. "name", "email", "bday".</li>
+      <li>Zadbaj o czytelne, zrozumiałe etykiety przy polach, które jasno mówią, co należy wpisać.</li>
+      <li>Sprawdź listę wartości <code>autocomplete</code> zgodną z W3C, aby odpowiednio oznaczyć pola.</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Dzięki temu wypełnianie formularzy jest szybsze, mniej męczące i mniej podatne na błędy, szczególnie dla osób z niepełnosprawnościami.</p>
+
+    <h4>Przykłady błędów 1.3.5</h4>
+    <ul>
+      <li>Pole imienia bez atrybutu <code>autocomplete</code> i niejasną etykietą, co utrudnia automatyczne uzupełnianie i zrozumienie.</li>
+      <li>Brak etykiet lub ich nieczytelność, przez co użytkownik nie wie, co powinien wpisać.</li>
+    </ul>
+
+    <h4>Komentarze do audytu 1.3.5</h4>
+    <ul>
+      <li>Formularz nie wykorzystuje atrybutu <code>autocomplete</code>, co powoduje konieczność ręcznego wpisywania powtarzalnych danych.</li>
+      <li>Brak jasnych etykiet przy polach, co może mylić użytkowników korzystających z czytników ekranu.</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k1_3_6">
+  <h3>1.3.6 Określenie przeznaczenia (AAA)</h3>
+  <p>Komponenty interfejsu, ikony i obszary strony powinny mieć programowo określone przeznaczenie, by ułatwić ich zrozumienie i personalizację przez technologie wspomagające.</p>
+  
+  <button id="show-more-1_3_6" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 1.3.6
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Kryterium to wymaga, aby w kodzie strony za pomocą semantycznego HTML lub atrybutów ARIA jasno określać cel i funkcję przycisków, ikon, sekcji i innych elementów. Dzięki temu technologie wspomagające mogą lepiej interpretować zawartość i umożliwiać użytkownikom dostosowanie wyświetlania strony, np. ukrywanie nieistotnych elementów lub zastępowanie ikon prostszymi symbolami.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Bez jasnego określenia celu elementów użytkownicy, szczególnie z niepełnosprawnościami poznawczymi, mogą nie rozumieć ich funkcji. To utrudnia korzystanie ze strony i powoduje frustrację. Programowe oznaczenie pozwala na personalizację treści i uproszczenie interfejsu.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z niepełnosprawnościami poznawczymi, np. z trudnościami w pamięci, uwadze czy przetwarzaniu języka.</li>
+      <li>Użytkownicy korzystający z technologii wspomagających, które mogą uprościć interfejs.</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Używaj semantycznych tagów HTML: <code>&lt;button&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;form&gt;</code> itd.</li>
+      <li>Nadaj opisowe etykiety przyciskom i linkom, np. zamiast "Przycisk" napisz "Następny krok".</li>
+      <li>Dla ikon stosuj opis w atrybucie <code>alt</code> wskazujący funkcję, np. <code>alt="Ustawienia"</code> zamiast <code>alt="ikona koła zębatego"</code>.</li>
+      <li>Wykorzystuj role ARIA, takie jak <code>role="navigation"</code> lub <code>role="complementary"</code>, aby oznaczać sekcje strony.</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Dzięki temu użytkownicy mogą lepiej rozumieć funkcje elementów, a technologie wspomagające mogą oferować spersonalizowane sposoby przeglądania i obsługi strony, co zwiększa komfort i dostępność.</p>
+
+    <h4>Przykłady błędów 1.3.6</h4>
+    <ul>
+      <li>Przycisk oznaczony tylko jako "button" bez informacji o jego funkcji.</li>
+      <li>Ikony z niejasnym lub brakującym tekstem alternatywnym.</li>
+      <li>Brak użycia semantycznych tagów i ARIA, co powoduje, że sekcje strony nie są rozpoznawalne dla czytników ekranu.</li>
+    </ul>
+
+    <h4>Komentarze do audytu 1.3.6</h4>
+    <ul>
+      <li>Elementy interfejsu nie mają opisowych nazw, co utrudnia ich identyfikację przez użytkowników z czytnikami ekranu.</li>
+      <li>Brak odpowiednich ról ARIA i semantycznych tagów struktury strony.</li>
+      <li>Ikony są opisane nieprecyzyjnie lub wcale, co powoduje dezorientację użytkowników.</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
 </section>
 
 <section id="group-1_4" tabindex="-1">
     <h2>1.4 - Wyróżnialność</h2>
 	
-  <article id="k1_4_1" tabindex="-1">
-    <h3>1.4.1 Oddzielanie kolorów (A)</h3>
-    <p><strong>Krótkie:</strong> Kolory nie są jedynym nośnikiem informacji.</p>
-   <button id="show-more-1_4_1" class="show-more-btn">Przeczytaj więcej o 1.4.1</button>
-    <div class="full-text" style="display:none;">
-      <p>Informacje nie powinny być przekazywane tylko przez kolor, aby osoby z daltonizmem mogły je zrozumieć.</p>
-      <button class="back-button">Zwiń opis</button>
-    </div>
-  </article>
+ <article id="k1_4_1">
+  <h3>1.4.1 Użycie koloru (A)</h3>
+  <p>Kolor nie może być jedynym sposobem przekazywania informacji lub wyróżniania elementów.</p>
+  
+  <button id="show-more-1_4_1" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 1.4.1
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Kolor jest ważny, ale nigdy nie powinien być jedynym sposobem na przekazanie informacji. Zawsze dodaj coś jeszcze - tekst, ikonę, podkreślenie czy wzór, żeby osoby, które nie widzą kolorów, mogły zrozumieć, co oznacza dana informacja.</p>
 
-  <article id="k1_4_3" tabindex="-1">
-    <h3>1.4.3 Kontrast (minimum) (AA)</h3>
-    <p><strong>Krótkie:</strong> Tekst ma wystarczający kontrast.</p>
-   <button id="show-more-1_4_3" class="show-more-btn">Przeczytaj więcej o 1.4.3</button>
-    <div class="full-text" style="display:none;">
-      <p>Tekst i obrazy tekstu muszą mieć kontrast co najmniej 4.5:1 względem tła.</p>
-      <button class="back-button">Zwiń opis</button>
-    </div>
-  </article>
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Osoby z problemami wzroku lub daltonizmem mogą nie rozróżniać kolorów, więc bez dodatkowych oznaczeń mogą nie zauważyć ważnych informacji, co utrudnia korzystanie ze strony.</p>
 
-  <article id="k1_4_4" tabindex="-1">
-    <h3>1.4.4 Zwiększalność tekstu (AA)</h3>
-    <p><strong>Krótkie:</strong> Tekst można powiększać bez utraty funkcji.</p>
-   <button id="show-more-1_4_4" class="show-more-btn">Przeczytaj więcej o 1.4.4</button>
-    <div class="full-text" style="display:none;">
-      <p>Użytkownicy mogą powiększać tekst nawet do 200% bez utraty czytelności lub funkcji strony.</p>
-      <button class="back-button">Zwiń opis</button>
-    </div>
-  </article>
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby niewidome i niedowidzące</li>
+      <li>Osoby z daltonizmem</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Dodaj do koloru dodatkowe oznaczenia, np. tekst, ikonę, wzór lub podkreślenie</li>
+      <li>Linki w tekście podkreślaj, nie zostawiaj tylko koloru</li>
+      <li>Błędy w formularzu oznaczaj również komunikatem tekstowym, nie tylko kolorem</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Strona staje się bardziej dostępna i zrozumiała dla wszystkich użytkowników, nie tylko tych, którzy widzą kolory dobrze.</p>
+
+    <h4>Przykłady błędów 1.4.1</h4>
+    <ul>
+      <li>Linki oznaczone tylko czerwonym kolorem, bez podkreślenia</li>
+      <li>Błędy w formularzu widoczne tylko jako czerwone obramowanie pola</li>
+    </ul>
+
+    <h4>Komentarze do audytu 1.4.1</h4>
+    <ul>
+      <li>Kolor jest jedynym sposobem przekazywania informacji w elemencie [nazwa elementu] - dodaj też tekst lub ikonę</li>
+      <li>Informacje oznaczone tylko kolorem są niedostępne dla osób z zaburzeniami rozróżniania barw</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k1_4_2">
+  <h3>1.4.2 Kontrola odtwarzania dźwięku (A)</h3>
+  <p>Jeśli dźwięk odtwarza się automatycznie dłużej niż 3 sekundy, użytkownik musi mieć możliwość jego zatrzymania lub wyciszenia.</p>
+  
+  <button id="show-more-1_4_2" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 1.4.2
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Gdy na stronie zaczyna automatycznie grać dźwięk lub muzyka i trwa to dłużej niż 3 sekundy, musi istnieć łatwo dostępny sposób, żeby zatrzymać lub wyciszyć ten dźwięk, albo kontrolować jego głośność niezależnie od systemowej głośności.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Automatyczne odtwarzanie dźwięku może być rozpraszające, przeszkadzać osobom korzystającym z czytników ekranu lub utrudniać koncentrację, zwłaszcza osobom z niepełnosprawnościami sensorycznymi i poznawczymi.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z niepełnosprawnościami słuchu i wzroku</li>
+      <li>Osoby z problemami poznawczymi i sensorycznymi</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Dodaj widoczny przycisk do zatrzymania lub wyciszenia automatycznego dźwięku</li>
+      <li>Zapewnij możliwość kontroli głośności niezależnie od systemu</li>
+      <li>Unikaj automatycznego odtwarzania dźwięku tam, gdzie to możliwe</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Użytkownicy mają pełną kontrolę nad dźwiękiem, co poprawia komfort korzystania ze strony i dostępność dla wszystkich.</p>
+
+    <h4>Przykłady błędów 1.4.2</h4>
+    <ul>
+      <li>Strona odtwarza muzykę automatycznie bez możliwości zatrzymania</li>
+      <li>Brak przycisku do wyciszenia dźwięku</li>
+      <li>Dźwięk odtwarzany automatycznie bez kontroli głośności</li>
+    </ul>
+
+    <h4>Komentarze do audytu 1.4.2</h4>
+    <ul>
+      <li>Na stronie występuje automatyczne odtwarzanie dźwięku bez dostępnej kontroli (zatrzymania, wyciszenia lub pauzy)</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k1_4_3">
+  <h3>1.4.3 Kontrast (AA)</h3>
+  <p>Tekst i obrazy tekstu muszą mieć odpowiedni kontrast kolorów, aby były czytelne dla osób z wadą wzroku.</p>
+  
+  <button id="show-more-1_4_3" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 1.4.3
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Wszystkie teksty i obrazy tekstu powinny mieć współczynnik kontrastu co najmniej 4.5:1 między tekstem a tłem. Wyjątki to duży tekst (minimum 3:1), teksty dekoracyjne, nieaktywne oraz logotypy, które nie muszą spełniać tych wymagań.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Dzięki odpowiedniemu kontrastowi tekst jest czytelny dla osób z zaburzeniami wzroku, w tym dla osób starszych oraz z różnymi rodzajami daltonizmu.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z niedowidzeniem i słabym wzrokiem</li>
+      <li>Osoby starsze</li>
+      <li>Osoby z daltonizmem i innymi zaburzeniami percepcji kolorów</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Sprawdzaj kontrast kolorów tekstu i tła, używając narzędzi do testowania kontrastu</li>
+      <li>Używaj minimalnego współczynnika kontrastu 4.5:1 dla normalnego tekstu</li>
+      <li>Dla dużego tekstu (minimum 18pt lub 14pt pogrubionego) kontrast może być 3:1</li>
+      <li>Unikaj stosowania tekstu na kolorowych obrazach bez odpowiedniego kontrastu</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Zwiększa się czytelność i komfort użytkowania strony dla osób ze słabym wzrokiem, co przekłada się na lepszą dostępność i użyteczność.</p>
+
+    <h4>Przykłady błędów 1.4.3</h4>
+    <ul>
+      <li>Tekst w kolorze jasnoszarym na białym tle z kontrastem poniżej 4.5:1</li>
+      <li>Napis na kolorowym tle bez wystarczającego kontrastu</li>
+      <li>Mały tekst z kontrastem 2:1 zamiast 4.5:1</li>
+    </ul>
+
+    <h4>Komentarze do audytu 1.4.3</h4>
+    <ul>
+      <li>Elementy tekstowe na stronie nie spełniają minimalnego kontrastu</li>
+      <li>Kontrast dużego tekstu jest poniżej wymaganego minimum 3:1</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+  <article id="k1_4_4">
+  <h3>1.4.4 Zmiana rozmiaru tekstu (AA)</h3>
+  <p>Użytkownik powinien móc powiększyć tekst na stronie do 200% bez utraty czytelności lub funkcjonalności.</p>
+  
+  <button id="show-more-1_4_4" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 1.4.4
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Tekst na stronie, z wyjątkiem napisów rozszerzonych i obrazów tekstu, powinien umożliwiać powiększenie do 200% bez konieczności korzystania z technologii wspomagających i bez utraty zawartości lub funkcji strony.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Powiększenie tekstu ułatwia czytanie osobom z wadami wzroku, które potrzebują większych liter, aby komfortowo odbierać treści.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z niedowidzeniem i słabym wzrokiem</li>
+      <li>Osoby starsze, które potrzebują większych liter</li>
+      <li>Użytkownicy z dysleksją i innymi trudnościami w czytaniu</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Zadbaj, by tekst powiększał się do 200% bez nakładania się na inne elementy</li>
+      <li>Unikaj ustalonej wysokości i szerokości elementów tekstowych</li>
+      <li>Testuj powiększenie tekstu w różnych przeglądarkach i urządzeniach</li>
+      <li>Używaj elastycznych jednostek (%, em, rem) zamiast pikseli do definiowania rozmiarów tekstu</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Umożliwienie powiększenia tekstu poprawia dostępność strony i komfort jej użytkowania przez osoby z różnymi potrzebami wzrokowymi.</p>
+
+    <h4>Przykłady błędów 1.4.4</h4>
+    <ul>
+      <li>Powiększony tekst zachodzi na inne elementy strony</li>
+      <li>Tekst jest rozmyty lub obcinany po powiększeniu</li>
+      <li>Elementy strony nie dostosowują się do większego rozmiaru tekstu</li>
+    </ul>
+
+    <h4>Komentarze do audytu 1.4.4</h4>
+    <ul>
+      <li>Strona nie umożliwia powiększenia tekstu do 200% bez utraty czytelności lub funkcjonalności</li>
+      <li>Tekst po powiększeniu zachodzi na inne elementy interfejsu</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+<article id="k1_4_5">
+  <h3>1.4.5 Obrazy tekstu (AA)</h3>
+  <p>Tekst powinien być używany zamiast obrazów tekstu, z wyjątkiem sytuacji, gdy obraz tekstu jest istotny lub możliwy do dostosowania.</p>
+  
+  <button id="show-more-1_4_5" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 1.4.5
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Tekst na stronie powinien być zazwyczaj pisany zwykłymi znakami, a nie jako obraz. Obrazy tekstu mogą być używane tylko wtedy, gdy są wizualnie dostosowywalne lub niezbędne, np. w logo czy specjalnych ozdobach. W przypadku obrazów tekstu należy zapewnić odpowiedni opis alternatywny, aby wszyscy użytkownicy mogli zrozumieć przekazywane informacje.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Obrazy tekstu nie pozwalają na dostosowanie wyglądu tekstu przez użytkownika (np. powiększenie, zmianę kontrastu czy czcionki). Tekst w obrazach może być rozmyty lub nieczytelny przy powiększaniu, co utrudnia dostęp osobom z wadami wzroku oraz tym korzystającym z czytników ekranu.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z niedowidzeniem lub słabym wzrokiem</li>
+      <li>Osoby z problemami ze śledzeniem wzroku</li>
+      <li>Użytkownicy z niepełnosprawnościami poznawczymi</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Używaj prawdziwego tekstu zamiast obrazów tekstu, kiedy tylko to możliwe</li>
+      <li>Jeśli musisz użyć obrazu tekstu (np. logo), dodaj odpowiedni opis alternatywny (alt)</li>
+      <li>Stosuj CSS, by wizualnie stylizować tekst zamiast tworzyć go jako obraz</li>
+      <li>Używaj względnych jednostek (em, rem, %) dla skalowania tekstu</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Używanie prawdziwego tekstu zamiast obrazów tekstu poprawia czytelność, pozwala użytkownikom dostosować wygląd tekstu do swoich potrzeb i zapewnia lepszą dostępność treści.</p>
+
+    <h4>Przykłady błędów 1.4.5</h4>
+    <ul>
+      <li>Obrazy zawierające tekst bez opisu alternatywnego</li>
+      <li>Użycie obrazów tekstu zamiast rzeczywistego tekstu bez uzasadnienia</li>
+      <li>Brak możliwości dostosowania tekstu osadzonego w obrazach</li>
+    </ul>
+
+    <h4>Komentarze do audytu 1.4.5</h4>
+    <ul>
+      <li>Na stronie użyto obrazków z tekstem bez opisu alternatywnego</li>
+      <li>Tekst w formie grafiki powinien mieć opis lub być zastąpiony zwykłym tekstem</li>
+      <li>Obrazy tekstu utrudniają dostępność dla użytkowników korzystających z technologii wspomagających</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+<article id="k1_4_6">
+  <h3>1.4.6 Kontrast (wzmocniony) (AAA)</h3>
+  <p>Tekst i obrazy tekstu muszą mieć współczynnik kontrastu co najmniej 7:1 (normalny tekst) lub 4,5:1 (duży tekst), z pewnymi wyjątkami.</p>
+  
+  <button id="show-more-1_4_6" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 1.4.6
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Wizualna prezentacja tekstu lub obrazu tekstu musi mieć wyższy współczynnik kontrastu niż wymaga to minimalny poziom (1.4.3). Normalny tekst wymaga kontrastu co najmniej 7:1, a duży tekst co najmniej 4,5:1. Wyjątki dotyczą tekstu w logo, dekoracyjnych elementów lub nieaktywnych części interfejsu.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Wyższy kontrast pomaga osobom z poważniejszymi problemami wzrokowymi lub daltonizmem lepiej odczytywać tekst bez nadmiernego wysiłku oczu. To sprawia, że czytanie staje się wygodniejsze i mniej męczące, nawet bez użycia technologii wspomagających.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z niskim widzeniem</li>
+      <li>Osoby z daltonizmem i innymi zaburzeniami rozpoznawania kolorów</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Zapewnij współczynnik kontrastu minimum 7:1 dla normalnego tekstu i 4,5:1 dla dużego tekstu</li>
+      <li>Unikaj łączenia kolorów o niskim kontraście</li>
+      <li>Używaj narzędzi do testowania kontrastu, by sprawdzić zgodność</li>
+      <li>W przypadku logo i tekstów dekoracyjnych stosuj wyjątki, ale upewnij się, że nie wpływa to na czytelność ważnej treści</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Silniejszy kontrast zwiększa czytelność tekstu, redukuje zmęczenie wzroku i ułatwia korzystanie z witryny osobom z różnymi problemami wzrokowymi.</p>
+
+    <h4>Przykłady błędów 1.4.6</h4>
+    <ul>
+      <li>Tekst ma kontrast niższy niż 7:1 (lub 4,5:1 dla dużego tekstu)</li>
+      <li>Używanie kolorów, które zlewają się ze sobą i utrudniają odczyt</li>
+      <li>Brak testów kontrastu przy projektowaniu strony</li>
+    </ul>
+
+    <h4>Komentarze do audytu 1.4.6</h4>
+    <ul>
+      <li>Elementy tekstowe na stronie nie spełniają wymagań wzmocnionego kontrastu</li>
+      <li>Kontrast pomiędzy tekstem a tłem jest zbyt niski, co utrudnia odczytanie treści</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k1_4_7">
+  <h3>1.4.7 Niska głośność lub bez dźwięków w tle (AAA)</h3>
+  <p>Audio z mową nie powinno mieć uciążliwych dźwięków w tle lub użytkownik powinien mieć możliwość ich wyłączenia.</p>
+  
+  <button id="show-more-1_4_7" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 1.4.7
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Kryterium wymaga, by nagrania audio zawierające głównie mowę nie miały przeszkadzających dźwięków w tle albo by te dźwięki można było wyłączyć. Alternatywnie dźwięki tła powinny być przynajmniej 20 decybeli cichsze niż mowa, by nie utrudniać zrozumienia.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Dźwięki w tle mogą utrudniać zrozumienie mowy, szczególnie osobom z ubytkiem słuchu lub problemami z przetwarzaniem dźwięku. Dzięki temu kryterium treści audio są czytelne i zrozumiałe dla wszystkich.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z ubytkiem słuchu</li>
+      <li>Osoby z zaburzeniami przetwarzania słuchowego</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Unikaj dźwięków tła w nagraniach z mową</li>
+      <li>Jeśli używasz podkładu muzycznego, zapewnij możliwość jego wyłączenia</li>
+      <li>Zapewnij wersję nagrania bez dźwięków tła</li>
+      <li>Jeśli dźwięki tła są niezbędne, zadbaj by były co najmniej 20 dB cichsze od mowy</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Lepsza zrozumiałość nagrań audio, mniejsze zmęczenie słuchowe i większa dostępność dla osób z różnymi potrzebami słuchowymi.</p>
+
+    <h4>Przykłady błędów 1.4.7</h4>
+    <ul>
+      <li>Nagranie z głośną muzyką w tle bez możliwości wyłączenia</li>
+      <li>Dźwięki tła o podobnej głośności co mowa, utrudniające zrozumienie</li>
+    </ul>
+
+    <h4>Komentarze do audytu 1.4.7</h4>
+    <ul>
+      <li>Na stronie znajdują się nagrania audio z nieusuwalnymi dźwiękami tła, które utrudniają odbiór mowy</li>
+      <li>Brak wersji nagrań bez podkładu muzycznego lub opcji wyłączenia dźwięków tła</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k1_4_8">
+  <h3>1.4.8 Prezentacja wizualna (AAA)</h3>
+  <p>Bloki tekstu powinny być łatwe do czytania — z odpowiednim odstępem, szerokością wiersza, bez pełnego justowania oraz z możliwością zmiany kolorów przez użytkownika.</p>
+  
+  <button id="show-more-1_4_8" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 1.4.8
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Kryterium określa, jak prezentować bloki tekstu, by były czytelne i elastyczne. Wymaga m.in. możliwości zmiany kolorów, ograniczenia szerokości wierszy do 80 znaków (40 dla języków CJK), braku pełnego justowania, stosowania odstępów 1,5× w akapitach i większych odstępów między akapitami, oraz możliwości powiększenia tekstu do 200% bez poziomego przewijania.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Zbyt długie linie, ciasne odstępy lub brak możliwości zmiany kolorów mogą utrudniać czytanie. Osoby z wadami wzroku lub trudnościami poznawczymi potrzebują możliwości dopasowania wyglądu tekstu, by móc go komfortowo odbierać.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z ograniczonym lub słabym wzrokiem</li>
+      <li>Osoby z dysleksją i innymi trudnościami w uczeniu się</li>
+      <li>Osoby z zaburzeniami przetwarzania wzrokowego</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Pozwól użytkownikom zmieniać kolory tekstu i tła (nie blokuj stylów przeglądarki)</li>
+      <li>Ustaw maksymalną szerokość linii na 80 znaków (40 dla CJK)</li>
+      <li>Unikaj pełnego justowania, stosuj wyrównanie do jednej krawędzi</li>
+      <li>Ustal odstęp między wierszami min. 1,5×, a między akapitami 1,5× większy</li>
+      <li>Zadbaj, by tekst po powiększeniu do 200% mieścił się bez poziomego przewijania</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Lepsza czytelność, mniejsze zmęczenie wzroku, łatwiejsze śledzenie tekstu i dostępność dla szerszej grupy użytkowników.</p>
+
+    <h4>Przykłady błędów 1.4.8</h4>
+    <ul>
+      <li>Pełne justowanie dużych bloków tekstu</li>
+      <li>Linie dłuższe niż 80 znaków</li>
+      <li>Brak możliwości zmiany kolorów przez użytkownika</li>
+      <li>Zbyt małe odstępy między wierszami i akapitami</li>
+      <li>Tekst wymagający przewijania w poziomie po powiększeniu</li>
+    </ul>
+
+    <h4>Komentarze do audytu 1.4.8</h4>
+    <ul>
+      <li>Długość wierszy przekracza 80 znaków (lub 40 dla języków CJK).</li>
+  <li>Tekst jest pełnojustowany zamiast wyrównany do lewej lub prawej.</li>
+  <li>Kolor tekstu i tła nie można zmienić za pomocą stylów użytkownika lub przeglądarki.</li>
+  <li>Odstępy między wierszami są zbyt małe (mniej niż 1,5 wysokości linii).</li>
+  <li>Odstępy między akapitami są zbyt małe (mniejsze niż 1,5 razy odstęp między wierszami).</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k1_4_9">
+  <h3>1.4.9 Obrazy tekstu (bez wyjątków) (AAA)</h3>
+  <p>Tekst na stronie powinien być prawdziwym tekstem, a nie obrazem tekstu. Wyjątek dotyczy tylko sytuacji, gdy obraz tekstu jest niezbędny (np. logo).</p>
+  
+  <button id="show-more-1_4_9" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 1.4.9
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Wszystkie informacje tekstowe powinny być przekazywane jako tekst w HTML/CSS, a nie jako część grafiki. Obrazy tekstu utrudniają powiększanie, zmianę kolorów i odczyt przez czytniki ekranu. Wyjątek stanowią jedynie przypadki, gdy forma wizualna tekstu jest istotna dla treści, jak w logotypach.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Obrazy tekstu są trudniejsze do odczytania po powiększeniu i nie można ich dostosować do indywidualnych potrzeb (np. zmienić czcionki, koloru, interlinii). Utrudnia to odbiór osobom słabowidzącym, z dysleksją czy problemami z koncentracją.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby słabowidzące</li>
+      <li>Osoby z trudnościami w śledzeniu wzrokiem tekstu</li>
+      <li>Osoby z dysleksją lub innymi trudnościami w czytaniu</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Używaj tekstu w HTML z odpowiednim formatowaniem CSS.</li>
+      <li>Nie umieszczaj treści tekstowych w obrazach, chyba że to absolutnie konieczne.</li>
+      <li>Jeśli obraz tekstu jest niezbędny (np. logo), dodaj treść w formie alternatywnej (alt text lub podpis).</li>
+      <li>Stosuj style CSS, aby uzyskać podobny efekt wizualny jak w grafice.</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Umożliwienie powiększania, zmiany kolorów, korzystania z czytników ekranu oraz lepsze dopasowanie treści do różnych urządzeń i potrzeb użytkowników.</p>
+
+    <h4>Przykłady błędów 1.4.9</h4>
+    <ul>
+      <li>Nagłówki na stronie są w formie grafik zamiast tekstu HTML.</li>
+      <li>Przyciski zawierają tekst zapisany w pliku PNG bez wersji tekstowej.</li>
+      <li>Brak alternatywnej treści dla obrazów tekstu.</li>
+    </ul>
+
+    <h4>Komentarze do audytu 1.4.9</h4>
+    <ul>
+      <li>Tekst w logo jest jedyną wersją informacji i nie ma opisu alternatywnego.</li>
+      <li>Elementy nawigacji zawierają tekst w formie obrazów bez wersji tekstowej.</li>
+      <li>Obraz tekstu użyty w treści artykułu nie jest istotny dla przekazu i powinien być zamieniony na HTML.</li>
+      <li>Przy powiększeniu do 200% obraz tekstu staje się rozmazany i trudny do odczytania.</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k1_4_10">
+  <h3>1.4.10 Dopasowanie do ekranu (AA)</h3>
+  <p>Treść strony powinna być dostępna bez utraty informacji i funkcji oraz bez konieczności przewijania w dwóch wymiarach na ekranie o szerokości 320 px lub wysokości 256 px (przy powiększeniu do 400%).</p>
+  
+  <button id="show-more-1_4_10" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 1.4.10
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Strona powinna działać poprawnie na małych ekranach (np. telefonach) oraz po dużym powiększeniu (do 400%), bez potrzeby przewijania w bok. Użytkownik musi móc zobaczyć i obsłużyć całą treść w jednym wymiarze przewijania (pionowo lub poziomo — w zależności od orientacji treści).</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Osoby z wadami wzroku, które powiększają widok strony, oraz użytkownicy urządzeń mobilnych mogą mieć trudności z odbiorem treści, jeśli wymaga ona przewijania w dwóch kierunkach. Utrudnia to czytanie, zrozumienie i korzystanie z funkcji strony.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby słabowidzące powiększające zawartość ekranu</li>
+      <li>Użytkownicy smartfonów i tabletów</li>
+      <li>Osoby z ograniczoną sprawnością manualną (trudności w przewijaniu w dwóch kierunkach)</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Projektuj responsywnie — stosuj elastyczne układy i jednostki względne.</li>
+      <li>Testuj stronę w szerokości widoku 320 px i przy powiększeniu 400%.</li>
+      <li>Unikaj sztywnych szerokości elementów, które mogą powodować poziome przewijanie.</li>
+      <li>Przemyśl układ tabel, formularzy i grafik, aby mieściły się w jednym wymiarze przewijania.</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Strona jest wygodna w obsłudze na urządzeniach mobilnych i przy dużym powiększeniu, co poprawia dostępność dla osób słabowidzących i ogólne doświadczenie użytkownika.</p>
+
+    <h4>Przykłady błędów 1.4.10</h4>
+    <ul>
+      <li>Tekst lub obrazy wychodzą poza ekran na telefonie, zmuszając do przewijania w bok.</li>
+      <li>Przy powiększeniu do 400% część treści „ucina się” i wymaga przewijania w obu kierunkach.</li>
+      <li>Formularze mają stałą szerokość, która nie mieści się w widoku mobilnym.</li>
+    </ul>
+
+    <h4>Komentarze do audytu 1.4.10</h4>
+    <ul>
+      <li>Przy szerokości widoku 320 px konieczne jest przewijanie poziome, aby zobaczyć pełny tekst.</li>
+      <li>Po powiększeniu do 400% tracona jest część treści lub funkcji strony.</li>
+      <li>Niektóre elementy interfejsu nie dostosowują się do małych ekranów i zasłaniają treść.</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k1_4_11">
+  <h3>1.4.11 Kontrast elementów nietekstowych (AA)</h3>
+  <p>Elementy interfejsu i grafiki zawierające informacje muszą mieć kontrast co najmniej 3:1 względem sąsiednich kolorów, aby były czytelne i rozpoznawalne.</p>
+  
+  <button id="show-more-1_4_11" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 1.4.11
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Kryterium dotyczy komponentów interfejsu użytkownika (np. przyciski, pola formularza, ikony) oraz elementów graficznych przekazujących informacje. Wszystkie te elementy muszą mieć wyraźny kontrast w stosunku do tła lub sąsiadujących kolorów, tak aby były łatwo dostrzegalne.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Niski kontrast utrudnia zauważenie elementów interfejsu, szczególnie osobom słabowidzącym, starszym użytkownikom lub korzystającym z ekranów o słabej jakości. Wyraźne krawędzie i czytelne ikony pozwalają szybciej znaleźć potrzebne funkcje i poprawiają ogólną dostępność.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z osłabionym wzrokiem lub chorobami oczu</li>
+      <li>Osoby starsze</li>
+      <li>Użytkownicy korzystający z urządzeń w jasnym świetle lub z niską jakością ekranu</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Zapewnij kontrast co najmniej 3:1 między kolorem elementu a tłem.</li>
+      <li>Używaj wyraźnych krawędzi i wystarczającej grubości linii dla obrysów.</li>
+      <li>Testuj kontrast narzędziami takimi jak Contrast Checker lub wtyczki do przeglądarek.</li>
+      <li>Unikaj pastelowych i bardzo zbliżonych kolorów dla elementów interaktywnych.</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Poprawa widoczności elementów ułatwia nawigację i obsługę strony wszystkim użytkownikom, nie tylko osobom z niepełnosprawnościami. Wysoki kontrast zwiększa też użyteczność w trudnych warunkach oświetleniowych.</p>
+
+    <h4>Przykłady błędów 1.4.11</h4>
+    <ul>
+      <li>Cienka, szara ramka pola formularza na jasnym tle jest trudna do zauważenia.</li>
+      <li>Ikony (np. lupa, kosz, strzałka) mają niski kontrast w stosunku do tła.</li>
+      <li>Przyciski bez wyraźnych granic lub różnic w kolorze w trybie aktywnym i nieaktywnym.</li>
+    </ul>
+
+    <h4>Komentarze do audytu 1.4.11</h4>
+    <ul>
+      <li>Na stronie występują elementy graficzne i interfejsu (np. ikony, ramki, przyciski) z kontrastem mniejszym niż 3:1 względem tła.</li>
+      <li>Niektóre obiekty graficzne wymagane do zrozumienia treści mają zbyt niski kontrast, co utrudnia ich interpretację.</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k1_4_12">
+  <h3>1.4.12 Odstępy w tekście (AA)</h3>
+  <p>Użytkownicy muszą mieć możliwość zwiększenia odstępów w tekście (między liniami, akapitami, literami i słowami) bez utraty treści lub funkcjonalności.</p>
+  
+  <button id="show-more-1_4_12" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 1.4.12
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>To kryterium zapewnia, że strona działa poprawnie nawet po dostosowaniu odstępów w tekście. Jest to szczególnie ważne dla osób z dysleksją, problemami w skupieniu uwagi lub innymi trudnościami w czytaniu.</p>
+
+    <h4>Wymagane wartości minimalne</h4>
+    <ul>
+      <li><strong>Wysokość linii</strong> (line-height) – co najmniej <code>1.5</code> × rozmiar czcionki</li>
+      <li><strong>Odstęp między akapitami</strong> – co najmniej <code>2</code> × rozmiar czcionki</li>
+      <li><strong>Odstęp między literami</strong> (letter-spacing) – co najmniej <code>0.12</code> × rozmiar czcionki</li>
+      <li><strong>Odstęp między wyrazami</strong> (word-spacing) – co najmniej <code>0.16</code> × rozmiar czcionki</li>
+    </ul>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Większe odstępy zwiększają czytelność, redukują zmęczenie oczu i pomagają w skupieniu uwagi. Dla wielu osób z dysleksją lub zaburzeniami poznawczymi odpowiednia przestrzeń między elementami tekstu jest kluczowa do zrozumienia treści.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z dysleksją</li>
+      <li>Osoby z zaburzeniami koncentracji</li>
+      <li>Osoby słabowidzące</li>
+    </ul>
+
+    <h4>Jak to wdrożyć?</h4>
+    <ul>
+      <li>Stosuj wartości CSS w jednostkach względnych (<code>em</code>, <code>rem</code>) zamiast pikseli.</li>
+      <li>Testuj stronę po ręcznej zmianie odstępów w przeglądarce lub narzędziach wspierających.</li>
+      <li>Unikaj stałych wysokości i sztywnych ramek, które mogą obcinać powiększony tekst.</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Dostosowanie odstępów poprawia komfort czytania dla wszystkich użytkowników i nie wymaga specjalnych ustawień tylko dla osób z niepełnosprawnościami.</p>
+
+    <h4>Przykłady błędów 1.4.12</h4>
+    <ul>
+      <li>Po zwiększeniu line-height do 1.5 część tekstu nachodzi na inne elementy.</li>
+      <li>Zwiększenie odstępów powoduje ucięcie fragmentów treści w blokach o stałej wysokości.</li>
+      <li>Odstępy między wyrazami są zablokowane w CSS i nie można ich zmienić.</li>
+    </ul>
+
+    <h4>Komentarz do audytu 1.4.12</h4>
+    <ul>
+      <li>Zwiększenie odstępów między liniami, akapitami, znakami lub wyrazami powoduje utratę czytelności lub obcinanie treści.</li>
+      <li>Brak elastycznego skalowania elementów przy dostosowaniu parametrów odstępów.</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k1_4_13">
+  <h3>1.4.13 Treść spod kursora lub fokusu (AA)</h3>
+  <p>Treść wyświetlana po najechaniu kursorem lub ustawieniu fokusu musi być czytelna, dostępna i możliwa do odczytania bez pośpiechu.</p>
+  
+  <button id="show-more-1_4_13" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 1.4.13
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>To kryterium dotyczy dodatkowej treści pojawiającej się, gdy użytkownik najedzie kursorem lub ustawi fokus (np. tooltipy, podpowiedzi, podmenu). Taka treść musi być dostępna dla wszystkich użytkowników — w tym korzystających z klawiatury — i spełniać trzy zasady: możliwość odrzucenia, możliwość najechania oraz trwałość do czasu zamknięcia przez użytkownika.</p>
+
+    <h4>Warunki zgodności</h4>
+    <ul>
+      <li><strong>Odrzucone</strong> – użytkownik może zamknąć treść bez przesuwania kursora lub usuwania fokusu.</li>
+      <li><strong>Wskazywane</strong> – można przenieść wskaźnik myszy na dodatkową treść bez jej zniknięcia.</li>
+      <li><strong>Trwałe</strong> – treść pozostaje widoczna, dopóki użytkownik jej nie zamknie lub dopóki nie przestanie być potrzebna.</li>
+    </ul>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Osoby z trudnościami w koncentracji lub problemami motorycznymi mogą potrzebować więcej czasu na odczytanie treści. Nagle znikający tooltip lub menu może uniemożliwić im korzystanie z funkcji strony.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z problemami wzroku</li>
+      <li>Osoby z trudnościami poznawczymi</li>
+      <li>Osoby z ograniczoną sprawnością motoryczną</li>
+    </ul>
+
+    <h4>Jak to wdrożyć?</h4>
+    <ul>
+      <li>Zadbaj, aby dodatkowa treść była możliwa do zamknięcia np. przyciskiem "X" lub klawiszem <code>Esc</code>.</li>
+      <li>Umożliw przeniesienie kursora na dodatkową treść bez jej znikania.</li>
+      <li>Zachowaj odpowiedni kontrast (minimum 4.5:1 dla tekstu).</li>
+      <li>Nie ustawiaj krótkich czasów automatycznego znikania treści.</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Ułatwia korzystanie z podpowiedzi i elementów dynamicznych wszystkim użytkownikom, szczególnie tym, którzy potrzebują więcej czasu na reakcję.</p>
+
+    <h4>Przykłady błędów 1.4.13</h4>
+    <ul>
+      <li>Treść pojawiająca się pod kursorem jest zbyt mała lub ma niski kontrast.</li>
+      <li>Treść znika natychmiast po przesunięciu kursora.</li>
+      <li>Tooltip jest zasłonięty przez inne elementy strony.</li>
+    </ul>
+
+    <h4>Komentarz do audytu 1.4.13</h4>
+    <ul>
+      <li>Treść pojawiająca się pod kursorem lub w momencie fokusu jest nieczytelna z powodu niskiego kontrastu lub zasłaniania.</li>
+      <li>Brak możliwości odrzucenia treści bez utraty fokusu lub pozycji kursora.</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+
 </section>
 
 <section id="group-2_1" tabindex="-1">
-    <h2>2.1 - Dostępność klawiatury</h2>
+    <h2>2.1 - Dostępność z klawiatury (A)</h2>
 	
-  <article id="k2_1_1" tabindex="-1">
-    <h3>2.1.1 Dostępność klawiatury (A)</h3>
-    <p><strong>Krótkie:</strong> Cała strona jest dostępna z klawiatury.</p>
-   <button id="show-more-2_1_1" class="show-more-btn">Przeczytaj więcej o 2.1.1</button>
-    <div class="full-text" style="display:none;">
-      <p>Wszystkie funkcje strony muszą działać bez użycia myszy, tylko za pomocą klawiatury.</p>
-      <button class="back-button">Zwiń opisj</button>
-    </div>
-  </article>
+ <article id="k2_1_1">
+  <h3>2.1.1 Klawiatura</h3>
+  <p>Wszystkie funkcje strony muszą być dostępne i obsługiwane wyłącznie za pomocą klawiatury, bez potrzeby używania myszy.</p>
+  
+  <button id="show-more-2_1_1" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 2.1.1
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>To kryterium zapewnia, że wszystkie interaktywne elementy strony (np. linki, przyciski, formularze, menu) można obsłużyć tylko klawiaturą. Nie może być wymogu trzymania klawiszy przez określony czas lub wykonywania skomplikowanych sekwencji, chyba że dana funkcja wymaga ścieżki ruchu (np. rysowanie).</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Nie wszyscy użytkownicy mogą korzystać z myszy. Osoby z ograniczeniami ruchowymi, niewidome lub korzystające z technologii wspomagających (np. czytniki ekranu) często poruszają się po stronie wyłącznie klawiaturą.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby niewidome</li>
+      <li>Osoby z ograniczeniami ruchowymi</li>
+      <li>Użytkownicy technologii wspomagających</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Zapewnij obsługę wszystkich elementów przez <code>Tab</code>, <code>Enter</code>, <code>Spację</code> i klawisze strzałek.</li>
+      <li>Używaj semantycznych elementów HTML (<code>button</code>, <code>a</code>, <code>input</code>), które domyślnie obsługują klawiaturę.</li>
+      <li>Unikaj pułapek klawiaturowych — użytkownik powinien móc łatwo opuścić każdy element.</li>
+      <li>Umożliw zamykanie okien modalnych za pomocą <code>Esc</code>.</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Zapewnia dostępność treści dla użytkowników, którzy nie mogą korzystać z myszy. Poprawia też ogólną ergonomię i obsługę strony.</p>
+
+    <h4>Przykłady błędów 2.1.1</h4>
+    <ul>
+      <li>Przycisk nie reaguje na <code>Enter</code> lub <code>Spację</code>.</li>
+      <li>Element formularza nie otrzymuje fokusu po naciśnięciu <code>Tab</code>.</li>
+      <li>Okno modalne nie może być zamknięte za pomocą klawiatury.</li>
+    </ul>
+
+    <h4>Komentarz do audytu 2.1.1</h4>
+    <ul>
+      <li>Część elementów interaktywnych nie jest obsługiwana wyłącznie klawiaturą.</li>
+      <li>Brak możliwości zamknięcia niektórych okienek bez użycia myszy.</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k2_1_2">
+  <h3>2.1.2 Bez pułapki na klawiaturę (A)</h3>
+  <p>Użytkownik musi móc swobodnie poruszać się po stronie za pomocą klawiatury, bez blokowania się na żadnym elemencie.</p>
+  
+  <button id="show-more-2_1_2" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 2.1.2
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Jeśli fokus klawiatury trafia na jakiś element, użytkownik powinien móc go również opuścić wyłącznie za pomocą klawiatury. Jeśli do wyjścia potrzeba specjalnych akcji, użytkownik musi zostać o tym poinformowany.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Zapobiega sytuacjom, w których użytkownik "utknie" na stronie i nie będzie mógł się dalej poruszać, co blokuje dostęp do reszty zawartości.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby korzystające wyłącznie z klawiatury</li>
+      <li>Użytkownicy z niepełnosprawnościami ruchowymi</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Zadbaj, aby fokus mógł być przeniesiony z każdego elementu interaktywnego klawiaturą.</li>
+      <li>Jeśli opuszczenie elementu wymaga specjalnej akcji, dodaj jasną instrukcję dla użytkownika.</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Poprawia dostępność strony i komfort użytkowników poruszających się za pomocą klawiatury, zwiększając ogólną użyteczność.</p>
+
+    <h4>Przykłady błędów 2.1.2</h4>
+    <ul>
+      <li>Użytkownik nie może opuścić okienka modalnego klawiaturą.</li>
+      <li>Fokus klawiatury blokuje się w zamkniętym menu lub polu formularza.</li>
+    </ul>
+
+    <h4>Komentarze do audytu 2.1.2</h4>
+    <ul>
+      <li>Na stronie wykryto pułapki klawiatury, które uniemożliwiają swobodne poruszanie się bez użycia myszy.</li>
+      <li>Elementy takie jak modale, menu czy formularze blokują fokus, co utrudnia lub uniemożliwia dalszą nawigację.</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k2_1_3">
+  <h3>2.1.3 Klawiatura (bez wyjątków) (AAA)</h3>
+  <p>Cała zawartość i funkcje strony muszą być dostępne i obsługiwalne wyłącznie za pomocą klawiatury, bez żadnych wyjątków.</p>
+  
+  <button id="show-more-2_1_3" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 2.1.3
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Wszystkie funkcje na stronie muszą działać za pomocą klawiatury, bez potrzeby używania myszy, gestów czy specjalnych kombinacji klawiszy. Użytkownik powinien mieć możliwość nawigowania, aktywowania przycisków, wypełniania formularzy, obsługi kontrolek (np. suwaków) oraz sterowania multimediami za pomocą samej klawiatury.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Nie każdy może korzystać z myszy lub ekranu dotykowego. Osoby z niepełnosprawnościami ruchowymi lub korzystające z urządzeń wspomagających (np. klawiatura ekranowa, sterowanie głosowe, urządzenia typu sip-and-puff) potrzebują pełnej funkcjonalności dostępnej przez klawiaturę.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby korzystające wyłącznie z klawiatury</li>
+      <li>Użytkownicy technologii wspomagających</li>
+      <li>Osoby z ograniczoną sprawnością manualną</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Zaprojektuj stronę tak, aby wszystkie funkcje działały bez myszy.</li>
+      <li>Unikaj wymagań na szybkie naciskanie klawiszy lub złożone kombinacje.</li>
+      <li>Przetestuj obsługę strony wyłącznie za pomocą klawiatury.</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Strona staje się dostępna dla szerokiego grona użytkowników, zwiększa się jej użyteczność oraz spełnia najwyższe standardy dostępności.</p>
+
+    <h4>Przykłady błędów 2.1.3</h4>
+    <ul>
+      <li>Elementy interaktywne działają tylko po kliknięciu myszy.</li>
+      <li>Obsługa funkcji wymaga szybkiego lub złożonego naciskania klawiszy.</li>
+      <li>Formularze nie można wypełnić bez myszy.</li>
+    </ul>
+
+    <h4>Komentarze do audytu 2.1.3</h4>
+    <ul>
+      <li>Strona wymagała użycia myszy do korzystania z części funkcji.</li>
+      <li>Niektóre funkcje nie działają poprawnie przy obsłudze tylko za pomocą klawiatury.</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k2_1_4">
+  <h3>2.1.4 Jednoznakowe skróty klawiaturowe (A)</h3>
+  <p>Jeśli na stronie używane są skróty klawiaturowe składające się z jednego znaku, muszą istnieć mechanizmy wyłączania, zmiany lub aktywacji tylko przy fokusie.</p>
+  
+  <button id="show-more-2_1_4" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 2.1.4
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Strona nie powinna mieć jednoliterowych skrótów klawiaturowych (np. „S” lub „H”), które natychmiast uruchamiają funkcje, ponieważ mogą one kolidować z systemowymi skrótami lub utrudniać korzystanie osobom z niepełnosprawnościami. Jeśli jednak takie skróty są używane, musi być możliwość ich wyłączenia, zmiany mapowania lub aktywacji tylko wtedy, gdy odpowiedni element ma fokus.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Jednoliterowe skróty mogą przypadkowo uruchamiać funkcje podczas zwykłego pisania, co dezorientuje użytkowników i utrudnia dostęp do strony, zwłaszcza osobom korzystającym z klawiatury lub technologii wspomagających.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Użytkownicy klawiatury</li>
+      <li>Osoby korzystające z czytników ekranu</li>
+      <li>Osoby z trudnościami w kontroli precyzyjnego naciskania klawiszy</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Unikaj prostych skrótów składających się z pojedynczej litery lub symbolu.</li>
+      <li>Jeśli stosujesz skróty, używaj kombinacji klawiszy z Ctrl, Alt lub Shift.</li>
+      <li>Zapewnij mechanizm wyłączania lub zmianę skrótu.</li>
+      <li>Ogranicz aktywację skrótu tylko do momentu, gdy dany element ma fokus.</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Ułatwia to korzystanie z witryny i zapobiega przypadkowym uruchomieniom funkcji, zwiększając dostępność i komfort użytkowników.</p>
+
+    <h4>Przykłady błędów 2.1.4</h4>
+    <ul>
+      <li>Skrót „S” otwierający wyszukiwarkę bez konieczności dodatkowego klawisza.</li>
+      <li>Skrót „H” przechodzący do nagłówków od razu po naciśnięciu.</li>
+      <li>Skróty działające natychmiast po pojedynczym wciśnięciu litery.</li>
+    </ul>
+
+    <h4>Komentarze do audytu 2.1.4</h4>
+    <ul>
+      <li>Wykryto jednoliterowe skróty klawiaturowe kolidujące z innymi funkcjami systemu.</li>
+      <li>Zaleca się stosowanie skrótów z kombinacją klawiszy i zapewnienie ich wyłączania.</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+
 </section>
 
 <section id="group-2_2" tabindex="-1">
     <h2>2.2 - Wystarczający czas</h2>
 	
-  <article id="k2_2_1" tabindex="-1">
-    <h3>2.2.1 Wystarczająco dużo czasu (A)</h3>
-    <p><strong>Krótkie:</strong> Użytkownik ma czas na przeczytanie i interakcję.</p>
-    <button id="show-more-2_2_1" class="show-more-btn">Przeczytaj więcej o 2.2.1</button>
-    <div class="full-text" style="display:none;">
-      <p>Użytkownik może kontrolować czas na wykonanie akcji, np. pauzować automatyczne przewijanie.</p>
-      <button class="back-button">Zwiń opis</button>
-    </div>
-  </article>
+ <article id="k2_2_1">
+  <h3>2.2.1 Dostosowanie czasu (A)</h3>
+  <p>Jeśli czas na wykonanie czynności jest ograniczony, użytkownik powinien mieć możliwość wyłączenia, wydłużenia lub dostosowania tego limitu.</p>
+  
+  <button id="show-more-2_2_1" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 2.2.1
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>W sytuacjach, gdy na stronie jest ograniczony czas na wykonanie zadania, użytkownik musi mieć szansę wyłączyć limit czasowy, przedłużyć go lub dostosować, aby móc spokojnie ukończyć czynność. Wyjątkiem są sytuacje, gdy limit jest częścią działania w czasie rzeczywistym lub gdy jego zmiana zaburzyłaby funkcjonalność.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Nie każdy użytkownik pracuje z tym samym tempem — niektóre osoby potrzebują więcej czasu, aby wykonać zadania. Brak kontroli nad limitem czasowym może prowadzić do frustracji, błędów lub całkowitej utraty dostępu do treści.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z ograniczoną sprawnością ruchową</li>
+      <li>Osoby z trudnościami poznawczymi</li>
+      <li>Osoby starsze i z wolniejszym tempem pracy</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Zapewnij opcję wyłączenia limitu czasowego przed jego upływem.</li>
+      <li>Umożliw użytkownikowi samodzielne wydłużenie czasu, co najmniej dziesięciokrotnie względem wartości domyślnej.</li>
+      <li>Ostrzeż użytkownika przed wygaśnięciem czasu i daj mu co najmniej 20 sekund na reakcję.</li>
+      <li>Jeśli limit jest niezmienny ze względu na charakter działania, wyraźnie to zaznacz.</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Dzięki temu każdy użytkownik ma szansę dokończyć zadania na stronie bez stresu i presji czasu, co zwiększa dostępność i komfort korzystania z serwisu.</p>
+
+    <h4>Przykłady błędów 2.2.1</h4>
+    <ul>
+      <li>Automatyczne wylogowanie po określonym czasie bez możliwości przedłużenia sesji.</li>
+      <li>Quiz lub test kończący się automatycznie bez opcji przedłużenia czasu.</li>
+      <li>Brak ostrzeżenia przed zamknięciem sesji lub końcem limitu czasowego.</li>
+    </ul>
+
+    <h4>Komentarze do audytu 2.2.1</h4>
+    <ul>
+      <li>Stwierdzono ograniczenia czasowe, których użytkownik nie może wyłączyć ani wydłużyć.</li>
+      <li>Zaleca się wprowadzenie mechanizmów kontroli limitu czasowego przez użytkownika.</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k2_2_2">
+  <h3>2.2.2 Pauza, zatrzymanie, ukrycie (A)</h3>
+  <p>Użytkownik powinien mieć możliwość wstrzymania, zatrzymania lub ukrycia ruchomych, migających lub automatycznie aktualizowanych treści, które mogą rozpraszać lub utrudniać korzystanie ze strony.</p>
+  
+  <button id="show-more-2_2_2" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 2.2.2
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Jeśli na stronie znajdują się elementy, które się poruszają, migają, przesuwają lub automatycznie się aktualizują i działają one dłużej niż 5 sekund oraz są widoczne obok innych treści, użytkownik musi mieć kontrolę nad tym ruchem — może go zatrzymać, wstrzymać lub ukryć. Wyjątkiem są sytuacje, gdzie ruch jest niezbędny do funkcjonowania danej czynności.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Ruchome, migające lub automatycznie zmieniające się treści mogą rozpraszać uwagę, utrudniać koncentrację lub nawet wywoływać ataki padaczki u niektórych użytkowników. Możliwość zatrzymania takich elementów poprawia komfort i bezpieczeństwo korzystania ze strony.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z zaburzeniami uwagi</li>
+      <li>Osoby z padaczką fotogenną</li>
+      <li>Osoby starsze lub z trudnościami poznawczymi</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Dodaj przyciski lub mechanizmy, które pozwolą zatrzymać, wstrzymać lub ukryć ruchome elementy.</li>
+      <li>Upewnij się, że elementy migające lub automatycznie aktualizowane mają kontrolę dostępną klawiaturą.</li>
+      <li>Zaznacz wyraźnie, jeśli ruch jest częścią niezbędnej czynności i nie może być zatrzymany.</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Użytkownicy z różnymi ograniczeniami mogą korzystać ze strony bez nadmiernego rozproszenia i ryzyka zdrowotnego, co znacząco zwiększa dostępność i użyteczność witryny.</p>
+
+    <h4>Przykłady błędów 2.2.2</h4>
+    <ul>
+      <li>Automatycznie odtwarzające się karuzele obrazów, których nie można zatrzymać ani wstrzymać.</li>
+      <li>Migające bannery bez opcji wyłączenia animacji.</li>
+      <li>Ruchome tła lub przewijające się elementy bez możliwości ich zatrzymania lub ukrycia.</li>
+    </ul>
+
+    <h4>Komentarze do audytu 2.2.2</h4>
+    <ul>
+      <li>Na stronie znajdują się ruchome elementy, które użytkownik nie może kontrolować.</li>
+      <li>Brak opcji pauzy lub zatrzymania utrudnia korzystanie i może stanowić zagrożenie dla osób z padaczką fotogenną.</li>
+      <li>Zaleca się dodanie przycisków umożliwiających zatrzymanie ruchomych treści.</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k2_2_3"> 
+<h3>2.2.3 Bez ograniczeń czasowych (AAA)</h3> 
+<p>Na stronie nie powinny być nakładane ograniczenia czasowe, chyba że są one istotną częścią działania, np. transmisje na żywo lub wydarzenia w czasie rzeczywistym.</p> 
+<button id="show-more-2_2_3" class="show-more-btn" aria-expanded="false"> Przeczytaj więcej o 2.2.3 </button> 
+<div class="full-text" style="display:none;"> 
+<p>Użytkownicy powinni mieć dowolną ilość czasu na korzystanie z treści i wykonywanie zadań bez presji ograniczonego czasu.</p>
+
+<h4>Dlaczego to jest ważne?</h4>
+<p>Ograniczenia czasowe tworzą bariery dla osób, które potrzebują więcej czasu na przeczytanie, nawigację lub interakcję z zawartością — np. osoby z niepełnosprawnościami, starsze lub z zaburzeniami poznawczymi. Presja czasu może prowadzić do frustracji, błędów lub wykluczenia.</p>
+
+<h4>Kto jest dotknięty?</h4>
+<ul>
+  <li>Osoby z niepełnosprawnościami ruchowymi, które potrzebują więcej czasu na sterowanie urządzeniami wejściowymi.</li>
+  <li>Osoby niewidome korzystające z czytników ekranu.</li>
+  <li>Osoby z niskim wzrokiem, które potrzebują więcej czasu na znalezienie i przeczytanie informacji.</li>
+  <li>Osoby z niepełnosprawnościami poznawczymi, które potrzebują więcej czasu na zrozumienie treści.</li>
+  <li>Osoby niesłyszące, które mogą potrzebować więcej czasu na czytanie lub tłumaczenie.</li>
+</ul>
+
+<h4>Jak spełnić kryterium?</h4>
+<ul>
+  <li>Projektuj bez limitów czasowych — nie nakładaj timerów lub kar za wolniejsze działanie.</li>
+  <li>Unikaj automatycznego wylogowywania lub kończenia sesji bez opcji zapisu i wznowienia.</li>
+  <li>Jeśli ograniczenia czasowe są konieczne (np. aukcje, wydarzenia na żywo), wyraźnie je komunikuj i oferuj alternatywne sposoby uczestnictwa.</li>
+  <li>W przypadku multimediów nieinteraktywnych (np. filmy, podcasty) zapewnij napisy, transkrypcje i informacje o dostępności nagrania później.</li>
+  <li>Dla interaktywnych doświadczeń oferuj tryb turn-based lub możliwość pauzy.</li>
+</ul>
+
+<h4>Przykłady błędów 2.2.3</h4>
+<ul>
+  <li>Formularze, które automatycznie kończą sesję po określonym czasie bez możliwości zapisu lub wznowienia.</li>
+  <li>Testy lub quizy z timerem bez opcji wydłużenia lub pauzy.</li>
+  <li>Strony z automatycznie wygaszanymi popupami, które utrudniają dłuższe czytanie.</li>
+</ul>
+
+<h4>Komentarz do audytu 2.2.3</h4>
+<ul>
+  <li>Na stronie zastosowano ograniczenia czasowe, które nie są niezbędne do działania funkcjonalności.</li>
+  <li>Brak opcji wydłużenia lub wyłączenia limitu czasu może wykluczać użytkowników z dostępem do treści.</li>
+  <li>Zaleca się całkowite usunięcie limitów lub zaoferowanie ich wyraźnej kontroli i alternatyw.</li>
+</ul>
+
+<button class="back-button" aria-expanded="true">Zwiń opis</button>
+</div>
+</article>
+
+<article id="k2_2_4"> 
+<h3>2.2.4 Przerywanie (AAA)</h3> 
+<p>Przerywania (np. wyskakujące okna, alerty, powiadomienia) muszą być możliwe do opóźnienia, wyłączenia lub kontrolowania przez użytkownika, chyba że dotyczą sytuacji wyjątkowej (np. zagrożenia zdrowia lub bezpieczeństwa).</p> 
+<button id="show-more-2_2_4" class="show-more-btn" aria-expanded="false"> Przeczytaj więcej o 2.2.4 </button> 
+<div class="full-text" style="display:none;">  
+<p>Strony internetowe nie powinny nagle przerywać pracy użytkownika, np. pojawianiem się wyskakujących okien, banerów czy automatycznych odświeżeń, chyba że jest to sytuacja awaryjna (zagrożenie zdrowia, bezpieczeństwa, mienia lub danych).</p>
+
+<h4>Dlaczego to jest ważne?</h4>
+<p>Przerywania mogą dezorientować osoby korzystające z czytników ekranu lub osoby z zaburzeniami koncentracji (np. ADHD). Niespodziewane zmiany mogą powodować utratę miejsca lub skupienia, co utrudnia wykonanie zadania.</p>
+
+<h4>Kto jest dotknięty?</h4>
+<ul>
+  <li>Osoby z zaburzeniami uwagi (np. ADHD).</li>
+  <li>Osoby niewidome korzystające z czytników ekranu.</li>
+  <li>Osoby z niskim wzrokiem, które czytają powoli lub powiększają tekst.</li>
+</ul>
+
+<h4>Jak spełnić kryterium?</h4>
+<ul>
+  <li>Wyłączaj nieistotne powiadomienia i automatyczne odświeżenia domyślnie.</li>
+  <li>Umożliwiaj użytkownikom opóźnianie, wstrzymywanie lub całkowite wyłączenie powiadomień i aktualizacji.</li>
+  <li>Zamiast automatycznego odświeżania, oferuj przycisk do ręcznego sprawdzania aktualizacji.</li>
+  <li>W sytuacjach awaryjnych (zagrożenia zdrowia, bezpieczeństwa) przerywania są dozwolone i powinny być wyraźnie oznaczone (np. aria-live="assertive").</li>
+</ul>
+
+<h4>Przykłady błędów 2.2.4</h4>
+<ul>
+  <li>Automatyczne odświeżanie strony bez możliwości opóźnienia lub wyłączenia.</li>
+  <li>Wyskakujące powiadomienia pojawiające się nagle i odrywające uwagę użytkownika.</li>
+  <li>Przenoszenie fokusu na nowy element bez zgody użytkownika.</li>
+</ul>
+
+<h4>Komentarze do audytu 2.2.4</h4>
+<ul>
+  <li>Na stronie występują automatyczne powiadomienia i odświeżenia, których nie można wstrzymać lub opóźnić.</li>
+  <li>Brak kontroli nad przerywaniem może dezorientować i utrudniać korzystanie, szczególnie osobom z niepełnosprawnościami.</li>
+  <li>Zaleca się dodanie mechanizmów pozwalających użytkownikom zarządzać powiadomieniami i odświeżeniami.</li>
+</ul>
+
+<button class="back-button" aria-expanded="true">Zwiń opis</button>
+</div> 
+</article> 
+
+<article id="k2_2_5">
+  <h3>2.2.5 Ponowne potwierdzenie autentyczności(AAA)</h3>
+  <p>Po wygaśnięciu sesji użytkownik może ponownie się zalogować i kontynuować pracę bez utraty wcześniej wprowadzonych danych.</p>
+  
+  <button id="show-more-2_2_5" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 2.2.5
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>To kryterium zapewnia, że w przypadku wylogowania z powodu wygaśnięcia sesji, użytkownik może wrócić do przerwanej czynności po ponownej autoryzacji, bez konieczności zaczynania od nowa. Wszystkie wprowadzone wcześniej dane powinny zostać zachowane.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Osoby z niepełnosprawnościami, użytkownicy korzystający z czytników ekranu czy alternatywnych urządzeń sterujących często potrzebują więcej czasu. Utrata danych po timeoutcie jest frustrująca i może uniemożliwić ukończenie zadania.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z niepełnosprawnościami poznawczymi</li>
+      <li>Osoby niewidome korzystające z czytników ekranu</li>
+      <li>Osoby z ograniczeniami ruchowymi</li>
+      <li>Osoby głuche lub słabosłyszące</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Zachowuj dane użytkownika do momentu ponownego zalogowania</li>
+      <li>Przywracaj użytkownika do miejsca, w którym przerwał pracę</li>
+      <li>Unikaj kasowania formularzy, koszyków zakupowych czy wpisów po timeoutcie</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Użytkownicy mogą bez stresu i frustracji kontynuować swoje zadania, nawet jeśli sesja wygaśnie, co poprawia dostępność i komfort korzystania z serwisu.</p>
+
+    <h4>Przykłady błędów 2.2.5</h4>
+    <ul>
+      <li>Formularz restartuje się od początku po ponownym zalogowaniu</li>
+      <li>Koszyk zakupowy opróżnia się po timeoutcie sesji</li>
+    </ul>
+
+    <h4>Komentarze do audytu 2.2.5</h4>
+    <ul>
+      <li>Użytkownik nie wraca do miejsca, w którym przerwał pracę po ponownym zalogowaniu</li>
+      <li>Dane koszyka nie są zapisywane w sesji i po wylogowaniu zostają utracone</li>
+      <li>Wypełnione pola formularza są czyszczone po ponownej autoryzacji</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k2_2_6">
+  <h3>2.2.6 Ostrzeżenie o limicie czasu (AAA)</h3>
+  <p>Użytkownicy muszą być ostrzeżeni, zanim upłynie limit czasu bezczynności, jeśli jego przekroczenie może spowodować utratę danych, chyba że dane są przechowywane przez co najmniej 20 godzin bez interakcji.</p>
+  
+  <button id="show-more-2_2_6" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 2.2.6
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Kryterium to wymaga, aby użytkownik został poinformowany o zbliżającym się wygaśnięciu sesji, gdy grozi to utratą danych lub postępu w pracy. Wyjątkiem jest sytuacja, w której dane są automatycznie przechowywane przez co najmniej 20 godzin po braku aktywności.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Osoby, które potrzebują więcej czasu na wykonanie zadania (np. z powodu niepełnosprawności, wolniejszego tempa pracy lub korzystania z technologii wspomagających), muszą mieć możliwość zareagowania przed utratą danych. Brak ostrzeżenia może prowadzić do frustracji i uniemożliwić ukończenie czynności.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z niepełnosprawnościami poznawczymi</li>
+      <li>Osoby niewidome lub słabowidzące</li>
+      <li>Osoby z ograniczeniami ruchowymi</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Wyświetlaj czytelne i dostępne ostrzeżenie o zbliżającym się wygaśnięciu sesji</li>
+      <li>Zapewnij użytkownikowi możliwość przedłużenia sesji jednym kliknięciem lub naciśnięciem klawisza</li>
+      <li>Przechowuj dane automatycznie, aby użytkownik nie utracił postępu</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Użytkownicy mogą uniknąć utraty danych i kontynuować pracę w sposób przewidywalny, bez stresu i nagłych przerw w wykonywaniu zadań.</p>
+
+    <h4>Przykłady błędów 2.2.6</h4>
+    <ul>
+      <li>Sesja wygasa bez wcześniejszego ostrzeżenia, co powoduje utratę wprowadzonych danych</li>
+      <li>Ostrzeżenie o końcu sesji pojawia się w formie niedostępnego modala, którego nie można obsłużyć klawiaturą</li>
+    </ul>
+
+    <h4>Komentarze do audytu 2.2.6</h4>
+    <ul>
+      <li>Brak komunikatu o zbliżającym się wygaśnięciu sesji</li>
+      <li>Ostrzeżenie jest zbyt krótkie, aby użytkownik mógł zareagować</li>
+      <li>Po wygaśnięciu sesji dane formularza/koszyka zostają utracone</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+
 </section>
 
 <section id="group-2_3" tabindex="-1">
     <h2>2.3 - Napady i reakcje fizyczne</h2>
 
-  <article id="k2_3_1" tabindex="-1">
-    <h3>2.3.1 Unikanie napadów (A)</h3>
-    <p><strong>Krótkie:</strong> Unikaj migających elementów mogących wywołać napad.</p>
-    <button id="show-more-2_3_1" class="show-more-btn">Przeczytaj więcej o 2.3.1</button>
-    <div class="full-text" style="display:none;">
-      <p>Nie używaj treści migających częściej niż 3 razy na sekundę, które mogą wywołać ataki epilepsji.</p>
-      <button class="back-button">Zwiń opis</button>
-    </div>
-  </article>
+  <article id="k2_3_1">
+  <h3>2.3.1 Trzy błyski lub wartości poniżej progu (A)</h3>
+  <p>Treści na stronie nie mogą błyskać częściej niż trzy razy na sekundę, chyba że natężenie błysku mieści się w bezpiecznych granicach dla ogólnych i czerwonych błysków.</p>
+  
+  <button id="show-more-2_3_1" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 2.3.1
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Kryterium to chroni użytkowników przed treściami wizualnymi, które mogą wywołać napady padaczkowe lub inne reakcje fizyczne. Dopuszczalne są tylko błyski, które występują maksymalnie trzy razy na sekundę lub mieszczą się w określonych progach natężenia i kontrastu.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Niektóre osoby, szczególnie z padaczką fotogenną, mogą doznać ataku po ekspozycji na szybko migające obrazy. Ograniczenie częstotliwości i natężenia błysków zmniejsza ryzyko wywołania takich reakcji.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z padaczką fotogenną</li>
+      <li>Osoby z nadwrażliwością na światło</li>
+      <li>Osoby z migrenami wywoływanymi bodźcami wzrokowymi</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Unikaj treści migających częściej niż 3 razy na sekundę</li>
+      <li>Sprawdzaj treści wideo i animacje narzędziami testującymi (np. Photosensitive Epilepsy Analysis Tool)</li>
+      <li>Ogranicz kontrast i rozmiar obszaru błysku, aby mieścił się w bezpiecznych wartościach progowych</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Zmniejszenie ryzyka wywołania napadów padaczkowych oraz zwiększenie komfortu przeglądania strony dla wszystkich użytkowników.</p>
+
+    <h4>Przykłady błędów 2.3.1</h4>
+    <ul>
+      <li>Baner reklamowy błyska 5 razy na sekundę</li>
+      <li>Intro wideo zawiera intensywne czerwone błyski w szybkim tempie</li>
+    </ul>
+
+    <h4>Komentarze do audytu 2.3.1</h4>
+    <ul>
+      <li>Wideo w sekcji głównej zawiera fragment przekraczający próg bezpiecznych błysków</li>
+      <li>Animacja tła migocze zbyt szybko i może stanowić zagrożenie</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k2_3_2">
+  <h3>2.3.2 Trzy błyski (AAA)</h3>
+  <p>Treści na stronie nie mogą błyskać częściej niż trzy razy na sekundę - bez żadnych wyjątków.</p>
+  
+  <button id="show-more-2_3_2" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 2.3.2
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Kryterium to eliminuje ryzyko wystąpienia napadów padaczkowych wywołanych przez bodźce wizualne, całkowicie zakazując treści migających częściej niż trzy razy na sekundę, niezależnie od natężenia lub koloru błysków.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Osoby z padaczką fotogenną mogą doznać ataku po ekspozycji na szybko migające obrazy. Wersja AAA tego kryterium zapewnia maksymalne bezpieczeństwo, eliminując wszelkie szybkie błyski.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z padaczką fotogenną</li>
+      <li>Osoby wrażliwe na migotanie światła</li>
+      <li>Osoby z migrenami wywoływanymi przez bodźce wizualne</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Całkowicie wyklucz treści błyskające szybciej niż 3 razy na sekundę</li>
+      <li>Przeanalizuj materiały wideo, animacje i efekty specjalne</li>
+      <li>W razie potrzeby zastosuj alternatywne efekty wizualne bez błysków</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Zapewnienie maksymalnego bezpieczeństwa wszystkim użytkownikom, bez ryzyka wystąpienia napadów padaczkowych spowodowanych treścią na stronie.</p>
+
+    <h4>Przykłady błędów 2.3.2</h4>
+    <ul>
+      <li>Intro wideo zawiera sekwencję błysków 4 razy na sekundę</li>
+      <li>Animowany przycisk miga bardzo szybko w celu zwrócenia uwagi</li>
+    </ul>
+
+    <h4>Komentarze do audytu 2.3.2</h4>
+    <ul>
+      <li>Element dekoracyjny w tle miga z częstotliwością powyżej 3 Hz</li>
+      <li>Efekt przejścia między slajdami generuje szybkie błyski</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k2_3_3">
+  <h3>2.3.3 Animacja po interakcji (AA)</h3>
+  <p>Użytkownik powinien mieć możliwość wyłączenia animacji ruchowej uruchamianej po interakcji, chyba że jest ona kluczowa dla funkcji lub przekazu treści.</p>
+  
+  <button id="show-more-2_3_3" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 2.3.3
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Animacje wyzwalane przez działania użytkownika (np. przewijanie, kliknięcie, przesunięcie) mogą powodować problemy dla osób z zaburzeniami równowagi, chorobą lokomocyjną lub innymi nadwrażliwościami. Kryterium to wymaga, aby użytkownik mógł wyłączyć takie animacje, jeśli nie są one absolutnie niezbędne do zrozumienia treści lub korzystania z funkcji strony.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Ruch na ekranie może powodować zawroty głowy, nudności lub dezorientację. Zapewnienie opcji wyłączenia animacji pozwala użytkownikom korzystać z serwisu bez dyskomfortu lub negatywnych skutków zdrowotnych.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z zaburzeniami równowagi (np. choroba Meniere’a)</li>
+      <li>Osoby podatne na chorobę lokomocyjną</li>
+      <li>Osoby z problemami neurologicznymi wrażliwymi na ruch</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Zapewnij ustawienie w interfejsie pozwalające wyłączyć animacje</li>
+      <li>Uwzględnij preferencję systemową <code>prefers-reduced-motion</code> w CSS</li>
+      <li>Używaj animacji tylko wtedy, gdy przekazują istotne informacje</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Większa kontrola nad doświadczeniem użytkownika, zmniejszenie ryzyka dyskomfortu oraz zwiększenie dostępności dla osób wrażliwych na ruch.</p>
+
+    <h4>Przykłady błędów 2.3.3</h4>
+    <ul>
+      <li>Efekt paralaksy przewijania nie może być wyłączony</li>
+      <li>Formularz po wysłaniu generuje intensywną animację potwierdzenia bez opcji jej wyłączenia</li>
+    </ul>
+
+    <h4>Komentarze do audytu 2.3.3</h4>
+    <ul>
+      <li>Brak opcji wyłączenia animacji przewijania</li>
+      <li>Ignorowanie preferencji systemowych <code>prefers-reduced-motion</code></li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+
 </section>
 
 <section id="group-2_4" tabindex="-1">
@@ -691,7 +2320,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
 
   <article id="k2_4_1" tabindex="-1">
     <h3>2.4.1 Bloki nawigacji (A)</h3>
-    <p><strong>Krótkie:</strong> Pomóż użytkownikom łatwo ominąć powtarzające się bloki.</p>
+    <p>Pomóż użytkownikom łatwo ominąć powtarzające się bloki.</p>
     <button id="show-more-2_4_1" class="show-more-btn">Przeczytaj więcej o 2.4.1</button>
     <div class="full-text" style="display:none;">
       <p>Zapewnij sposób na szybkie pominięcie powtarzających się elementów, np. link "Przejdź do treści".</p>
@@ -711,7 +2340,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
 </section>
 
 <section id="group-2_5" tabindex="-1">
-    <h2>2.5 - Modalność wprowadzania</h2>
+    <h2>2.5 - Metody obsługi</h2>
 	
   <article id="k2_5_1" tabindex="-1">
     <h3>2.5.1 Wprowadzanie danych (A)</h3>
@@ -811,7 +2440,7 @@ document.querySelectorAll('.show-more-btn').forEach(button => {
     } else {
       fullText.style.display = 'none';
       button.setAttribute('aria-expanded', 'false');
-      button.textContent = `Zobacz więcej o ${sectionId.replace(/_/g, '.')}`;
+      button.textContent = `Przeczytaj więcej o ${sectionId.replace(/_/g, '.')}`;
     }
   });
 });
@@ -827,7 +2456,7 @@ document.querySelectorAll('.back-button').forEach(button => {
       showMoreBtn.style.display = 'inline-block';
       showMoreBtn.setAttribute('aria-expanded', 'false');
       const idPart = showMoreBtn.id.replace('show-more-', '').replace(/_/g, '.');
-      showMoreBtn.textContent = `Zobacz więcej o ${idPart}`;
+      showMoreBtn.textContent = `Przeczytaj więcej o ${idPart}`;
     }
   });
 });
@@ -864,11 +2493,50 @@ nav.querySelectorAll('a').forEach(link => {
     }
   });
 });
+
+
+/*wyszukiwarka */
+ const searchInput = document.getElementById('search');
+    const searchBtn = document.getElementById('search-btn');
+    const searchInfo = document.getElementById('search-info');
+    
+	const elementsToSearch = document.querySelectorAll('article, section');
+
+    function doSearch() {
+      const query = searchInput.value.toLowerCase().trim();
+
+      if (!query) {
+        elementsToSearch.forEach(el => el.style.display = '');
+        searchInfo.textContent = '';
+        return;
+      }
+
+      let foundAny = false;
+      elementsToSearch.forEach(el => {
+        const text = el.innerText.toLowerCase();
+        const match = text.includes(query);
+        el.style.display = match ? '' : 'none';
+        if (match) foundAny = true;
+      });
+
+      if (foundAny) {
+        searchInfo.textContent = `Pokazuję wyniki dla: "${searchInput.value}"`;
+      } else {
+        searchInfo.textContent = `Nie znaleziono wyników dla: "${searchInput.value}"`;
+      }
+    }
+
+    searchBtn.addEventListener('click', doSearch);
+
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        doSearch();
+      }
+    });
 </script>
 
 </body>
 </html>
-
 
 
 
