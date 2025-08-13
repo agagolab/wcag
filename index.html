@@ -6,226 +6,228 @@
 <title>WCAG - Prosta strona</title>
 <style>
   body {
-    background-color: #f5f5f5; /* bardzo jasny szary */
+    background-color: #F4F4F6; /* jasne tło */
     display: flex;
-    font-family: Arial, sans-serif;
-    margin: 0; padding: 10 px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 10px;
     height: 100vh;
     overflow: hidden;
-  }
-  /* domyślnie focus jest niewidoczny */
-:focus {
-  outline: none;
+    color: #1F1F1F;
 }
 
-/* focus pokazany tylko, gdy jest klasa user-is-tabbing */
+:focus {
+    outline: none;
+}
+
 .user-is-tabbing :focus {
-  outline: 2px solid red;
-  outline-offset: 2px;
+    outline: 2px solid #FF00FF; /* neonowy focus */
+    outline-offset: 2px;
 }
 
 .user-is-tabbing button:focus,
 .user-is-tabbing input[type="button"]:focus,
 .user-is-tabbing input[type="submit"]:focus,
 .user-is-tabbing a:focus {
-  outline: 2px solid red;  /*  kolor focusa */
-  outline-offset: 2px;
+    outline: 2px solid #FF00FF;
+    outline-offset: 2px;
 }
-  nav {
+
+/* --- NAV --- */
+nav {
     width: 300px;
-	max-width:100%;
-	height: auto;
-    background: #222;
-	color: white;
-    border-right: 1px solid #ccc;
+    max-width:100%;
+    height: auto;
+    background: #2B2B2B;
+    color: white;
+    border-right: 1px solid #191A23; /* ciemna ramka */
     padding: 20px;
     overflow-y: auto;
-  top: 0;
-  left: 0;
-  box-sizing: border-box;
-  }
-  .nav-main {
-  font-size: 1.4em;   /* większy tekst dla linku Strona główna */
-  font-weight: bold;
+    box-sizing: border-box;
+}
+
+.nav-main {
+    font-size: 1.5em;
+    font-weight: bold;
 }
 
 .nav-header {
-  font-size: 1.3em;   /* większy tekst dla nagłówka Kryteria */
-  margin-top: 10px;
-  font-weight: bold;
+    font-size: 1.3em;
+    margin: 10px 0;
+    font-weight: bold;
 }
-  nav ul {
-  list-style: none;  /* usuwa kropki */
-  padding: 0;
-  margin: 0;
-}
-  nav ul li a {
-  font-size: 1em;    /* trochę większy tekst */
-  color: #e0e0e0 ;
-  text-decoration: none;
-  display: block;
-  padding: 6px 10px;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-} 
 
- nav ul li a:hover,
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li a {
+    font-size: 1em;
+    color: #EFF1ED;
+    text-decoration: none;
+    display: block;
+    padding: 6px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover,
 nav ul li a.active {
-  background-color: #0055cc; /* jasnoniebieski hover i aktywny */
-  color: white;
+    background-color: #FF00FF; /* neonowy fiolet hover */
+    color: #191A23; /* ciemny tekst dla kontrastu */
 }
 
-section {
-background: transparent;
-  padding: 0;
-  border: none;
-}
-
-article {
-  background-color: white;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* lekki cień */
-  border-radius: 8px;
-  padding: 15px 20px;
-  margin-bottom: 20px;
-}
-
-  main {
+/* --- MAIN CONTENT --- */
+main {
     flex: 1;
-    padding: 20px;
+    padding: 15px;
     overflow-y: auto;
     position: relative;
     scroll-behavior: smooth;
-  }
-  section {
-    margin-bottom: 50px;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 20px;
-  }
-  section h3 {
-    margin-top: 0;
-    margin-bottom: 6px;
-    color: #003E8A;
-  }
-  .full-text {
-  background-color: #f0f4ff;      /* jasne,  niebieskie tło */
-  border: 1px solid #a0b9ff;     /*  niebieska ramka */
-  border-radius: 12px;            /* zaokrąglone rogi */
-  padding: 1rem;                  /* przestrzeń w środku */
-  margin-top: 0.7rem;            /* odstęp od góry */
 }
+
+section {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+    background: transparent;
+}
+
+/* --- NAGŁÓWKI W STYLU FIGMA --- */
+section h2 {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px 50px;
+    gap: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #191A23; /* ciemny */
+    border-bottom: 2px solid #191A23; /* ciemna linia pod nagłówkiem */
+    margin-bottom: 15px;
+}
+
+/* Podtytuły */
+section h3 {
+    font-size: 1.4rem;
+    font-weight: normal;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+article  {
+    background: #F3F3F3;
+    border: 1px solid #191A23;
+    box-shadow: 0px 5px 0px #191A23;
+    border-radius: 45px;
+    padding: 30px;
+    margin-bottom: 20px;
+    display: grid;
+	
+    grid-template-columns: 1fr auto; /* treść po lewej, przycisk po prawej */
+    gap: 20px;
+    align-items: end;
+}
+
+/* --- ROZWIJANY TEKST KRYTERIÓW W NOWYM STYLU --- */
+.full-text {
+    grid-column: 1 / -1; /* zajmuje obie kolumny */
+    display: none;
+    background: #FFFFFF;
+    border: 1px solid #191A23;
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 15px;
+    line-height: 1.6;
+    color: #1F1F1F;
+}
+
 .full-text p {
-  line-height: 1.6;
-  font-size: 1rem;
-  color: #1a1a1a;
+    font-size: 1rem;
+    margin-top: 0; /* usuwa przerwę nad tekstem */
+    margin-bottom: 0.6rem; /* trochę odstępu na dole */
 }
 
 .full-text h4 {
-  margin-top: 1rem;
-  color: #003366;
+    margin-top: 0.8rem;
+	  margin-bottom: 0.4rem; /* dodajemy, żeby tekst był bliżej */
+    font-weight: bold;
+    color: #191A23;
 }
 
-  .show-more-btn {
-  background-color: #003E8A;  /* niebieski */
-  color: white;
-  border: none;
-  padding: 8px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s ease;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* lekki cień */
-  transition: box-shadow 0.3s ease;
+/* --- BUTTONS --- */
+
+
+.show-more-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 12px 20px;
+    gap: 10px;
+    width: auto;
+    height: auto;
+    background: #191A23;
+    color: #FF00FF; /* neonowy tekst */
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
 }
 
 .show-more-btn:hover {
-  background-color: #002C5C;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* cień się trochę powiększa przy najechaniu */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    background-color: #222;
 }
 
 .back-button {
-  background-color: #6c757d; /* szary */
-  color: white;
-  border: none;
-  padding: 8px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-  margin-top: 10px;
-  transition: background-color 0.3s ease;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* lekki cień */
-  transition: box-shadow 0.3s ease;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 .back-button:hover {
-  background-color: #5a6268;
+    background-color: #5a6268;
 }
-/* --- Responsywność --- */
+
+/* --- RESPONSYWNOŚĆ --- */
 @media (max-width: 768px) {
-  body {
-    flex-direction: column;
-    overflow: auto;
-  }
-
-  nav {
-    width: 100%;
-    height: auto;
-    border-right: none;
-    border-bottom: 1px solid #ccc;
-  }
-
-  main {
-    padding: 10px;
-  }
-}
-/* Układ mobilny */
-@media (max-width: 768px) {
-  nav {
-    position: fixed;
-    left: -300px; /* schowane poza ekranem */
-    top: 0;
-    width: 300px;
-    height: 100%;
-    background: #222;
-    transition: left 0.3s ease;
-    z-index: 1000;
-  }
-
-  nav.open {
-    left: 0; /* pokazujemy menu */
-  }
-
-  .menu-toggle {
-    display: block;
-    background: #003E8A;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    font-size: 18px;
-    cursor: pointer;
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    z-index: 1100;
-    border-radius: 5px;
-  }
-
-  main {
-    padding-top: 60px; /* miejsce na przycisk */
-  }
+    body { flex-direction: column; overflow: auto; }
+    nav { width: 100%; height: auto; border-right: none; border-bottom: 1px solid #ccc; }
+    main { padding: 10px; }
+    nav { position: fixed; left: -300px; top: 0; width: 300px; height: 100%; background: #222; transition: left 0.3s ease; z-index: 1000; }
+    nav.open { left: 0; }
+    .menu-toggle {
+        display: block;
+        background: #003E8A;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 5px;
+        font-size: 18px;
+        cursor: pointer;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 1100;
+    }
+    main { padding-top: 60px; }
 }
 
-/* Na większych ekranach ukrywamy przycisk menu */
 @media (min-width: 769px) {
-  .menu-toggle {
-    display: none;
-  }
-
-  nav {
-    position: relative;
-    left: 0;
-    height: auto;
-  }
+    .menu-toggle { display: none; }
+    nav { position: relative; left: 0; height: auto; }
 }
+
 </style>
 </head>
 <body>
@@ -254,20 +256,29 @@ article {
 <main id="main-content">
   <h1>WCAG - Kryteria dostępności stron internetowych</h1>
   
-<div style=" top: 0; background: #fff; padding: 10px; border-radius: 8px; border-bottom: 1px solid #ccc; z-index: 1000;">
+<div style="top: 0; background: #fff; padding: 20px; border-radius: 8px; border-bottom: 1px solid #ccc; z-index: 1000;">
   <p><strong>Wyszukiwanie na stronie</strong></p>
-  <input type="text" id="search" placeholder="Wpisz szukaną frazę..."  autocomplete="off" style="width: 70%; padding: 8px;" />
-  <button id="search-btn" class="show-more-btn">Wyszukaj</button>
+  <div class="search-container" style="display: flex; gap: 10px; align-items: center; width: 100%; max-width: 500px;">
+    <input type="text" id="search" placeholder="Wpisz szukaną frazę..." autocomplete="off" 
+           style="flex: 1; padding: 10px; border-radius: 5px; border: 1px solid #191A23; font-size: 14px;" />
+    <button id="search-btn" class="show-more-btn" style="padding: 10px 20px; height: 100%;">Wyszukaj</button>
+  </div>
   <p id="search-info" style="margin-top: 10px; color: green;"></p>
 </div>
+
   
  <section id="group-1_1" tabindex="-1">
     <h2>1.1 - Tekst alternatywny</h2>
 	
 <article id="k1_1_1">
+ <div>
   <h3>1.1.1 Treść nietekstowa (A)</h3>
+
   <p>Wszystkie obrazki, ikony i inne elementy nietekstowe muszą mieć tekstowy opis.</p>
+ </div>
+   
   <button id="show-more-1_1_1" class="show-more-btn" aria-expanded="false">Przeczytaj więcej o 1.1.1</button>
+  
   <div class="full-text" style="display:none;">
     <p>Na stronach internetowych obok tekstu często pojawiają się różne elementy, takie jak obrazki, filmy, dźwięki, ikony czy wykresy. Dla wielu osób te elementy są bardzo ważne, ponieważ przekazują dodatkowe informacje. Jednak osoby z niepełnosprawnościami, na przykład niewidome lub niedowidzące, mogą mieć trudności z odbiorem takich treści, jeśli nie mają one odpowiednich opisów tekstowych.</p>
 
@@ -323,8 +334,10 @@ article {
     <h2>1.2 - Multimedia</h2>
 	
 <article id="k1_2_1">
+<div>
   <h3>1.2.1 Tylko audio lub tylko wideo (A)</h3>
   <p>Jeśli jest plik audio lub wideo bez dźwięku, trzeba dodać tekstowy opis.</p>
+  </div>
   <button id="show-more-1_2_1" class="show-more-btn">Przeczytaj więcej o 1.2.1</button>
   <div class="full-text" style="display:none;">
     <p>Media oparte na czasie to takie elementy jak filmy, nagrania audio, transmisje na żywo czy animacje, które zmieniają się w czasie i przekazują informacje poprzez obraz i dźwięk. Dla wielu osób dostęp do tych mediów jest bardzo ważny, ale mogą napotkać bariery, jeśli materiały nie są odpowiednio przystosowane.</p>
@@ -373,8 +386,10 @@ article {
   </article>
 
   <article id="k1_2_2" tabindex="-1">
+  <div>
     <h3>1.2.2 Napisy rozszerzone (A)</h3>
     <p>Jeśli na stronie jest nagrane wcześniej wideo z dźwiękiem (np. rozmowa, wykład, film), to musi mieć napisy.</p>
+	</div>
     <button id="show-more-1_2_2" class="show-more-btn">Przeczytaj więcej o 1.2.2</button>
     <div class="full-text" style="display:none;">
       <p>
@@ -412,10 +427,12 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   </article>
 
   <article id="k1_2_3" tabindex="-1">
+  <div>
     <h3>1.2.3 Audiodeskrypcja lub alternatywa dla mediów (A)</h3>
     <p>Jeśli na stronie jest nagrane wideo z obrazem i dźwiękiem (np. film, wywiad), to osoby niewidome 
 	muszą wiedzieć, co się dzieje na ekranie. Dlatego trzeba dodać audiodeskrypcję (czyli lektor opisujący obraz) lub pełny opis tekstowy, 
 	który wyjaśnia całą akcję.</p>
+	</div>
     <button id="show-more-1_2_3" class="show-more-btn">Przeczytaj więcej o 1.2.3</button>
     <div class="full-text" style="display:none;">
       
@@ -449,10 +466,12 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <li>Możesz też dodać osobny, szczegółowy opis w formie tekstu, jeśli opis audio nie jest możliwy.</li>
   </ul>
 
-  <p><strong>Kto tego potrzebuje?</strong><br>
-  - Osoby niewidome lub słabowidzące<br>
-  - Osoby mające trudności z rozumieniem informacji wizualnych</p>
-
+  <p><strong>Kto tego potrzebuje?</strong>
+  <ul>
+  <li>soby niewidome lub słabowidzące</li>
+  <li>Osoby mające trudności z rozumieniem informacji wizualnych</li>
+	</ul>
+	
   <h4>Przykłady błędów 1.2.3</h4>
   <ul>
     <li>Wideo pokazuje ważne rzeczy wizualne (np. postacie gestykulują, zmieniają miejsce), ale nie ma opisu dźwiękowego ani tekstowego.</li>
@@ -2318,95 +2337,1791 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
 <section id="group-2_4" tabindex="-1">
     <h2>2.4 - Nawigacja</h2>
 
-  <article id="k2_4_1" tabindex="-1">
-    <h3>2.4.1 Bloki nawigacji (A)</h3>
-    <p>Pomóż użytkownikom łatwo ominąć powtarzające się bloki.</p>
-    <button id="show-more-2_4_1" class="show-more-btn">Przeczytaj więcej o 2.4.1</button>
-    <div class="full-text" style="display:none;">
-      <p>Zapewnij sposób na szybkie pominięcie powtarzających się elementów, np. link "Przejdź do treści".</p>
-      <button class="back-button">Zwiń opis</button>
-    </div>
-  </article>
+ <article id="k2_4_1">
+  <h3>2.4.1 Możliwość pominięcia bloków (A)</h3>
+  <p>Użytkownik powinien móc łatwo pominąć powtarzające się elementy strony, takie jak menu czy nagłówki, i szybko przejść do głównej treści.</p>
+  
+  <button id="show-more-2_4_1" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 2.4.1
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>To kryterium polega na tym, by osoby korzystające z technologii asystujących (np. czytników ekranu czy nawigacji klawiaturą) mogły szybko ominąć powtarzalne fragmenty strony, takie jak menu, banery czy wyszukiwarki, i przejść od razu do głównej zawartości.</p>
 
-  <article id="k2_4_4" tabindex="-1">
-    <h3>2.4.4 Nagłówki i etykiety (AA)</h3>
-    <p><strong>Krótkie:</strong> Nagłówki i etykiety są jasne i pomocne.</p>
-   <button id="show-more-2_4_4" class="show-more-btn">Przeczytaj więcej o 2.4.4</button>
-    <div class="full-text" style="display:none;">
-      <p>Nagłówki i etykiety muszą jasno opisywać temat lub cel elementu, aby łatwo się po nich poruszać.</p>
-      <button class="back-button">Zwiń opis</button>
-    </div>
-  </article>
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Dzięki temu użytkownicy nie muszą za każdym razem przechodzić przez te same elementy, co oszczędza czas i zmniejsza frustrację. Bez takiej możliwości osoby z niepełnosprawnościami mogą mieć trudności w dotarciu do najważniejszych informacji na stronie.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby niewidome, korzystające z czytników ekranu</li>
+      <li>Osoby z ograniczoną mobilnością, korzystające z klawiatury</li>
+      <li>Osoby słabowidzące, używające powiększenia ekranu</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Dodaj link „Przejdź do treści” widoczny po najechaniu lub uzyskaniu fokusu klawiaturą</li>
+      <li>Używaj znaczników HTML5 takich jak <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code></li>
+      <li>Rozważ mini spis treści lub linki do sekcji na początku strony</li>
+      <li>W menu stosuj opcję zwijania i rozwijania</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Użytkownicy szybciej docierają do treści, strona jest wygodniejsza w obsłudze, a poziom dostępności wzrasta, co sprzyja wszystkim odbiorcom.</p>
+
+    <h4>Przykłady błędów 2.4.1</h4>
+    <ul>
+      <li>Brak linku „Przejdź do treści” na początku strony</li>
+      <li>Menu, które trzeba w całości przewijać, zanim dotrze się do treści</li>
+    </ul>
+
+    <h4>Komentarze do audytu 2.4.1</h4>
+    <ul>
+      <li>Na stronie brak mechanizmu pozwalającego pominąć powtarzające się bloki</li>
+      <li>Istniejący link „Przejdź do treści” nie działa prawidłowo</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+<article id="k2_4_2">
+  <h3>2.4.2 Tytuł strony(A)</h3>
+  <p>Każda strona powinna mieć unikalny i opisowy tytuł, który jasno mówi, o czym jest strona. Dzięki temu użytkownicy i wyszukiwarki łatwiej zrozumieją jej zawartość.</p>
+  
+  <button id="show-more-2_4_2" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 2.4.2
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>To kryterium wymaga, aby w kodzie strony w znaczniku <code>&lt;title&gt;</code> znajdował się krótki, unikalny opis treści danej podstrony. Tytuł powinien od razu informować użytkownika, czego dotyczy strona, nawet jeśli nie widzi jej zawartości.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Tytuł strony jest pierwszą informacją, jaką widzi (lub słyszy) użytkownik. Pomaga w nawigacji, odnajdywaniu treści i zapamiętywaniu, gdzie się znajduje — szczególnie gdy ma otwartych wiele kart w przeglądarce.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby niewidome i słabowidzące, korzystające z czytników ekranu</li>
+      <li>Osoby z trudnościami poznawczymi, potrzebujące jasnych wskazówek</li>
+      <li>Osoby z ograniczoną mobilnością, używające nawigacji głosowej</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Upewnij się, że w sekcji <code>&lt;head&gt;</code> znajduje się unikalny tag <code>&lt;title&gt;</code></li>
+      <li>Stosuj format: „Tytuł podstrony – nazwa głównej strony”</li>
+      <li>Twórz tytuły, które jasno odzwierciedlają zawartość</li>
+      <li>Unikaj zbyt ogólnych określeń typu „Strona główna” lub „Untitled”</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Łatwiejsza nawigacja po stronie, lepsza dostępność, wyższa pozycja w wynikach wyszukiwania i lepsze doświadczenie dla wszystkich użytkowników.</p>
+
+    <h4>Przykłady błędów 2.4.2</h4>
+    <ul>
+      <li>Pusty tag <code>&lt;title&gt;</code></li>
+      <li>Tytuł zbyt ogólny, np. „Strona główna”</li>
+      <li>Powtarzające się identyczne tytuły na wielu stronach</li>
+      <li>Tytuł nie odpowiada treści strony</li>
+    </ul>
+
+    <h4>Komentarze do audytu 2.4.2</h4>
+    <ul>
+      <li>Brak unikalnych i opisowych tytułów</li>
+      <li>Zalecany format: „Tytuł zawartości podstrony – nazwa głównej strony”</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+<article id="k2_4_3">
+  <h3>2.4.3 Kolejność fokusu (A)</h3>
+  <p>Kolejność przechodzenia fokusu (np. klawiszem Tab) po stronie powinna być logiczna i przewidywalna, zgodna z układem treści na stronie.</p>
+  
+  <button id="show-more-2_4_3" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 2.4.3
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Podczas nawigacji klawiaturą fokus powinien przechodzić po elementach w takiej kolejności, w jakiej są one przedstawione wizualnie i logicznie. Ułatwia to korzystanie ze strony osobom, które nie posługują się myszką.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Nielogiczny porządek fokusu dezorientuje użytkowników i utrudnia im dotarcie do potrzebnych elementów. Prawidłowa kolejność zapewnia płynną, intuicyjną nawigację i pozwala zachować kontekst treści.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z ograniczoną mobilnością, korzystające z klawiatury</li>
+      <li>Osoby niewidome lub słabowidzące, używające czytników ekranu</li>
+      <li>Osoby z trudnościami poznawczymi, które potrzebują przewidywalnej nawigacji</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Układaj elementy interaktywne w kodzie HTML w kolejności zgodnej z układem wizualnym</li>
+      <li>Unikaj nadawania dodatnich wartości <code>tabindex</code>, stosuj tylko <code>tabindex="0"</code></li>
+      <li>Zapewnij logiczną kolejność pól w formularzach</li>
+      <li>W przypadku modali lub popupów ustaw fokus na ich treści i blokuj możliwość przechodzenia poza nie, a po zamknięciu przywracaj fokus do elementu wywołującego</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Użytkownicy mogą łatwiej i szybciej korzystać ze strony, nie tracąc orientacji. Strona staje się bardziej dostępna dla osób z różnymi potrzebami.</p>
+
+    <h4>Przykłady błędów 2.4.3</h4>
+    <ul>
+      <li>Fokus przeskakuje w losowe miejsca na stronie</li>
+      <li>Elementy ważne są pomijane podczas tabulacji</li>
+      <li>Elementy ukryte są dostępne dla fokusu</li>
+    </ul>
+
+    <h4>Komentarze do audytu 2.4.3</h4>
+    <ul>
+      <li>Zdublowany fokus na elementach interaktywnych</li>
+      <li>Nielogiczna kolejność tabulacji w stosunku do układu wizualnego</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k2_4_4">
+  <h3>2.4.4 Cel łącza (A)</h3>
+  <p>Każdy link powinien jasno mówić, dokąd prowadzi lub co robi – nawet jeśli czytamy go osobno, bez reszty tekstu.</p>
+  
+  <button id="show-more-2_4_4" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 2.4.4
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Cel linku powinien być zrozumiały bez konieczności zgadywania. Osoba korzystająca z czytnika ekranu powinna móc zdecydować, czy chce go kliknąć, na podstawie samego tekstu linku lub jego najbliższego kontekstu.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Niejasne linki dezorientują użytkowników i utrudniają nawigację. Zamiast przewidywalnego działania mamy efekt „drzwi do nie wiadomo gdzie”. Dla osób niewidomych lub słabowidzących to szczególnie frustrujące, bo często słuchają listy samych linków, bez otaczającego tekstu.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z ograniczoną mobilnością – mogą uniknąć zbędnych kliknięć i skrócić drogę do celu</li>
+      <li>Osoby z trudnościami poznawczymi – jasne linki zmniejszają ryzyko dezorientacji</li>
+      <li>Osoby niewidome lub słabowidzące – czytniki ekranu mogą czytać linki w izolacji</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Używaj opisowych tekstów linków, np. <code>&lt;a&gt;Pobierz raport w PDF (2&nbsp;MB)&lt;/a&gt;</code> zamiast „Kliknij tutaj”</li>
+      <li>Jeśli link jest w zdaniu, upewnij się, że kontekst zdania jasno określa jego cel</li>
+      <li>Jeśli link jest tylko ikoną, dodaj <code>alt</code> lub <code>aria-label</code> z opisem</li>
+      <li>Unikaj powielania tych samych tekstów linków, jeśli prowadzą w różne miejsca</li>
+      <li>Dla plików podawaj format i rozmiar (np. „PDF, 2&nbsp;MB”)</li>
+      <li>Jeżeli obrazek i tekst prowadzą w to samo miejsce – umieść je razem w jednym linku</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Użytkownicy szybko rozumieją, co zrobi link, i mogą łatwiej podjąć decyzję, czy w niego kliknąć. Strona staje się bardziej przyjazna i przewidywalna.</p>
+
+    <h4>Przykłady błędów 2.4.4</h4>
+    <ul>
+      <li>„Kliknij tutaj” lub „Więcej” bez dodatkowego opisu</li>
+      <li>Ikona linku bez tekstu lub opisu alternatywnego</li>
+      <li>Ten sam tekst linku prowadzący w różne miejsca</li>
+      <li>Link do pliku bez informacji o formacie i rozmiarze</li>
+      <li>Pusty link (brak treści tekstowej lub alternatywy)</li>
+      <li>Atrybut <code>title</code> powielający dokładnie treść linku</li>
+    </ul>
+
+    <h4>Komentarze do audytu 2.4.4</h4>
+    <ul>
+      <li>Nadmierne użycie <code>title</code> bez dodatkowych informacji</li>
+      <li>Brak ostrzeżenia o otwieraniu nowego okna/karty</li>
+      <li>Nieunikalna treść linków</li>
+      <li>Brak informacji o formacie i rozmiarze pobieranych plików</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k2_4_5">
+  <h3>2.4.5 Wiele dróg (AA)</h3>
+  <p>Użytkownik powinien móc dotrzeć do każdej ważnej treści na stronie na co najmniej dwa różne sposoby, np. przez menu i wyszukiwarkę.</p>
+  
+  <button id="show-more-2_4_5" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 2.4.5
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>To kryterium wymaga, aby użytkownicy mogli znaleźć istotne strony lub treści w więcej niż jeden sposób. Mogą to być: menu główne, wyszukiwarka, mapa strony, spis treści, breadcrumbs lub linki w treści. Dzięki temu różni użytkownicy mogą wybrać metodę, która jest dla nich najwygodniejsza.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Nie każdy korzysta z witryny w ten sam sposób. Osoby z niepełnosprawnościami wzroku, trudnościami poznawczymi czy ograniczeniami ruchowymi potrzebują alternatywnych dróg dotarcia do treści, aby poruszać się po stronie szybko i bez frustracji.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z ograniczeniami wzroku</li>
+      <li>Osoby z ograniczeniami ruchowymi</li>
+      <li>Osoby z trudnościami poznawczymi</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Dodaj co najmniej dwie metody dostępu do każdej ważnej treści (np. menu + wyszukiwarka).</li>
+      <li>Uwzględnij mapę strony lub spis treści.</li>
+      <li>Dodaj breadcrumbs, aby pokazać położenie w strukturze witryny.</li>
+      <li>Umieszczaj linki do powiązanych treści w artykułach.</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Użytkownicy łatwiej odnajdują treści, mniej się gubią i mogą korzystać z metody, która najlepiej odpowiada ich potrzebom.</p>
+
+    <h4>Przykłady błędów 2.4.5</h4>
+    <ul>
+      <li>Brak wyszukiwarki i brak mapy strony.</li>
+      <li>Ukrycie kluczowych sekcji wyłącznie w rozwijanym menu.</li>
+      <li>Brak alternatywnych linków do tej samej treści w innych miejscach serwisu.</li>
+    </ul>
+
+    <h4>Komentarze do audytu 2.4.5</h4>
+    <ul>
+      <li>Brak alternatywnych dróg dostępu do ważnych sekcji strony.</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k2_4_6">
+  <h3>2.4.6 Nagłówki i etykiety (AA)</h3>
+  <p>Nagłówki i etykiety powinny być jasne i opisowe, aby użytkownik łatwo zrozumiał strukturę strony i funkcję elementów.</p>
+  
+  <button id="show-more-2_4_6" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 2.4.6
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Kryterium to wymaga, aby nagłówki wyraźnie opisywały treść sekcji, a etykiety formularzy i przycisków jasno informowały, co należy wpisać lub jaka akcja zostanie wykonana. Dzięki temu użytkownik szybciej odnajduje informacje i łatwiej korzysta z interaktywnych elementów.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Niejasne nagłówki i etykiety utrudniają orientację na stronie, mogą wprowadzać w błąd i zwiększać frustrację użytkownika. Szczególnie osoby korzystające z czytników ekranu oraz osoby z trudnościami poznawczymi potrzebują precyzyjnych wskazówek.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z ograniczeniami wzroku</li>
+      <li>Osoby z trudnościami w czytaniu i uczeniu się</li>
+      <li>Osoby z ograniczeniami ruchowymi korzystające z technologii wspomagających</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Używaj nagłówków, które jasno opisują zawartość sekcji, np. zamiast „Kliknij tutaj” użyj „Kontakt z działem obsługi”.</li>
+      <li>Formularze oznaczaj czytelnymi etykietami, np. zamiast „Pole1” użyj „Adres e-mail”.</li>
+      <li>Upewnij się, że nagłówki i etykiety odpowiadają rzeczywistej zawartości strony lub funkcji elementu.</li>
+      <li>Łącz to z poprawnym oznaczeniem struktury strony i roli elementów dla technologii wspomagających.</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Strona staje się bardziej przejrzysta i intuicyjna, użytkownicy szybciej znajdują potrzebne informacje, a korzystanie z formularzy i przycisków jest bezbłędne i mniej stresujące.</p>
+
+    <h4>Przykłady błędów 2.4.6</h4>
+    <ul>
+      <li>Nagłówki są niejasne, np. „Kliknij tutaj” zamiast „Kontakt z działem obsługi”.</li>
+      <li>Etykiety przy formularzach są puste lub nieopisowe, np. „Pole1”.</li>
+      <li>Nagłówki lub etykiety nie pasują do zawartości lub są mylące.</li>
+    </ul>
+
+    <h4>Komentarze do audytu 2.4.6</h4>
+    <ul>
+      <li>Nagłówki na stronie są zbyt ogólne i nie pomagają użytkownikowi zorientować się w strukturze treści.</li>
+      <li>Etykiety formularzy są nieczytelne lub brak ich wcale, co utrudnia korzystanie z formularzy.</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k2_4_7">
+  <h3>2.4.7 Widoczny fokus (AA)</h3>
+  <p>Elementy interaktywne muszą mieć wyraźny wskaźnik fokusu, aby użytkownik wiedział, który element jest aktywny podczas nawigacji klawiaturą.</p>
+  
+  <button id="show-more-2_4_7" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 2.4.7
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Kryterium to wymaga, aby przyciski, linki i pola formularzy były wizualnie wyróżnione, gdy są w fokusie. Dzięki temu osoby korzystające z klawiatury mogą łatwo śledzić, który element aktualnie obsługują.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Brak widocznego fokusu sprawia, że użytkownik poruszający się po stronie klawiaturą może stracić orientację i nie wiedzieć, gdzie znajduje się aktualnie na stronie. Wyraźny fokus zwiększa pewność i komfort nawigacji.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z ograniczeniami ruchowymi korzystające z klawiatury</li>
+      <li>Osoby z zaburzeniami wzroku, które polegają na wizualnym wskaźniku fokusu</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Dodaj widoczny styl fokusu dla wszystkich elementów interaktywnych, np. obramowanie, podświetlenie lub zmiana koloru tła.</li>
+      <li>Upewnij się, że wskaźnik fokusu jest wyraźny i kontrastowy w stosunku do tła.</li>
+      <li>Testuj nawigację po stronie wyłącznie klawiaturą, aby upewnić się, że fokus jest widoczny na wszystkich elementach.</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Użytkownicy mogą łatwiej i bezpieczniej poruszać się po stronie bez użycia myszy, a dostępność serwisu wzrasta dla osób z różnymi niepełnosprawnościami.</p>
+
+    <h4>Przykłady błędów 2.4.7</h4>
+    <ul>
+      <li>Brak widocznego wskaźnika fokusu na przyciskach lub linkach.</li>
+      <li>Fokus jest słabo kontrastowy i trudno zauważalny.</li>
+      <li>Niektóre elementy interaktywne w ogóle nie reagują na fokus klawiatury.</li>
+    </ul>
+
+    <h4>Komentarze do audytu 2.4.7</h4>
+    <ul>
+      <li>Brak widocznego wskaźnika fokusu na części elementów interaktywnych.</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k2_4_8">
+  <h3>2.4.8 Lokalizacja (AAA)</h3>
+  <p>Użytkownik powinien zawsze wiedzieć, w którym miejscu zestawu stron internetowych się znajduje.</p>
+  
+  <button id="show-more-2_4_8" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 2.4.8
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Kryterium to zapewnia, że osoby korzystające z serwisu internetowego mają jasną informację o swojej lokalizacji w strukturze strony lub zestawie stron. Dzięki temu mogą łatwo zorientować się, gdzie są i jak wrócić do poprzednich sekcji.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Brak informacji o lokalizacji sprawia, że użytkownicy mogą się zgubić, szczególnie w dużych witrynach lub przy korzystaniu z wielopoziomowych menu. Wyraźna lokalizacja ułatwia orientację i zmniejsza frustrację.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z ograniczeniami poznawczymi, które potrzebują wskaźników orientacyjnych</li>
+      <li>Osoby korzystające z technologii wspomagających, np. czytników ekranu</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Dodaj widoczną ścieżkę nawigacyjną, np. breadcrumbs, aby pokazać użytkownikowi, gdzie się znajduje.</li>
+      <li>Wyraźnie oznacz aktywną sekcję w menu lub spisie treści.</li>
+      <li>Używaj nagłówków i tytułów stron, które jasno wskazują bieżące miejsce w serwisie.</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Użytkownicy mogą szybko zrozumieć strukturę serwisu, odnaleźć potrzebne treści i wrócić do wcześniejszych sekcji bez zagubienia.</p>
+
+    <h4>Przykłady błędów 2.4.8</h4>
+    <ul>
+      <li>Brak breadcrumbs lub innych wskaźników lokalizacji w serwisie.</li>
+      <li>Niejasne nagłówki lub brak tytułów wskazujących położenie w strukturze strony.</li>
+      <li>Menu lub spis treści nie pokazują aktywnej strony lub sekcji.</li>
+    </ul>
+
+    <h4>Komentarze do audytu 2.4.8</h4>
+    <ul>
+      <li>Użytkownik nie ma jasnej informacji, w którym miejscu witryny się znajduje.</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k2_4_9">
+  <h3>2.4.9 Cel łącza (z samego łącza) (AAA)</h3>
+  <p>Każdy link musi mieć jasno określony cel, który wynika wprost z jego treści, bez konieczności odczytywania kontekstu otaczającego.</p>
+  
+  <button id="show-more-2_4_9" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 2.4.9
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <h4>Co to jest?</h4>
+    <p>Linki w serwisach internetowych powinny być jasne i pomocne, tak aby sama treść linku wskazywała jego cel. Nie mogą polegać na otaczającym kontekście, aby użytkownicy korzystający z czytników ekranu mogli zrozumieć, dokąd prowadzi dany link.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Niejasne linki mogą frustrować użytkowników, którzy nie wiedzą, gdzie link prowadzi. Jasne linki ułatwiają podjęcie decyzji o kliknięciu i sprawiają, że nawigacja staje się prostsza i bardziej efektywna.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z ograniczeniami motorycznymi – mogą szybciej pominąć nieistotne linki.</li>
+      <li>Osoby z niepełnosprawnością poznawczą – jasne linki pomagają uniknąć dezorientacji.</li>
+      <li>Osoby z ograniczonym wzrokiem – linki muszą być zrozumiałe dla czytników ekranu.</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Używaj opisowego tekstu linku, np. „Pobierz raport o środowisku życiowym mrównika (PDF)” zamiast samego „Pobierz”.</li>
+      <li>Zachowuj spójność nazw linków prowadzących do tego samego miejsca.</li>
+      <li>Link i tytuł strony docelowej powinny być podobne, aby użytkownik wiedział, dokąd trafia.</li>
+      <li>Linki graficzne powinny mieć atrybut <code>alt</code> opisujący ich cel. Jeśli dołączony jest opis tekstowy, <code>alt</code> może być pusty.</li>
+      <li>Można użyć ukrytego tekstu dla screen readerów (<code>visually-hidden</code>) lub atrybutu <code>aria-label</code>, jeśli link nie ma widocznego tekstu opisowego.</li>
+    </ul>
+
+    <h4>Przykłady</h4>
+    <p>Niepoprawnie: <code>&lt;a href="/report"&gt;Pobierz&lt;/a&gt;</code><br>
+       Poprawnie: <code>&lt;a href="/report"&gt;Pobierz raport o mrównikach 2025 (PDF)&lt;/a&gt;</code></p>
+
+    <h4>Komentarz do audytu 2.4.9</h4>
+    <ul>
+      <li>Niektóre linki nie mają jasnego celu określonego w samym tekście, co utrudnia orientację użytkownikom korzystającym z czytników ekranu.</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k2_4_10">
+  <h3>2.4.10 Nagłówki sekcji (AAA)</h3>
+  <p>Nagłówki sekcji porządkują treść, ułatwiając użytkownikom zrozumienie struktury strony i szybkie odnalezienie informacji.</p>
+  
+  <button id="show-more-2_4_10" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 2.4.10
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Nagłówki sekcji pomagają podzielić treść na czytelne części. Dzięki nim użytkownicy mogą łatwo zorientować się w strukturze strony i szybko znaleźć potrzebne informacje. Nagłówki powinny być krótkie, konkretne i stosowane w logicznej hierarchii.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Bez nagłówków użytkownicy mogą się zgubić lub nie znaleźć potrzebnych informacji. Nagłówki pomagają zrozumieć układ strony i ułatwiają korzystanie z technologii wspomagających, takich jak czytniki ekranowe.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby niewidome i korzystające z czytników ekranowych</li>
+      <li>Osoby z niepełnosprawnościami poznawczymi</li>
+      <li>Osoby z ograniczoną mobilnością używające klawiatury lub poleceń głosowych</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Używaj nagłówków sekcji, aby wyraźnie podzielić treść</li>
+      <li>Zachowaj logiczną hierarchię nagłówków (<code>&lt;h1&gt;</code> → <code>&lt;h2&gt;</code> → <code>&lt;h3&gt;</code>)</li>
+      <li>Twórz nagłówki krótkie, informacyjne i zrozumiałe</li>
+      <li>Oznaczaj nagłówkami również treści niebędące tekstem, np. grafiki lub wideo</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Dzięki nagłówkom użytkownicy szybciej odnajdują informacje, łatwiej przetwarzają treść i mogą korzystać ze strony efektywnie niezależnie od swoich ograniczeń.</p>
+
+    <h4>Przykłady błędów 2.4.10</h4>
+    <ul>
+      <li>Brak nagłówków sekcji na stronie długiej lub złożonej</li>
+      <li>Nagłówki w złej hierarchii (<code>&lt;h3&gt;</code> bez wcześniejszego <code>&lt;h2&gt;</code>)</li>
+      <li>Nieinformacyjne nagłówki typu „Sekcja 1” lub „Część A”</li>
+    </ul>
+
+    <h4>Komentarze do audytu 2.4.10</h4>
+    <ul>
+  <li>Brakuje nagłówków dla wszystkich sekcji tekstu</li>
+  <li>Nagłówki są w złej hierarchii</li>
+  <li>Nagłówki są nieinformacyjne lub ogólne</li>
+</ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+  
+</article>
 </section>
 
 <section id="group-2_5" tabindex="-1">
+
     <h2>2.5 - Metody obsługi</h2>
+<article id="k2_5_1">
+  <h3>2.5.1 Gesty punktowe (A)</h3>
+  <p>Strona nie powinna wymagać wykonywania skomplikowanych gestów dotykowych. Funkcje powinny być dostępne przy prostych dotknięciach lub alternatywnych metodach nawigacji.</p>
+  
+  <button id="show-more-2_5_1" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 2.5.1
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Kryterium 2.5.1 dotyczy gestów punktowych, takich jak przesuwanie palcem, szczypanie czy rysowanie. Wszystkie funkcje dostępne za pomocą takich gestów powinny mieć prostszą alternatywę, np. kliknięcie lub dotknięcie jednym palcem.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Wielu użytkowników nie może wykonać gestów wielopunktowych lub ścieżkowych. Umożliwienie prostych interakcji zwiększa dostępność i komfort korzystania ze strony.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z ograniczoną sprawnością manualną lub motoryczną</li>
+      <li>Osoby z niepełnosprawnością poznawczą</li>
+      <li>Osoby z ograniczonym widzeniem</li>
+      <li>Osoby niewidome</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Dodaj alternatywne sposoby obsługi dla gestów ścieżkowych, np. przyciski lub pojedyncze dotknięcia.</li>
+      <li>Upewnij się, że suwaki i elementy przesuwane działają również przy kliknięciach lub dotknięciach jednym palcem.</li>
+      <li>W przypadku map lub karuzel dodaj przyciski do nawigacji i powiększania zamiast wymagania szczypania lub przesuwania palcami.</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Wdrożenie tego kryterium pozwala użytkownikom z różnymi ograniczeniami korzystać ze strony bez przeszkód, poprawia użyteczność i zmniejsza frustrację.</p>
+
+    <h4>Przykłady błędów 2.5.1</h4>
+    <ul>
+      <li>Konieczność wykonania gestu przesunięcia dwoma palcami do aktywacji funkcji.</li>
+      <li>Elementy interaktywne działają tylko przy użyciu złożonych gestów.</li>
+      <li>Brak alternatywy dla gestów wielopunktowych.</li>
+    </ul>
+
+    <h4>Komentarze do audytu 2.5.1</h4>
+    <ul>
+      <li>Wykryto elementy wymagające złożonych gestów dotykowych, co utrudnia lub uniemożliwia dostęp użytkownikom z ograniczoną sprawnością manualną.</li>
+      <li>Brak alternatywnych sposobów sterowania dla gestów ścieżkowych i wielopunktowych.</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k2_5_2">
+  <h3>2.5.2 Anulowanie kliknięcia (A)</h3>
+  <p>Użytkownik powinien mieć możliwość anulowania lub zatrzymania akcji, którą rozpoczął dotknięciem ekranu, zanim zostanie ona w pełni wykonana.</p>
+  
+  <button id="show-more-2_5_2" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 2.5.2
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Akcje uruchamiane przypadkowo mogą powodować błędy i frustrację, szczególnie u użytkowników z niepełnosprawnością wzrokową, ruchową lub poznawczą. Aktywacja powinna następować po zwolnieniu przycisku lub palca (up-event), aby zapobiec niezamierzonym działaniom.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z ograniczonym widzeniem</li>
+      <li>Osoby z ograniczoną sprawnością manualną</li>
+      <li>Osoby z niepełnosprawnością poznawczą</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Upewnij się, że funkcjonalność sterowana pojedynczym kliknięciem lub dotknięciem uruchamia się dopiero po up-event (zwolnieniu przycisku lub palca).</li>
+      <li>Jeżeli używasz down-event, zapewnij możliwość anulowania lub cofnięcia akcji, np. przycisk „Cofnij” lub okno potwierdzenia.</li>
+      <li>Dla elementów przeciąganych (drag & drop) umożliw użytkownikowi przerwanie akcji poprzez puszczenie elementu poza obszarem docelowym lub cofnięcie go po up-event.</li>
+    </ul>
+
+    <h4>Przykłady błędów 2.5.2</h4>
+    <ul>
+      <li>Brak możliwości przerwania działania po dotknięciu, np. przesunięcie elementu lub przeciągnięcie bez opcji cofnięcia.</li>
+      <li>Elementy interaktywne natychmiast wykonują akcję bez szansy na anulowanie.</li>
+      <li>Brak opcji „cofnij” lub przerwania gestu.</li>
+    </ul>
+
+    <h4>Komentarz do audytu 2.5.2</h4>
+    <ul>
+      <li>Nie znaleziono możliwości anulowania rozpoczętych działań dotykowych, co może powodować problemy u użytkowników z ograniczoną precyzją ruchów.</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Implementacja przewidywalnego anulowania działań zwiększa dostępność strony dla wszystkich użytkowników, zwłaszcza tych z ograniczeniami wzroku i poznawczymi, oraz minimalizuje ryzyko frustracji spowodowanej przypadkowymi akcjami.</p>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k2_5_3">
+  <h3>2.5.3 Etykieta w nazwie (A)</h3>
+  <p>Jeśli przycisk lub pole ma widoczną etykietę (np. „Szukaj”), to ta sama fraza powinna być zawarta w nazwie programistycznej elementu, czyli tym, co odczytują czytniki ekranu (np. aria-label, alt, name).</p>
+  
+  <button id="show-more-2_5_3" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 2.5.3
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Spójność między widoczną etykietą a nazwą programistyczną poprawia doświadczenie użytkowników korzystających z technologii wspomagających. Pozwala im w łatwy sposób aktywować elementy, np. poprzez rozpoznawanie mowy, oraz zapewnia zgodność między tym, co widzą, a tym, co słyszą.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z ograniczoną mobilnością korzystające z rozpoznawania mowy</li>
+      <li>Osoby niewidome używające czytników ekranu</li>
+      <li>Osoby z niepełnosprawnością poznawczą</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Upewnij się, że widoczny tekst etykiety kontrolki lub komponentu pasuje do jego nazwy programistycznej (accessible name).</li>
+      <li>Sprawdź elementy takie jak: przyciski, pola formularzy, linki, pola wyszukiwania, niestandardowe komponenty z aria-label lub aria-labelledby.</li>
+      <li>Jeśli używasz aria-label lub aria-labelledby, upewnij się, że nazwa programistyczna zawiera dokładny widoczny tekst etykiety.</li>
+      <li>Pozycjonuj etykiety w standardowy sposób:
+        <ul>
+          <li>Powyżej lub po lewej dla combo-boxów, pól tekstowych</li>
+          <li>Po prawej dla checkboxów i radio buttonów</li>
+          <li>Wewnątrz przycisków i zakładek</li>
+          <li>Poniżej ikon pełniących rolę przycisków</li>
+        </ul>
+      </li>
+      <li>Sprawdź nazwy dostępności (accessible name) przy użyciu narzędzi wbudowanych w przeglądarki, np. Chrome Accessibility Inspector.</li>
+    </ul>
 	
-  <article id="k2_5_1" tabindex="-1">
-    <h3>2.5.1 Wprowadzanie danych (A)</h3>
-    <p><strong>Krótkie:</strong> Można korzystać z różnych metod wprowadzania danych.</p>
-    <button id="show-more-2_5_1" class="show-more-btn">Przeczytaj więcej o 2.5.1</button>
-    <div class="full-text" style="display:none;">
-      <p>Użytkownicy mogą wprowadzać dane różnymi sposobami (np. klawiatura, głos, gesty) bez problemów.</p>
-      <button class="back-button">Zwiń opis</button>
-    </div>
-  </article>
+ <h4>Korzyści</h4>
+    <p>Ujednolicenie widocznych etykiet z nazwami programistycznymi zwiększa dostępność dla osób korzystających z rozpoznawania mowy i czytników ekranu, redukuje zamieszanie oraz ułatwia zrozumienie funkcji elementów dla wszystkich użytkowników.</p>
+
+    <h4>Przykłady błędów 2.5.3</h4>
+    <ul>
+      <li>Przycisk wizualnie opisany jako „Szukaj”, ale aria-label="Znajdź".</li>
+      <li>Etykieta „Wyślij”, a programistyczna nazwa „Zatwierdź formularz”.</li>
+      <li>Brak zgodności między widocznym tekstem a tym, co odczytuje technologia wspomagająca.</li>
+    </ul>
+
+    <h4>Komentarz do audytu 2.5.3</h4>
+    <ul>
+      <li>Element „[nazwa przycisku]” ma etykietę „X”, ale aria-label to „Y” - należy je ujednolicić, aby zapewnić spójność i lepszą dostępność.</li>
+    </ul>
+
+  
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k2_5_4">
+  <h3>2.5.4 Aktywowanie ruchem (A)</h3>
+  <p>Jeśli jakaś funkcja na stronie uruchamiana jest przez ruch urządzeniem (np. potrząśnięcie telefonem, przechylenie), to musi istnieć alternatywny sposób aktywacji, np. przycisk.</p>
+  
+  <button id="show-more-2_5_4" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 2.5.4
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Nie wszyscy użytkownicy mogą wykonywać określone ruchy urządzeniem, takie jak potrząsanie, przechylanie czy gesty. Poleganie wyłącznie na takich interakcjach może uniemożliwić dostęp do funkcji lub treści, co prowadzi do frustracji i barier w użytkowaniu.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z ograniczoną mobilnością lub niepełnosprawnością ruchową</li>
+      <li>Osoby z problemami motorycznymi, np. drżenia rąk (Parkinson, porażenie mózgowe)</li>
+      <li>Osoby słabo widzące lub niewidome</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Zapewnij alternatywne metody sterowania funkcją aktywowaną ruchem – np. przyciski lub linki realizujące tę samą akcję.</li>
+      <li>Daj możliwość wyłączenia funkcji sterowanych ruchem, aby uniknąć przypadkowych uruchomień.</li>
+      <li>Uwzględniaj ustawienia systemowe urządzeń, które pozwalają użytkownikom wyłączyć gesty ruchowe (np. „Shake to Undo” w iOS, Motions and gestures w Androidzie).</li>
+      <li>Sprawdź działanie wszystkich funkcji ruchowych na tabletach i smartfonach, aby upewnić się, że alternatywne sterowanie działa poprawnie.</li>
+    </ul>
+	
+	 <h4>Korzyści</h4>
+    <p>Zapewnienie alternatywnych metod sterowania oraz możliwości wyłączenia aktywacji ruchem zwiększa dostępność, redukuje przypadkowe uruchomienia funkcji i umożliwia wszystkim użytkownikom wygodne korzystanie z interaktywnych elementów strony.</p>
+
+
+    <h4>Przykłady błędów 2.5.4</h4>
+    <ul>
+      <li>Potrząśnięcie telefonem wywołuje akcję, ale brak przycisku do wykonania tego samego.</li>
+      <li>Przechylenie urządzenia zmienia widok lub aktywuje funkcję bez możliwości innego sposobu obsługi.</li>
+      <li>Brak możliwości wyłączenia funkcji sterowanych ruchem.</li>
+    </ul>
+
+    <h4>Komentarz do audytu 2.5.4</h4>
+    <ul>
+      <li>Strona zawiera funkcje sterowane ruchem, ale brakuje alternatywnych metod obsługi dla osób, które nie mogą korzystać z takich gestów.</li>
+    </ul>
+
+   
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k2_5_5">
+  <h3>2.5.5 Rozmiar celu dotykowego (AAA)</h3>
+  <p>Rozmiar celu punktu dotykowego wynosi co najmniej 44×44 piksele CSS, chyba że spełnione są wyjątki: cel jest częścią tekstu, ma odpowiednik o odpowiednim rozmiarze lub rozmiar jest istotny dla prezentacji.</p>
+  
+  <button id="show-more-2_5_5" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 2.5.5
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Małe przyciski i linki są trudne do kliknięcia, zwłaszcza na ekranach dotykowych. Jeśli są umieszczone blisko siebie, łatwo przypadkowo wybrać zły element.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z ograniczeniami ruchowymi (drżenie rąk, problemy z precyzją)</li>
+      <li>Użytkownicy mniejszych ekranów (telefony, tablety)</li>
+      <li>Osoby w niestabilnym środowisku (np. w ruchu)</li>
+      <li>Osoby z dużymi palcami</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Zwiększ wszystkie elementy interaktywne (przyciski, linki) do co najmniej 44×44 px lub zapewnij odpowiednią przestrzeń wokół mniejszych elementów.</li>
+      <li>Użyj CSS: <code>min-width</code>, <code>min-height</code> lub padding, aby zwiększyć obszar aktywny elementu do wymaganych wymiarów.</li>
+      <li>Jeżeli mniejszy element ma odpowiednik spełniający wymóg rozmiaru na tej samej stronie, jest to dopuszczalne, ale przynajmniej jeden element musi mieć 44×44 px.</li>
+      <li>Linki w tekście (inline links) są zwolnione z wymogu minimalnego rozmiaru.</li>
+      <li>Jeśli rozmiar nie może być zwiększony ze względu na istotne znaczenie wizualne lub wymogi prawne, wyjątek jest dopuszczalny.</li>
+    </ul>
+
+    <h4>Przykłady zastosowania</h4>
+    <ul>
+      <li>Ikony na pasku narzędzi muszą mieć 44×44 px lub większy obszar dotykowy wokół ikon.</li>
+      <li>Przyciski „Dodaj do koszyka” muszą być łatwe do kliknięcia i nie powinny się stykać z innymi elementami.</li>
+      <li>Mapy z pinezkami mogą mieć mniejsze elementy, jeśli powiększenie nie jest możliwe i elementy muszą pozostać w tym samym miejscu.</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Większe cele dotykowe ułatwiają korzystanie z witryny wszystkim użytkownikom, nie tylko osobom z niepełnosprawnościami. Poprawiają komfort korzystania, zmniejszają błędy kliknięć i zwiększają ogólną użyteczność strony.</p>
+	
+	<h4>Przykłady błędów 2.5.5</h4>
+    <ul>
+      <li>Przyciski menu mają wymiary 20×20 px i są umieszczone blisko siebie, co utrudnia trafienie w właściwy przycisk.</li>
+      <li>Ikony akcji w pasku narzędzi są mniejsze niż 44×44 px i nie mają dodatkowego obszaru kliknięcia.</li>
+    </ul>
+
+    <h4>Komentarze do audytu 2.5.5</h4>
+    <ul>
+      <li>Niektóre elementy interaktywne na stronie mają zbyt mały obszar dotykowy, co może utrudniać korzystanie osobom z ograniczeniami ruchowymi.</li>
+      <li>Brak wystarczającej przestrzeni między przyciskami powoduje ryzyko przypadkowego kliknięcia niewłaściwego elementu.</li>
+    </ul>
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k2_5_6">
+  <h3>2.5.6 Równoległy mechanizm wprowadzania danych (AAA)</h3>
+  <p>Treści internetowe nie ograniczają możliwości korzystania z trybów wprowadzania danych dostępnych na platformie, z wyjątkiem sytuacji, w których ograniczenie jest istotne, wymagane do zapewnienia bezpieczeństwa treści lub ustawień użytkownika.</p>
+  
+  <button id="show-more-2_5_6" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 2.5.6
+  </button>
+
+  <div class="full-text" style="display:none;"
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Użytkownicy często korzystają z więcej niż jednego sposobu wprowadzania danych. Blokowanie lub ograniczanie metod wprowadzania może uniemożliwić korzystanie z witryny osobom z niepełnosprawnościami lub z tymczasowymi ograniczeniami.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z ograniczeniami ruchowymi korzystające z alternatywnych urządzeń wejściowych</li>
+      <li>Użytkownicy technologii wspomagających (screen reader, głos, switch controls)</li>
+      <li>Osoby z tymczasowymi urazami, np. złamaną ręką lub problemami z nadgarstkiem</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Testuj stronę różnymi metodami wprowadzania: klawiatura, mysz, ekran dotykowy, głos, stylus.</li>
+      <li>Używaj zdarzeń w JavaScript, które działają niezależnie od sposobu wprowadzania, np. <code>click</code> zamiast <code>mousedown</code>.</li>
+      <li>Obsługuj jednocześnie różne typy zdarzeń: <code>click</code> (mysz/dotyk), <code>keydown</code> (klawiatura), <code>voice</code> jeśli dostępne.</li>
+      <li>Upewnij się, że użytkownik może przełączać się między metodami wprowadzania w dowolnym momencie.</li>
+      <li>Wyjątki dopuszczalne tylko wtedy, gdy metoda wprowadzania jest niezbędna (np. login biometryczny) lub wymagana prawnie/bezpieczeństwa.</li>
+    </ul>
+
+    <h4>Przykłady zastosowania</h4>
+    <ul>
+      <li>Przycisk „Kontakt” aktywowany myszą, dotykiem, klawiaturą, głosem lub stylusem.</li>
+      <li>Formularz rejestracji dostępny przez mysz, klawiaturę i ekran dotykowy, bez ograniczeń dla użytkowników switch lub voice input.</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Wspieranie równoległych mechanizmów wprowadzania zwiększa dostępność i wygodę użytkowania dla wszystkich użytkowników, niezależnie od sposobu wprowadzania danych.</p>
+
+	<h4>Przykłady błędów 2.5.6</h4>
+    <ul>
+      <li>Formularze dostępne tylko za pomocą myszy – nie można ich obsłużyć klawiaturą ani głosem.</li>
+      <li>Przycisk „Wyślij” reaguje tylko na dotyk, ignorując kliknięcia myszy lub naciśnięcie Enter na klawiaturze.</li>
+      <li>Strona nie działa z urządzeniami wspomagającymi (switch controls, eye-tracking) mimo że obsługuje mysz i dotyk.</li>
+    </ul>
+
+    <h4>Komentarze do audytu 2.5.6</h4>
+    <ul>
+      <li>Wiele elementów interaktywnych wymaga wyłącznie jednego sposobu wprowadzania danych, co ogranicza dostępność.</li>
+      <li>Niektóre funkcje nie reagują na przełączenie między klawiaturą a ekranem dotykowym.</li>
+    </ul>
+	
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
 </section>
 
 <section id="group-3_1" tabindex="-1">
     <h2>3.1 - Czytelność</h2>
 	
-  <article id="k3_1_1" tabindex="-1">
-    <h3>3.1.1 Język strony (A)</h3>
-    <p><strong>Krótkie:</strong> Określ język strony w kodzie.</p>
-    <button id="show-more-3_1_1" class="show-more-btn">Przeczytaj więcej o 3.1.1</button>
-    <div class="full-text" style="display:none;">
-      <p>Każda strona powinna mieć zdefiniowany język podstawowy (np. &lt;html lang="pl"&gt;) dla czytników ekranu.</p>
-      <button class="back-button">Zwiń opis</button>
-    </div>
-  </article>
+ <article id="k3_1_1">
+  <h3>3.1.1 Język strony (A)</h3>
+  <p>Strona internetowa powinna mieć określony język główny, dzięki czemu czytniki ekranu wiedzą, jak prawidłowo odczytać tekst (np. po polsku, a nie po angielsku).</p>
+  
+  <button id="show-more-3_1_1" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 3.1.1
+  </button>
+
+  <div class="full-text" style="display:none;">
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Dodaj atrybut <code>lang</code> w tagu <code>&lt;html&gt;</code>, np.: <code>&lt;html lang="pl"&gt;</code>.</li>
+      <li>Upewnij się, że język wskazany w <code>lang</code> odpowiada językowi treści strony.</li>
+      <li>Jeśli na stronie występują fragmenty w innym języku, oznacz je atrybutem <code>lang</code> w odpowiednich znacznikach, np.: <code>&lt;span lang="en"&gt;Hello&lt;/span&gt;</code>.</li>
+    </ul>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Poprawne ustawienie języka strony umożliwia czytnikom ekranu prawidłowe odczytywanie treści, co jest kluczowe dla osób z niepełnosprawnościami wzrokowymi.</p>
+
+	 <h4>Przykłady błędów 3.1.1</h4>
+    <ul>
+      <li>Brak atrybutu <code>lang</code> w tagu <code>&lt;html&gt;</code>.</li>
+      <li>Strona ustawiona domyślnie na <code>lang="en"</code>, mimo że cała treść jest po polsku.</li>
+    </ul>
+
+    <h4>Komentarze do audytu 3.1.1</h4>
+    <ul>
+      <li>Brakuje atrybutu <code>lang</code> w znaczniku <code>&lt;html&gt;</code>, co utrudnia czytnikom ekranu prawidłowe odczytanie treści.</li>
+      <li>Atrybut <code>lang</code> ustawiono na inny język niż język treści strony, należy go poprawić, np. <code>lang="pl"</code>.</li>
+    </ul>
+	
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+<article id="k3_1_2">
+  <h3>3.1.2 Język części (A)</h3>
+  <p>Jeśli na stronie są fragmenty tekstu w innym języku (np. cytat po angielsku na polskiej stronie), trzeba je odpowiednio oznaczyć, bo dzięki temu czytniki ekranu przeczytają je poprawnie.</p>
+  
+  <button id="show-more-3_1_2" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 3.1.2
+  </button>
+
+  <div class="full-text" style="display:none;">
+   
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Oznacz fragmenty w innym języku atrybutem <code>lang</code>, np.: <code>&lt;span lang="en"&gt;Hello&lt;/span&gt;</code>.</li>
+      <li>Sprawdź, czy użyty kod językowy ISO jest poprawny (np. "en" dla angielskiego, "fr" dla francuskiego).</li>
+      <li>Dla dłuższych fragmentów w obcym języku można użyć tagów semantycznych, np. <code>&lt;blockquote lang="en"&gt;…&lt;/blockquote&gt;</code>.</li>
+    </ul>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Poprawne oznaczenie języka fragmentów tekstu zapewnia, że czytniki ekranu odczytują je w odpowiedniej wymowie i tonacji, co jest kluczowe dla dostępności treści.</p>
+
+	<h4>Przykłady błędów 3.1.2</h4>
+    <ul>
+      <li>Na polskiej stronie występuje angielskie zdanie, ale nie oznaczono go np. <code>lang="en"</code>.</li>
+    </ul>
+
+    <h4>Komentarze do audytu 3.1.2</h4>
+    <ul>
+      <li>Na stronie występują fragmenty w obcym języku, które nie są oznaczone atrybutem <code>lang</code>.</li>
+      <li>Występujące fragmenty obcojęzyczne zostały oznaczone błędnym kodem językowym ISO.</li>
+    </ul>
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k3_1_3">
+  <h3>3.1.3 Nietypowe słowa (AAA)</h3>
+  <p>Istnieje mechanizm, za pomocą którego można sprawdzić definicje słów użytych w nietypowy lub ograniczony sposób, w tym idiomów i żargonu.</p>
+  
+  <button id="show-more-3_1_3" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 3.1.3
+  </button>
+
+  <div class="full-text" style="display:none;">
+    
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Dodaj mechanizm podpowiedzi lub definicji dla nietypowych słów, np. tooltipy, linki do słownika lub glosariusza.</li>
+      <li>Możesz użyć atrybutu <code>title</code>, <code>aria-describedby</code> lub dedykowanych elementów interaktywnych.</li>
+      <li>Zadbaj, żeby mechanizm był dostępny zarówno dla użytkowników klawiatury, jak i czytników ekranu.</li>
+    </ul>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Zapewnienie definicji dla nietypowych słów, idiomów i żargonu pozwala wszystkim użytkownikom zrozumieć treść strony, w tym osobom z ograniczonym słownictwem, uczniom, osobom uczącym się języka lub z trudnościami poznawczymi.</p>
+
+	<h4>Przykłady błędów 3.1.3</h4>
+    <ul>
+      <li>Strona używa idiomów lub terminów branżowych bez podania definicji lub wyjaśnienia.</li>
+      <li>Żargon techniczny jest użyty w treści dla użytkowników ogólnych, bez możliwości sprawdzenia znaczenia.</li>
+    </ul>
+
+    <h4>Komentarze do audytu 3.1.3</h4>
+    <ul>
+      <li>Użyto słów specjalistycznych lub idiomów, które nie mają dostępnej definicji lub wyjaśnienia.</li>
+      <li>Brak mechanizmu umożliwiającego użytkownikowi sprawdzenie znaczenia nietypowych słów.</li>
+    </ul>
+	
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k3_1_4">
+  <h3>3.1.4 Skróty (AAA)</h3>
+  <p>Istnieje mechanizm, który pozwala sprawdzić znaczenie skrótów użytych na stronie.</p>
+  
+  <button id="show-more-3_1_4" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 3.1.4
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Niektóre skróty mogą być trudne do zrozumienia, szczególnie dla osób, które nie są specjalistami w danej dziedzinie. Strona powinna umożliwiać użytkownikom łatwe sprawdzenie znaczenia skrótów, np. poprzez podpowiedzi, linki do wyjaśnień lub glosariusz.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Bez możliwości sprawdzenia znaczenia skrótów użytkownicy mogą nie rozumieć treści strony, co obniża jej dostępność i użyteczność.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z ograniczonym słownictwem lub wiedzą branżową</li>
+      <li>Osoby uczące się języka</li>
+      <li>Użytkownicy korzystający z czytników ekranu</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Dodaj podpowiedzi lub tooltipy dla skrótów (np. atrybut <code>title</code> lub <code>aria-describedby</code>).</li>
+      <li>Utwórz glosariusz skrótów z linkami z treści strony.</li>
+      <li>Upewnij się, że mechanizm działa dla wszystkich metod wprowadzania danych i czytników ekranu.</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Użytkownicy szybciej rozumieją treść, zwiększa się dostępność strony dla osób z różnym poziomem wiedzy i języka, a interakcja z serwisem staje się bardziej intuicyjna.</p>
+
+    <h4>Przykłady błędów 3.1.4</h4>
+    <ul>
+      <li>Skrót „API” użyty w tekście bez wyjaśnienia znaczenia.</li>
+      <li>Skróty branżowe w artykułach naukowych bez linku do glosariusza.</li>
+    </ul>
+
+    <h4>Komentarze do audytu 3.1.4</h4>
+    <ul>
+      <li>Na stronie występują skróty, których znaczenie nie jest udostępnione użytkownikom.</li>
+      <li>Brak mechanizmu umożliwiającego sprawdzenie znaczenia skrótów, co utrudnia zrozumienie treści.</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k3_1_5">
+  <h3>3.1.5 Poziom umiejętności czytania (AAA)</h3>
+  <p>Jeżeli tekst jest trudny do zrozumienia, powinna istnieć uproszczona wersja lub dodatkowe wyjaśnienia.</p>
+  
+  <button id="show-more-3_1_5" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 3.1.5
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Niektóre teksty mogą być zbyt skomplikowane dla przeciętnego czytelnika. Jeżeli poziom języka jest wyższy niż gimnazjalny, należy udostępnić wersję uproszczoną lub dodatkowe wyjaśnienia, aby wszyscy użytkownicy mogli zrozumieć treść.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Ułatwia dostęp do informacji osobom o różnym poziomie umiejętności czytania, w tym dzieciom, osobom uczącym się języka lub z trudnościami w czytaniu.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z niższym poziomem umiejętności czytania</li>
+      <li>Osoby uczące się języka</li>
+      <li>Użytkownicy z trudnościami w uczeniu się lub dysleksją</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Dodaj uproszczoną wersję tekstu, bez specjalistycznego słownictwa i złożonych zdań.</li>
+      <li>Utwórz sekcję „Wyjaśnienia” lub „Słowniczek”, która tłumaczy trudniejsze wyrażenia.</li>
+      <li>Upewnij się, że wszystkie wersje tekstu są łatwo dostępne i czytelne dla wszystkich użytkowników.</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Większa dostępność treści dla szerszego grona odbiorców, lepsze zrozumienie informacji i bardziej inkluzyjne doświadczenie użytkownika.</p>
+
+    <h4>Przykłady błędów 3.1.5</h4>
+    <ul>
+      <li>Artykuł pełen złożonych terminów naukowych bez żadnych wyjaśnień.</li>
+      <li>Instrukcje obsługi w trudnym języku bez uproszczonej wersji dla początkujących użytkowników.</li>
+    </ul>
+
+    <h4>Komentarze do audytu 3.1.5</h4>
+    <ul>
+      <li>Tekst wymaga umiejętności czytania na poziomie wyższym niż gimnazjalny, brak wersji uproszczonej.</li>
+      <li>Brak dodatkowych wyjaśnień dla skomplikowanych terminów, co utrudnia zrozumienie treści.</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k3_1_6">
+  <h3>3.1.6 Wymowa (AAA)</h3>
+  <p>Użytkownik powinien mieć możliwość sprawdzenia, jak wymawiać trudne lub niejasne słowa.</p>
+  
+  <button id="show-more-3_1_6" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 3.1.6
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Niektóre słowa mogą być trudne do wymówienia lub niejasne w danym kontekście. Mechanizm wsparcia wymowy pomaga użytkownikom poprawnie je przeczytać, np. poprzez podpowiedź fonetyczną lub audio.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Poprawna wymowa ułatwia komunikację, naukę języka i korzystanie z treści, szczególnie w edukacji, instrukcjach lub interakcji głosowej.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby uczące się języka</li>
+      <li>Osoby z trudnościami w czytaniu lub dysleksją</li>
+      <li>Użytkownicy korzystający z funkcji tekst-na-mowę</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Dodaj wsparcie fonetyczne dla trudnych słów, np. w formie zapisu fonetycznego lub wskazówki wymowy.</li>
+      <li>Umożliw użytkownikom odsłuchanie poprawnej wymowy słów w tekście.</li>
+      <li>Upewnij się, że mechanizm wymowy działa niezależnie od urządzenia i technologii wspomagających.</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Ułatwia naukę i poprawną wymowę trudnych słów, zwiększa dostępność treści edukacyjnych i poprawia komfort korzystania z witryny.</p>
+
+    <h4>Przykłady błędów 3.1.6</h4>
+    <ul>
+      <li>Trudne słowa w tekście nie mają podpowiedzi wymowy ani audio.</li>
+      <li>Brak mechanizmu wsparcia dla wymowy skrótów lub terminów specjalistycznych.</li>
+    </ul>
+
+    <h4>Komentarze do audytu 3.1.6</h4>
+    <ul>
+      <li>Nie zapewniono żadnego sposobu sprawdzenia wymowy słów trudnych do odczytania.</li>
+      <li>Brak wsparcia dla użytkowników korzystających z technologii tekst-na-mowę w przypadku słów o niejasnej wymowie.</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
 </section>
 
 <section id="group-3_2" tabindex="-1">
     <h2>3.2 - Przewidywalność</h2>
 
-  <article id="k3_2_1" tabindex="-1">
-    <h3>3.2.1 Przewidywalność (A)</h3>
-    <p><strong>Krótkie:</strong> Elementy strony zachowują się przewidywalnie.</p>
-    <button id="show-more-3_2_1" class="show-more-btn">Przeczytaj więcej o 3.2.1</button>
-    <div class="full-text" style="display:none;">
-      <p>Nawigacja i zmiany na stronie nie powinny zaskakiwać użytkownika ani zmieniać się bez jego działania.</p>
-      <button class="back-button">Zwiń opis</button>
-    </div>
-  </article>
+  <article id="k3_2_1">
+  <h3>3.2.1 Po oznaczeniu fokusem (A)</h3>
+  <p>Ustawienie fokusu na elemencie nie powinno powodować nieoczekiwanych zmian, takich jak automatyczne przekierowania, otwieranie okien czy wysyłanie formularzy.</p>
+  
+  <button id="show-more-3_2_1" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 3.2.1
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Fokus oznacza, że element jest gotowy do interakcji z klawiaturą. Samo ustawienie fokusu nie powinno automatycznie wykonywać żadnych akcji, takich jak zmiana treści, przesunięcie strony czy otwarcie nowego okna. Akcje powinny nastąpić dopiero po świadomym aktywowaniu elementu (np. Enter lub spacja).</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Nieprzewidywalne zmiany podczas nawigacji klawiaturą mogą dezorientować użytkowników i utrudniać korzystanie ze strony. Pomaga to utrzymać przewidywalność i spójność interakcji.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z ograniczoną mobilnością</li>
+      <li>Osoby z niepełnosprawnością poznawczą</li>
+      <li>Osoby z ograniczonym wzrokiem lub niewidome</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Nie wywołuj zmian kontekstu tylko przez ustawienie fokusu — czekaj na świadomą aktywację elementu.</li>
+      <li>Przyciski lub linki powinny reagować dopiero po naciśnięciu spacji lub Enter.</li>
+      <li>Otwierając nowe okna lub zakładki, zapewnij użytkownikom ostrzeżenie (np. tekst lub ikonę).</li>
+      <li>Testuj stronę, tabując przez wszystkie elementy i upewnij się, że nic nie zmienia się samoistnie.</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Strona staje się bardziej przewidywalna, łatwiejsza w nawigacji i mniej frustrująca dla użytkowników korzystających z klawiatury lub technologii wspomagających.</p>
+
+    <h4>Przykłady błędów 3.2.1</h4>
+    <ul>
+      <li>Fokus na rozwijanym menu automatycznie przekierowuje na inną stronę.</li>
+      <li>Ustawienie fokusu powoduje odświeżenie strony lub zmianę zawartości bez działania użytkownika.</li>
+      <li>Formularz wysyła dane tylko po ustawieniu fokusu na przycisk, bez jego aktywacji.</li>
+    </ul>
+
+    <h4>Komentarze do audytu 3.2.1</h4>
+    <ul>
+      <li>Ustawienie fokusu powoduje nieoczekiwane zmiany interfejsu.</li>
+      <li>Nie zapewniono, że akcje występują dopiero po świadomej aktywacji elementu.</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+<article id="k3_2_2">
+  <h3>3.2.2 Podczas wprowadzania danych (A)</h3>
+  <p>Podczas wpisywania danych w formularzu (np. wybierania opcji, wpisywania tekstu), zmiany na stronie nie mogą dziać się automatycznie, chyba że użytkownik sam je zatwierdzi (np. kliknie przycisk).</p>
+  
+  <button id="show-more-3_2_2" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 3.2.2
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Interakcje z formularzami lub polami wprowadzania danych nie powinny powodować nieoczekiwanych zmian kontekstu strony, takich jak automatyczne przesunięcie fokusu, przeładowanie strony czy zmiana treści. Zmiany powinny zachodzić dopiero po świadomej aktywacji, np. kliknięciu przycisku.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Nieprzewidywalne zmiany przy wprowadzaniu danych mogą dezorientować użytkowników i utrudniać korzystanie ze strony. Pomaga to zachować przewidywalność i umożliwia poprawne korzystanie z formularzy.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z niepełnosprawnością poznawczą</li>
+      <li>Osoby z ograniczonym wzrokiem lub niewidome</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Używaj przycisków lub linków do aktywowania zmian kontekstu zamiast automatycznych zmian po wprowadzeniu danych.</li>
+      <li>Formularze powinny mieć wyraźny przycisk "Wyślij" lub "Potwierdź", aby użytkownik samodzielnie zatwierdził dane.</li>
+      <li>Informuj użytkownika wcześniej, jeśli dane wprowadzone w polu spowodują zmianę kontekstu strony.</li>
+      <li>Testuj formularze, sprawdzając, że nic nie zmienia się samoistnie podczas wprowadzania danych.</li>
+    </ul>
+
+    <h4>Przykłady błędów 3.2.2</h4>
+    <ul>
+      <li>Po wybraniu opcji z rozwijanej listy strona automatycznie się przeładowuje.</li>
+      <li>Formularz jest wysyłany natychmiast po wpisaniu danych w pole, bez możliwości ich sprawdzenia.</li>
+      <li>Wybór daty powoduje zmianę widoku, zanim użytkownik zatwierdzi wybór.</li>
+    </ul>
+
+    <h4>Komentarze do audytu 3.2.2</h4>
+    <ul>
+      <li>Wykryto automatyczne zmiany interfejsu podczas wprowadzania danych bez wyraźnego działania użytkownika (np. kliknięcia przycisku).</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k3_2_3">
+  <h3>3.2.3 Konsekwentna nawigacja (AA)</h3>
+  <p>Jeśli na wielu stronach powtarzają się elementy nawigacyjne (np. menu, linki, wyszukiwarka), powinny zawsze wyglądać i działać tak samo oraz być umieszczone w tym samym miejscu.</p>
+  
+  <button id="show-more-3_2_3" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 3.2.3
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Użytkownicy oczekują, że elementy takie jak menu, pasek wyszukiwania czy przyciski "przejdź do treści" będą zawsze w tym samym miejscu na wszystkich stronach serwisu. Jeśli się zmieniają, może to być frustrujące i dezorientujące.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Niezgodna lokalizacja elementów nawigacyjnych może utrudniać poruszanie się po stronie i wprowadzać zamieszanie, szczególnie dla osób z niepełnosprawnościami poznawczymi lub ograniczonym wzrokiem.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z ograniczonym wzrokiem – korzystające z czytników ekranu lub powiększania tekstu</li>
+      <li>Osoby z niepełnosprawnością poznawczą – potrzebujące przewidywalności i spójności w układzie strony</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Umieszczaj elementy nawigacyjne w tym samym miejscu i w tej samej kolejności na wszystkich stronach. Dotyczy to np.:
+        <ul>
+          <li>Menu nagłówka</li>
+          <li>Menu stopki</li>
+          <li>Spis treści</li>
+          <li>Przycisków „Przejdź do treści”</li>
+          <li>Paska wyszukiwania</li>
+          <li>Ścieżki okruszkowej (breadcrumbs)</li>
+        </ul>
+      </li>
+      <li>Można dodawać nową zawartość na stronie, ale elementy nawigacyjne powinny pozostać w tej samej pozycji.</li>
+      <li>Nie przenoś przycisków ani linków do innych miejsc na różnych stronach – np. przycisk „Kontakt” nie powinien raz prowadzić do formularza, a raz do stopki.</li>
+    </ul>
+
+    <h4>Przykłady błędów 3.2.3</h4>
+    <ul>
+      <li>Menu główne znajduje się raz po lewej stronie, a na innych podstronach – na górze.</li>
+      <li>Link „Kontakt” prowadzi do różnych miejsc na różnych podstronach.</li>
+      <li>Przycisk „Zaloguj się” wygląda i działa inaczej na różnych podstronach.</li>
+    </ul>
+
+    <h4>Komentarze do audytu 3.2.3</h4>
+    <ul>
+      <li>Elementy nawigacyjne nie są spójnie umieszczone na wszystkich podstronach, co może utrudniać orientację użytkownikom.</li>
+      <li>Zalecamy ujednolicenie działania linków, np. link „[nazwa linku]” powinien zawsze prowadzić do tej samej lokalizacji.</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k3_2_4">
+  <h3>3.2.4 Konsekwentna identyfikacja (AA)</h3>
+  <p>Elementy, które pełnią tę samą funkcję na różnych stronach (np. link, przycisk, ikona), powinny być oznaczone w taki sam sposób – tą samą nazwą, etykietą lub symbolem.</p>
+
+  <button id="show-more-3_2_4" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 3.2.4
+  </button>
+
+  <div class="full-text" style="display:none;">
+    <p>Wyobraź sobie sklep internetowy, gdzie każdy przycisk dodający produkt do koszyka ma inną nazwę. Czasami to „Dodaj do koszyka”, innym razem „Dodaj do torby”, a jeszcze innym „Kup teraz”. To byłoby mylące, prawda?</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Niezgodne nazwy przycisków, linków czy ikon mogą wprowadzać w błąd, szczególnie osoby korzystające z technologii wspomagających, lup ekranowych lub polegające na wzorcach poznawczych.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z ograniczonym wzrokiem – korzystające z powiększania ekranu lub czytników ekranu</li>
+      <li>Osoby z niepełnosprawnością poznawczą lub bariery językowe i czytelnicze</li>
+      <li>Osoby niewidome polegające na czytnikach ekranu</li>
+      <li>Osoby korzystające z technologii wspomagających, które potrzebują przewidywalnych nazw i etykiet</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Elementy pełniące tę samą funkcję na różnych stronach (przyciski, linki, ikony) powinny mieć te same etykiety i nazwy.</li>
+      <li>Niewielkie wariacje są dopuszczalne, jeśli zachowują jasność i przewidywalność działania – np. przycisk „Idź do strony 2”, „Idź do strony 3” w paginacji.</li>
+      <li>Przykłady błędnych etykiet:
+        <ul>
+          <li>Przycisk „Kontakt” -> „Skontaktuj się”</li>
+          <li>Link w breadcrumbs „Strona główna” -> „Homepage”</li>
+          <li>Przycisk „Udostępnij” -> „Prześlij dalej”</li>
+          <li>Przycisk „Szukaj” -> „Znajdź”</li>
+          <li>Pole „Adres e-mail” -> „Elektroniczny adres”</li>
+          <li>Przycisk „Subskrybuj” -> „Akceptuj”</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h4>Przykłady błędów 3.2.4</h4>
+    <ul>
+      <li>Na jednej stronie przycisk „Szukaj” ma etykietę „Szukaj”, a na innej „Znajdź”.</li>
+      <li>Link do koszyka raz ma ikonę z koszykiem, a raz z torbą, mimo że prowadzi do tego samego miejsca.</li>
+      <li>Ten sam formularz zapisany jest raz jako „Zarejestruj się”, a raz jako „Dołącz”.</li>
+    </ul>
+
+    <h4>Komentarze do audytu 3.2.4</h4>
+    <ul>
+      <li>Elementy pełniące tę samą funkcję mają różne etykiety na różnych podstronach, co może być mylące dla użytkowników.</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k3_2_5">
+  <h3>3.2.5 Zmiana na żądanie (AAA)</h3>
+  <p>Zmiany kontekstu inicjowane są tylko na żądanie użytkownika lub istnieje mechanizm pozwalający na wyłączenie takich zmian.</p>
+
+  <button id="show-more-3_2_5" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 3.2.5
+  </button>
+
+  <div class="full-text" style="display:none;">
+    <p>Każda istotna zmiana kontekstu – jak otwarcie nowego okna, zmiana strony lub aktualizacja zawartości – powinna nastąpić tylko wtedy, gdy użytkownik ją wyraźnie zainicjuje lub gdy jest przewidywalna. Oznacza to brak nieoczekiwanych przekierowań, wyskakujących okien czy automatycznego wysyłania formularzy.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Niespodziewane zmiany mogą dezorientować, szczególnie osoby korzystające z technologii wspomagających lub potrzebujące przewidywalnych interakcji. Umożliwienie użytkownikowi inicjowania zmian daje poczucie kontroli i stabilności.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z niepełnosprawnością ruchową – mogą przypadkowo wywołać zmiany</li>
+      <li>Osoby z ograniczonym wzrokiem lub niewidome – mogą nie zauważyć nieoczekiwanej zmiany treści lub nowego okna</li>
+      <li>Osoby z niepełnosprawnością poznawczą – mogą mieć trudności z nadążaniem za nagłymi zmianami w interfejsie</li>
+    </ul>
+
+    <h4>Jak spełnić 3.2.5?</h4>
+    <ul>
+      <li>Żadne zmiany kontekstu nie powinny zachodzić automatycznie bez inicjatywy użytkownika.</li>
+      <li>Przykłady zmian kontekstu: przekierowania, zmiana części interfejsu, automatyczne wysyłanie formularzy.</li>
+      <li>Zapewnij wyraźny przycisk lub link, aby użytkownik mógł wywołać zmianę samodzielnie.</li>
+      <li>W aplikacjach typu SPA unikaj automatycznych aktualizacji treści bez wyraźnego działania użytkownika.</li>
+      <li>Ostrzegaj użytkowników przed otwarciem nowego okna lub zakładki, np. dodając tekst widoczny lub tylko dla czytników ekranu:
+        <pre><code>&lt;a href="https://example.com" target="_blank" rel="noopener"&gt;
+    Dowiedz się więcej <span class="sr-only">(otwiera w nowym oknie)</span>
+&lt;/a&gt;
+</code></pre>
+      </li>
+      <li>Unikaj niespodziewanych wyskakujących okien lub przeglądarkowych przekierowań (<code>&lt;meta refresh&gt;</code>). Preferuj kontrolę po stronie serwera lub przewidywalne akcje użytkownika.</li>
+      <li>Niektóre automatyczne zmiany, np. karuzele lub pokazy slajdów, są dozwolone, jeśli użytkownik może je wstrzymać (WCAG 2.2.2) i są zgodne z preferencjami animacji (WCAG 2.3.3).</li>
+    </ul>
+
+    <h4>Komentarze do audytu 3.2.5</h4>
+    <ul>
+      <li>Nieoczekiwane przekierowania występują na stronie głównej przy wybraniu produktu.</li>
+      <li>Modal z informacją o subskrypcji otwiera się automatycznie bez interakcji użytkownika.</li>
+    </ul>
+
+    
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
 </section>
 
 <section id="group-3_3" tabindex="-1">
     <h2>3.3 - Pomoc przy wprowadzaniu</h2>
 
-  <article id="k3_3_1" tabindex="-1">
-    <h3>3.3.1 Pomoc w błędach (A)</h3>
-    <p><strong>Krótkie:</strong> Pomoc w poprawianiu błędów na stronie.</p>
-    <button id="show-more-3_3_1" class="show-more-btn">Przeczytaj więcej o 3.3.1</button>
-    <div class="full-text" style="display:none;">
-      <p>Strona powinna wskazywać i pomagać w poprawianiu błędów, np. w formularzach.</p>
-      <button class="back-button">Zwiń opis</button>
-    </div>
-  </article>
+  <article id="k3_3_1">
+  <h3>3.3.1 Identyfikacja błędu (A)</h3>
+  <p>Formularz musi wyraźnie informować użytkownika o popełnionych błędach, wskazując, co jest nie tak i w którym polu.</p>
+  
+  <button id="show-more-3_3_1" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 3.3.1
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Jeżeli użytkownik popełni błąd w formularzu, np. pominie obowiązkowe pole lub wpisze niepoprawny format danych, strona musi wyraźnie to zakomunikować. Komunikat powinien wskazywać dokładnie, co jest nie tak i jak to poprawić, zarówno wizualnie, jak i tekstowo.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Dobrze oznaczone błędy pomagają użytkownikom w szybkim poprawieniu formularza. Brak takich komunikatów może prowadzić do frustracji, błędnych danych lub porzucenia formularza.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Ludzie z ograniczoną widocznością (np. daltoniści)</li>
+      <li>Osoby korzystające z czytników ekranu</li>
+      <li>Osoby z niepełnosprawnością poznawczą</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Wyświetl komunikaty tekstowe dla każdego błędu, wskazując dokładnie pole i problem.</li>
+      <li>Nie używaj wyłącznie kolorów lub symboli do oznaczania błędów.</li>
+      <li>Powiąż komunikat błędu bezpośrednio z polem formularza (np. <code>aria-describedby</code>, <code>aria-invalid="true"</code>).</li>
+      <li>Dodaj globalny alert lub obszar informujący o wszystkich błędach, aby czytniki ekranu mogły je odczytać.</li>
+      <li>Poinformuj użytkownika, jak poprawić dane (np. format e-mail, numer telefonu).</li>
+      <li>Po wysłaniu formularza skup fokus na pierwszym polu z błędem lub pozwól łatwo przejść do wszystkich błędnych pól.</li>
+      <li>Wyświetl jasne potwierdzenie po prawidłowym wypełnieniu formularza.</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Dzięki prawidłowej identyfikacji błędów użytkownicy szybciej poprawiają formularze, zmniejsza się liczba błędnych danych, a strona staje się bardziej dostępna i przyjazna dla wszystkich użytkowników.</p>
+
+    <h4>Przykłady błędów 3.3.1</h4>
+    <ul>
+      <li>Formularz nie informuje, że pole „Email” jest obowiązkowe.</li>
+      <li>Użytkownik wpisuje niepoprawny numer telefonu, ale nie pojawia się komunikat.</li>
+      <li>Komunikat o błędzie jest tylko wizualny (np. czerwone obramowanie) i nie jest odczytywany przez czytniki ekranu.</li>
+    </ul>
+
+    <h4>Komentarze do audytu 3.3.1</h4>
+    <ul>
+      <li>Formularz nie informuje, że pole „Email” jest obowiązkowe.</li>
+      <li>Komunikaty błędów nie są powiązane z konkretnymi polami formularza i nie są czytane przez czytniki ekranu.</li>
+      <li>Informacja o błędzie w formularzu niejednoznacznie identyfikuje problem.</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k3_3_2">
+  <h3>3.3.2 Etykiety lub instrukcje (A)</h3>
+  <p>Każde pole formularza powinno być jasno opisane, aby użytkownik wiedział, jakie dane wpisać i w jakim formacie. Jeśli pole jest obowiązkowe, warto to zaznaczyć.</p>
+  
+  <button id="show-more-3_3_2" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 3.3.2
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Pola formularza, które wymagają wprowadzenia danych, muszą mieć czytelne etykiety i instrukcje, aby użytkownik wiedział, co wpisać i w jakim formacie. Etykiety muszą być zawsze widoczne; używanie wyłącznie placeholderów nie wystarczy.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Brak etykiet lub instrukcji może prowadzić do nieporozumień, błędów i frustracji użytkowników. Osoby korzystające z czytników ekranu oraz osoby z niepełnosprawnościami poznawczymi mogą mieć trudności z wypełnianiem formularzy.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z niepełnosprawnościami poznawczymi</li>
+      <li>Osoby z niepełnosprawnościami wzrokowymi korzystające z czytników ekranu</li>
+      <li>Osoby z ograniczeniami ruchowymi</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Dodaj widoczną etykietę <code>&lt;label&gt;</code> dla każdego pola, opisującą jego cel.</li>
+      <li>Umieść instrukcje dotyczące formatu danych (np. „DD-MM-RRRR”) w widocznym miejscu lub użyj <code>aria-describedby</code>.</li>
+      <li>Wskaż, które pola są obowiązkowe.</li>
+      <li>Używaj <code>aria-labelledby</code> do łączenia wielu etykiet lub opisów dla jednego pola, jeśli to potrzebne.</li>
+      <li>Grupuj powiązane pola w <code>&lt;fieldset&gt;</code> z <code>&lt;legend&gt;</code>, aby zapewnić kontekst.</li>
+      <li>Upewnij się, że etykiety są umieszczone tam, gdzie użytkownicy ich oczekują (zwykle nad lub po lewej stronie pola dla języków LTR).</li>
+      <li>Dla pól z przyciskami obok, przycisk może pełnić funkcję etykiety, jeśli jest jasny i zrozumiały.</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Jasne etykiety i instrukcje ułatwiają użytkownikom wypełnianie formularzy, zmniejszają liczbę błędów i poprawiają dostępność strony dla osób z różnymi niepełnosprawnościami.</p>
+
+    <h4>Przykłady błędów 3.3.2</h4>
+    <ul>
+      <li>Brak etykiety przy polu – użytkownik widzi tylko puste pole.</li>
+      <li>Etykieta jest tylko wizualna (placeholder), który znika po rozpoczęciu pisania.</li>
+      <li>Brak informacji o wymaganym formacie danych.</li>
+      <li>Nie wiadomo, które pola są obowiązkowe.</li>
+    </ul>
+
+    <h4>Komentarze do audytu 3.3.2</h4>
+    <ul>
+      <li>Brakuje czytelnych etykiet lub instrukcji dla pól formularza, co może utrudniać korzystanie osobom z niepełnosprawnościami.</li>
+      <li>Część pól formularzy nie posiada etykiety lub etykieta jest ukryta wizualnie.</li>
+      <li>Informacje o formacie i polach obowiązkowych powinny być dostępne zarówno wizualnie, jak i dla czytników ekranu.</li>
+      <li>Pola formularza posiadają puste etykiety <code>&lt;label&gt;</code>.</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="3_3_3">
+  <h3>3.3.3 Sugestie korekty błędów (AA)</h3>
+  <p>Kiedy użytkownik popełni błąd w formularzu, system powinien jasno podpowiedzieć, jak go poprawić.</p>
+  
+  <button id="show-more-3_3_3" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 3.3.3
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Kryterium 3.3.3 mówi o tym, że komunikaty o błędach w formularzu powinny zawierać wskazówki, jak poprawić dane. Nie wystarczy samo słowo "Błąd" – użytkownik musi wiedzieć, co jest nieprawidłowe i jak to naprawić. Można np. sugerować prawidłowy format lub poprawne wartości.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Bez pomocnych sugestii użytkownicy mogą się frustrować i opuszczać formularz. Osoby z niepełnosprawnościami poznawczymi, wzrokowymi lub mobilnościowymi mogą mieć trudności z wypełnieniem formularza poprawnie.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z ograniczonym lub brakiem wzroku</li>
+      <li>Osoby z niepełnosprawnościami poznawczymi</li>
+      <li>Osoby z problemami z motoryką</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Podawaj jasne opisy błędów i sugeruj poprawne wartości</li>
+      <li>Używaj ARIA (np. role="alertdialog") dla komunikatów dostępnych dla czytników ekranu</li>
+      <li>Dodaj linki lub przyciski do błędnych pól, aby użytkownik mógł łatwo je poprawić</li>
+      <li>W przypadku literówek lub błędnego formatu, proponuj poprawki lub przykłady</li>
+      <li>Po poprawnym przesłaniu formularza pokaż komunikat potwierdzający</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Dzięki wdrożeniu kryterium użytkownicy szybciej poprawiają błędy, zmniejsza się liczba nieprawidłowych danych, a formularze stają się bardziej przyjazne i dostępne dla wszystkich.</p>
+
+    <h4>Przykłady błędów 3.3.3</h4>
+    <ul>
+      <li>Komunikat „Błąd” bez wyjaśnienia, co jest nieprawidłowe</li>
+      <li>„Nieprawidłowy format” bez informacji o wymaganym wzorze</li>
+      <li>Sugestie dostępne tylko wizualnie, niewidoczne dla czytników ekranu</li>
+    </ul>
+
+    <h4>Komentarze do audytu 3.3.3</h4>
+    <ul>
+      <li>Brak komunikatów sugerujących, jak poprawić dane w formularzu</li>
+      <li>Użytkownicy nie wiedzą, jakie dane są prawidłowe ani w jakim formacie je wpisać</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="3_3_4">
+  <h3>3.3.4 Zapobieganie błędom (AA)</h3>
+  <p>System powinien pomagać użytkownikom unikać błędów podczas wypełniania formularzy, np. przez potwierdzenia, walidację na bieżąco albo ograniczenia wprowadzanych danych.</p>
+  
+  <button id="show-more-3_3_4" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 3.3.4
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Kryterium 3.3.4 mówi, że formularze i systemy online powinny minimalizować ryzyko błędów. Obejmuje to walidację w czasie rzeczywistym, potwierdzenia akcji i ograniczenia wprowadzanych danych, aby użytkownik mógł uniknąć poważnych konsekwencji, np. przy transakcjach finansowych, podpisywaniu dokumentów prawnych lub usuwaniu danych.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Błędy zdarzają się każdemu, a dla osób z niepełnosprawnościami mogą być trudniejsze do wykrycia i poprawienia. Brak mechanizmów zapobiegających błędom może prowadzić do poważnych problemów, frustracji użytkowników lub utraty ważnych danych.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z dysleksją lub innymi trudnościami w czytaniu</li>
+      <li>Osoby z ograniczeniami motorycznymi (drżenie rąk, ograniczona zręczność)</li>
+      <li>Osoby z niepełnosprawnościami poznawczymi (ADHD, problemy z pamięcią)</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Dodaj walidację w czasie rzeczywistym, aby błędy były widoczne od razu</li>
+      <li>Pokaż stronę przeglądu przed przesłaniem formularza, z możliwością edycji</li>
+      <li>Dodaj wymagany checkbox przed przyciskiem „Wyślij”, aby użytkownik potwierdził poprawność danych</li>
+      <li>Wyświetl potwierdzenie przed wykonaniem działań nieodwracalnych (np. usunięcie danych)</li>
+      <li>Umożliwiaj przywrócenie przypadkowo usuniętych danych (np. folder „Kosz” lub historia zmian)</li>
+      <li>Wyświetl wyraźne ostrzeżenia przy potencjalnie nieodwracalnych akcjach</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Użytkownicy mogą łatwiej poprawić błędy przed wysłaniem danych, co zmniejsza ryzyko poważnych problemów i frustracji. Formularze stają się bardziej przyjazne i bezpieczne dla wszystkich użytkowników.</p>
+
+    <h4>Przykłady błędów 3.3.4</h4>
+    <ul>
+      <li>Brak walidacji w czasie rzeczywistym – użytkownik wysyła formularz z błędami</li>
+      <li>Pola tekstowe pozwalają wpisywać nieprawidłowe znaki lub formaty</li>
+      <li>Brak potwierdzenia przed akcją nieodwracalną, np. usunięcie danych</li>
+      <li>Formularz akceptuje błędne dane, które później generują problemy</li>
+    </ul>
+
+    <h4>Komentarze do audytu 3.3.4</h4>
+    <ul>
+      <li>Brak mechanizmów zapobiegających błędom utrudnia poprawne wypełnienie formularzy</li>
+      <li>Użytkownicy mogą nieświadomie wysłać błędne lub niepełne dane</li>
+      <li>Brak potwierdzeń i możliwości cofnięcia działań zwiększa ryzyko problemów</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k3_3_5">
+  <h3>3.3.5 Pomoc (AAA)</h3>
+  <p>Użytkownicy powinni mieć dostęp do pomocy przy polach lub zadaniach, które mogą być niejasne lub trudne do wykonania.</p>
+  
+  <button id="show-more-3_3_5" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 3.3.5
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Pomoc kontekstowa oznacza wskazówki, linki lub krótkie wyjaśnienia pokazane dokładnie tam, gdzie użytkownik ich potrzebuje — np. przy polach formularza, które wymagają szczególnego formatu lub mogą być interpretowane na różne sposoby.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Pomoc pozwala użytkownikom zrozumieć trudne pola formularzy, uniknąć błędów i wypełnić zadania bez frustracji. Dzięki temu strona staje się bardziej dostępna i przyjazna.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z niepełnosprawnościami poznawczymi</li>
+      <li>Osoby z niską znajomością technologii</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Dodaj ikonę „?” lub link do krótkiego wyjaśnienia przy trudnym polu</li>
+      <li>Podawaj formaty danych i przykłady obok pola</li>
+      <li>Używaj tooltipów lub sekcji rozwijanych dla dodatkowych informacji</li>
+      <li>Rozważ wbudowanego asystenta lub przewodnika krok po kroku</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Użytkownicy mogą wypełniać formularze poprawnie i samodzielnie, co zmniejsza liczbę błędów i zwiększa satysfakcję z korzystania ze strony.</p>
+
+    <h4>Przykłady błędów 3.3.5</h4>
+    <ul>
+      <li>Brak wyjaśnienia, jaki format daty jest wymagany</li>
+      <li>Niejasna instrukcja przy polu „Numer identyfikacyjny”</li>
+    </ul>
+
+    <h4>Komentarze do audytu 3.3.5</h4>
+    <ul>
+      <li>Dodano link „Pomoc” przy polu numeru telefonu, aby użytkownik wiedział, jak wpisać numer międzynarodowy</li>
+      <li>Tooltipy dla pól daty i numeru dokumentu działają poprawnie dla klawiatury i czytników ekranu</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k3_3_6">
+  <h3>3.3.6 Zapobieganie błędom (wszystkim) (AAA)</h3>
+  <p>Przed wysłaniem formularza użytkownicy powinni mieć możliwość sprawdzenia, poprawienia lub cofnięcia swoich danych.</p>
+  
+  <button id="show-more-3_3_6" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 3.3.6
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Formularze powinny umożliwiać użytkownikom odwrócenie działania, sprawdzenie danych pod kątem błędów lub potwierdzenie ich przed ostatecznym wysłaniem. Dzięki temu łatwiej uniknąć pomyłek, które później mogą być trudne do naprawienia.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Błędy w formularzach są powszechne, ale osoby z niepełnosprawnościami często mają trudności z ich wykrywaniem i poprawianiem. Brak możliwości sprawdzenia lub cofnięcia działań może prowadzić do poważnych problemów, np. błędnego zamówienia, rejestracji lub zgłoszenia.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby z trudnościami w czytaniu, np. dysleksja</li>
+      <li>Osoby z niepełnosprawnością ruchową, np. drżenie rąk lub ograniczona sprawność</li>
+      <li>Osoby z niepełnosprawnością poznawczą, np. problemy z pamięcią lub koncentracją</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Umożliw odwrócenie wprowadzonych danych lub anulowanie akcji w określonym czasie</li>
+      <li>Wyświetl stronę podsumowującą wprowadzone dane przed wysłaniem, umożliwiając ich poprawę</li>
+      <li>Dodaj przycisk „Wstecz” lub „Poprzedni krok” w formularzach wieloetapowych</li>
+      <li>W niektórych formularzach zastosuj obowiązkowy checkbox, który zachęca do sprawdzenia danych przed wysłaniem</li>
+      <li>Pokaż okno potwierdzenia przed finalizacją, informując, że zmiany mogą być niemożliwe po wysłaniu</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Użytkownicy mogą poprawnie wysyłać formularze, unikając błędów i frustracji. Poprawia to pewność siebie użytkowników i zwiększa dostępność strony dla wszystkich.</p>
+
+    <h4>Przykłady błędów 3.3.6</h4>
+    <ul>
+      <li>Formularz rejestracyjny bez możliwości przeglądu i edycji danych przed wysłaniem</li>
+      <li>Brak mechanizmu cofania dla zamówień lub wprowadzonych danych</li>
+      <li>Brak potwierdzenia lub ostrzeżenia przed finalnym wysłaniem formularza</li>
+    </ul>
+
+    <h4>Komentarze do audytu 3.3.6</h4>
+   <ul>
+  <li>Nie dodano strony podsumowania w formularzu kontaktowym — użytkownicy nie mogą sprawdzić ani poprawić danych przed wysłaniem.</li>
+  <li>Brak modalnego okna potwierdzenia przy finalizacji zamówienia — użytkownicy nie mają możliwości weryfikacji danych przed wysłaniem.</li>
+  <li>Nie zastosowano timerów ani opcji anulowania w formularzach rezerwacyjnych — błędy nie są łatwe do cofnięcia.</li>
+</ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+
 </section>
 
 <section id="group-4_1" tabindex="-1">
     <h2>4.1 - Kompatybilność</h2>
 	
-	<article id="k4_1_1" tabindex="-1">
-    <h3>4.1.1 Parsowanie (A)</h3>
-    <p><strong>Krótkie:</strong> Pomoc w poprawianiu błędów na stronie.</p>
-    <button id="show-more-3_3_1" class="show-more-btn">Przeczytaj więcej o 3.3.1</button>
-    <div class="full-text" style="display:none;">
-      <p>Strona powinna wskazywać i pomagać w poprawianiu błędów, np. w formularzach.</p>
-      <button class="back-button">Zwiń opis</button>
-    </div>
-  </article>
+	<article id="k4_1_1">
+  <h3>4.1.1 Parsowanie (A)</h3>
+  <p>Kod strony musi być poprawnie napisany, aby przeglądarki i technologie wspomagające mogły go prawidłowo „zrozumieć”.</p>
+  
+  <button id="show-more-4_1_1" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 4.1.1
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <p>Kod HTML i inne języki muszą być wolne od błędów składniowych: elementy mają odpowiednie tagi otwierające i zamykające, są poprawnie zagnieżdżone, ID są unikalne, a atrybuty nie powtarzają się w tym samym elemencie.</p>
+
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Niepoprawny kod może spowodować, że technologie wspomagające (np. czytniki ekranu) źle odczytają zawartość strony lub w ogóle jej nie przekażą użytkownikowi.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Użytkownicy korzystający z czytników ekranu</li>
+      <li>Użytkownicy korzystający z lup lub technologii rozpoznawania mowy</li>
+    </ul>
+
+    <h4>Jak to zrobić?</h4>
+    <ul>
+      <li>Sprawdzać kod strony przy pomocy walidatora HTML</li>
+      <li>Upewnić się, że wszystkie tagi są poprawnie otwarte i zamknięte</li>
+      <li>Zapewnić unikalność atrybutów ID</li>
+      <li>Unikać zdublowanych atrybutów w tym samym elemencie</li>
+    </ul>
+
+    <h4>Korzyści</h4>
+    <p>Poprawny kod zwiększa kompatybilność ze wszystkimi przeglądarkami i technologiami wspomagającymi, co poprawia dostępność strony i jej stabilność.</p>
+
+    <h4>Przykłady błędów 4.1.1</h4>
+    <ul>
+      <li>Niezamknięty tag &lt;p&gt;</li>
+      <li>Zdublowane ID lub atrybuty w tym samym elemencie</li>
+      <li>Niepoprawne zagnieżdżenie tagów (np. &lt;p&gt; w &lt;span&gt;)</li>
+    </ul>
+
+    <h4>Komentarze do audytu 4.1.1</h4>
+    <ul>
+      <li>Serwis nie przechodzi walidacji HTML — występują błędy składniowe w kodzie</li>
+      <li>Niektóre elementy mają zdublowane atrybuty ID</li>
+      <li>W kodzie znaleziono niezamknięte tagi, np. &lt;p&gt; bez odpowiadającego &lt;/p&gt;</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+<article id="k4_1_2">
+  <h3>4.1.2 Nazwa, rola, wartość (A)</h3>
+  <p>Każdy element interaktywny na stronie powinien mieć jasną nazwę, określoną rolę i, jeśli to możliwe, wartość, które mogą być odczytane przez technologie wspomagające (np. czytniki ekranu).</p>
+  
+  <button id="show-more-4_1_2" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 4.1.2
+  </button>
+  
+  <div class="full-text" style="display:none;">
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Bez odpowiednich nazw, ról i wartości osoby korzystające z technologii wspomagających mogą nie rozumieć ani nie obsługiwać interaktywnych elementów. Mogą nie wiedzieć, że dany komponent istnieje, jak go aktywować lub w jakim jest stanie.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby niewidome lub niedowidzące korzystające z czytników ekranu</li>
+      <li>Osoby z ograniczoną mobilnością, które nie używają standardowej myszy</li>
+      <li>Użytkownicy urządzeń alternatywnych do standardowej obsługi strony</li>
+    </ul>
+
+    <h4>Jak wdrożyć 4.1.2?</h4>
+    <ul>
+      <li>Używać standardowych komponentów HTML, które automatycznie mają Name, Role i Value</li>
+      <li>Poprawnie etykietować pola formularzy za pomocą <code>&lt;label&gt;</code></li>
+      <li>Zapewnić tytuł (<code>&lt;title&gt;</code>) dla elementów <code>&lt;iframe&gt;</code></li>
+      <li>Stosować atrybuty ARIA (<code>aria-label</code>, <code>aria-labelledby</code>, <code>role</code>, <code>aria-checked</code>) dla elementów niestandardowych</li>
+    </ul>
+
+    <h4>Przykłady błędów 4.1.2</h4>
+    <ul>
+      <li>Przycisk tylko z ikoną, bez tekstu alternatywnego (<code>aria-label</code>)</li>
+      <li>Pole formularza bez poprawnie zdefiniowanej roli lub etykiety</li>
+      <li>Element <code>&lt;iframe&gt;</code> bez atrybutu <code>title</code></li>
+    </ul>
+
+    <h4>Przykłady poprawnego kodu</h4>
+    <pre>
+<label for="data_urodzenia">Wprowadź datę urodzenia (dd-mm-rrrr)</label>
+<input type="text" name="data_urodzenia" id="data_urodzenia">
+
+<div id="okno-popup">
+    To jest okno pop-up.
+    <button aria-label="Zamknij">X</button>
+</div>
+
+    </pre>
+
+    <h4>Komentarze do audytu 4.1.2</h4>
+    <ul>
+      <li>Niektóre elementy interaktywne nie mają przypisanej nazwy lub roli</li>
+      <li>Brak widocznych etykiet dla pól formularzy i przycisków</li>
+      <li>Elementy <code>&lt;iframe&gt;</code> nie mają tytułów opisujących zawartość</li>
+      <li>Brak atrybutów ARIA tam, gdzie komponenty są niestandardowe</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+<article id="k4_1_3">
+  <h3>4.1.3 Komunikaty o stanie</h3>
+  <p>Strona powinna informować użytkownika o ważnych zmianach na stronie, które nie wymagają przeładowania, np. wynik akcji lub zmiana statusu. Te komunikaty muszą być dostępne dla technologii wspomagających, takich jak czytniki ekranu, aby użytkownik wiedział, co się dzieje.</p>
+  
+  <button id="show-more-4_1_3" class="show-more-btn" aria-expanded="false">
+    Przeczytaj więcej o 4.1.3
+  </button>
+
+  <div class="full-text" style="display:none;">
+    <h4>Dlaczego to jest ważne?</h4>
+    <p>Bez poprawnie zakodowanych komunikatów o stanie użytkownicy korzystający z czytników ekranu mogą nie wiedzieć, że akcja została wykonana, wystąpił błąd lub proces postępuje. Może to prowadzić do frustracji i błędów w obsłudze strony.</p>
+
+    <h4>Kto jest dotknięty?</h4>
+    <ul>
+      <li>Osoby niewidome lub niedowidzące korzystające z czytników ekranu</li>
+      <li>Osoby z ograniczoną percepcją wizualną</li>
+    </ul>
+
+    <h4>Jak wdrożyć 4.1.3?</h4>
+    <ul>
+      <li>Używać ról ARIA do komunikatów: <code>role="status"</code>, <code>role="alert"</code>, <code>role="progressbar"</code>, <code>role="log"</code></li>
+      <li>Stosować atrybuty <code>aria-live</code> i <code>aria-atomic</code> dla dynamicznych zmian</li>
+      <li>Nie zmieniać fokusu użytkownika – komunikaty powinny być ogłaszane automatycznie</li>
+      <li>Dla błędów formularzy używać <code>aria-describedby</code> lub <code>aria-errormessage</code></li>
+    </ul>
+
+    <h4>Przykłady błędów 4.1.3</h4>
+    <ul>
+      <li>Brak powiadomień o zmianach dla czytników ekranu</li>
+      <li>Komunikaty o stanie bez atrybutów ARIA (<code>aria-live</code>)</li>
+      <li>Błędy formularzy lub potwierdzenia akcji nie są ogłaszane dynamicznie</li>
+    </ul>
+
+    <h4>Przykłady poprawnego kodu</h4>
+    <pre>
+<!-- Komunikat o sukcesie -->
+<div role="status">Gratulacje! Formularz został wysłany pomyślnie.</div>
+
+<!-- Komunikat o błędzie -->
+<div role="alert">Błąd: Hasło musi mieć co najmniej 8 znaków.</div>
+
+<!-- Pasek postępu -->
+<div role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">Przesyłanie 50%</div>
+
+<!-- Aktualizacja kolejki lub log -->
+<div role="log" aria-live="polite">Otrzymano nową wiadomość.</div>
+
+    </pre>
+
+    <h4>Komentarze do audytu 4.1.3</h4>
+    <ul>
+      <li>Na stronie brakuje komunikatów o stanie odczytywanych przez czytniki ekranu</li>
+      <li>Potwierdzenia akcji nie mają atrybutu <code>aria-live</code></li>
+      <li>Formularze nie informują dynamicznie o błędach</li>
+    </ul>
+
+    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+  </div>
+</article>
+
+
   </section>
 </main>
 
@@ -2537,7 +4252,6 @@ nav.querySelectorAll('a').forEach(link => {
 
 </body>
 </html>
-
 
 
 
