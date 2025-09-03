@@ -95,7 +95,7 @@ section {
     background: transparent;
 }
 
-/* --- NAGŁÓWKI --- */
+/* --- NAGŁÓWKI W STYLU FIGMA --- */
 section h2 {
     display: flex;
     flex-direction: row;
@@ -205,6 +205,21 @@ border-radius: 16px;
     box-shadow: 5px 5px 0 #BBD325;
 }
 
+.skip-link {
+  position: absolute;
+  top: -40px; /* ukryty nad ekranem */
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: 8px;
+  z-index: 100;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 10px; /* pojawia się, gdy ma fokus */
+}
+
 /* --- RESPONSYWNOŚĆ --- */
 @media (max-width: 768px) {
     body { flex-direction: column; overflow: auto; }
@@ -236,6 +251,7 @@ border-radius: 16px;
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Przejdź do treści</a>
 
 <button class="menu-toggle">☰ Menu</button>
 <nav>
@@ -278,18 +294,19 @@ border-radius: 16px;
 <article id="k1_1_1">
  <div>
   <h3>1.1.1 Treść nietekstowa (A)</h3>
-
   <p>Wszystkie obrazki, ikony i inne elementy nietekstowe muszą mieć tekstowy opis.</p>
  </div>
    
-  <button id="show-more-1_1_1" class="show-more-btn" aria-expanded="false">Przeczytaj więcej o 1.1.1</button>
+  <button id="show-more-1_1_1" class="show-more-btn" aria-expanded="false">Rozwiń opis 1.1.1</button>
   
   <div class="full-text" style="display:none;">
-    <p>Na stronach internetowych obok tekstu często pojawiają się różne elementy, takie jak obrazki, filmy, dźwięki, ikony czy wykresy. Dla wielu osób te elementy są bardzo ważne, ponieważ przekazują dodatkowe informacje. Jednak osoby z niepełnosprawnościami, na przykład niewidome lub niedowidzące, mogą mieć trudności z odbiorem takich treści, jeśli nie mają one odpowiednich opisów tekstowych.</p>
+    <p>Na stronach internetowych obok tekstu często pojawiają się różne elementy, takie jak obrazki, filmy, dźwięki, ikony czy wykresy. 
+	Dla wielu osób te elementy są bardzo ważne, ponieważ przekazują dodatkowe informacje. Jednak osoby z niepełnosprawnościami, na przykład niewidome 
+	lub niedowidzące, mogą mieć trudności z odbiorem takich treści, jeśli nie mają one odpowiednich opisów tekstowych.</p>
 
 <h4>Dlaczego to jest ważne?</h4>
 
-<p>Treści nietekstowe bez opisów stanowią barierę dostępu do informacji. Osoby korzystające z czytników ekranu, które „czytają” zawartość strony na głos, nie mogą zrozumieć, co znajduje się na obrazkach czy w filmach, jeśli nie mają tekstowego opisu. To oznacza, że tracą ważne informacje, które inni widzą wzrokiem.</p>
+<p>Treści nietekstowe bez opisów stanowią barierę dostępu do informacji. Osoby korzystające z czytników ekranu, które czytają zawartość strony na głos, nie mogą zrozumieć, co znajduje się na obrazkach czy w filmach, jeśli nie mają tekstowego opisu. To oznacza, że tracą ważne informacje, które inni widzą wzrokiem.</p>
 
 <p>Opis tekstowy (np. atrybut alt w obrazkach) pomaga im zrozumieć, co dana treść przedstawia lub jakie ma znaczenie w kontekście strony. Dzięki temu osoby z różnymi niepełnosprawnościami mogą korzystać ze stron internetowych na równi z innymi użytkownikami.</p>
 
@@ -329,8 +346,6 @@ border-radius: 16px;
       <li>Grafiki będące jedyną treścią linków posiadają błędnie sformułowany tekst alternatywny, który nie informuje o celu linku.</li>
       <li>Osadzona mapa nie posiada opisu ani tytułu.</li>
     </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 </section>
@@ -341,9 +356,9 @@ border-radius: 16px;
 <article id="k1_2_1">
 <div>
   <h3>1.2.1 Tylko audio lub tylko wideo (A)</h3>
-  <p>Jeśli jest plik audio lub wideo bez dźwięku, trzeba dodać tekstowy opis.</p>
+  <p>Jeśli na stronie jest plik audio lub wideo bez dźwięku, trzeba dodać tekstowy opis.</p>
   </div>
-  <button id="show-more-1_2_1" class="show-more-btn">Przeczytaj więcej o 1.2.1</button>
+  <button id="show-more-1_2_1" class="show-more-btn">Rozwiń opis 1.2.1</button>
   <div class="full-text" style="display:none;">
     <p>Media oparte na czasie to takie elementy jak filmy, nagrania audio, transmisje na żywo czy animacje, które zmieniają się w czasie i przekazują informacje poprzez obraz i dźwięk. Dla wielu osób dostęp do tych mediów jest bardzo ważny, ale mogą napotkać bariery, jeśli materiały nie są odpowiednio przystosowane.</p>
 
@@ -375,18 +390,15 @@ border-radius: 16px;
 <p>Dzięki dostosowaniu mediów o czasie każdy użytkownik, niezależnie od swoich możliwości, może korzystać z materiałów wideo i audio. To nie tylko zwiększa dostępność, ale także poprawia jakość odbioru dla wszystkich — na przykład napisy pomagają w głośnych miejscach, a audiodeskrypcja ułatwia zrozumienie skomplikowanych scen.</p>
 
 <p>W efekcie strony i aplikacje stają się bardziej przyjazne i otwarte na różnorodne potrzeby użytkowników, co jest niezwykle ważne w nowoczesnym, cyfrowym świecie.</p>
-    <h4>Przykłady błędów 1.2.1</h4>
+
+    <h4>Przykłady błędów</h4>
     <ul>
-      <li>Plik audio (np. podcast) bez transkrypcji tekstowej.</li>
+      <li>Plik audio (np. podcast) nie posiada transkrypcji tekstowej.</li>
       <li>Wideo bez dźwięku (np. animacja, pokaz slajdów) bez opisu tekstowego.</li>
       <li>Materiał wideo na stronie nie ma żadnych informacji, o czym jest.</li>
-    </ul>
-
-    <h4>Komentarze 1.2.1</h4>
-    <p>Na stronie osadzono materiał wideo bez dźwięku, który nie zawiera opisu tekstowego.<br>
-    Opublikowano nagranie audio bez transkrypcji tekstowej.</p>
-
-    <button class="back-button">Zwiń opis</button>
+    <li>Na stronie osadzono materiał wideo bez dźwięku, który nie zawiera opisu tekstowego.</li>
+    <li>Opublikowano nagranie audio bez transkrypcji tekstowej.</li>
+	</ul>
   </div>
   </article>
 
@@ -395,7 +407,7 @@ border-radius: 16px;
     <h3>1.2.2 Napisy rozszerzone (A)</h3>
     <p>Jeśli na stronie jest nagrane wcześniej wideo z dźwiękiem (np. rozmowa, wykład, film), to musi mieć napisy.</p>
 	</div>
-    <button id="show-more-1_2_2" class="show-more-btn">Przeczytaj więcej o 1.2.2</button>
+    <button id="show-more-1_2_2" class="show-more-btn">Rozwiń opis 1.2.2</button>
     <div class="full-text" style="display:none;">
       <p>
 Napisy rozszerzone to tekst wyświetlany na ekranie podczas odtwarzania materiałów wideo z dźwiękiem, który nie tylko zawiera dialogi, ale również opisuje ważne dźwięki i efekty dźwiękowe.
@@ -403,6 +415,7 @@ Napisy rozszerzone to tekst wyświetlany na ekranie podczas odtwarzania materia�
 <p>
 Dzięki nim osoby niesłyszące lub niedosłyszące mogą lepiej zrozumieć, co dzieje się w filmie, nawet jeśli nie słyszą dźwięku. Napisy rozszerzone opisują np. muzykę, odgłosy otoczenia, emocje wyrażane głosem, kroki czy inne istotne informacje dźwiękowe, które wpływają na odbiór materiału.
 </p>
+<h4>Dlaczego to jest ważne?</h4>
 <p>
 Jest to bardzo ważne, ponieważ dźwięki często niosą dodatkowe informacje, które pomagają zrozumieć kontekst i emocje sceny. Bez nich osoby niesłyszące mogą mieć trudności z pełnym odbiorem treści wideo.
 </p>
@@ -416,18 +429,12 @@ Przede wszystkim osoby niesłyszące i niedosłyszące, które nie mogą odbiera
 <p>
 Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający nie tylko dialogi, ale również opisy ważnych dźwięków i efektów dźwiękowych. Można to zrobić ręcznie lub skorzystać z narzędzi do tworzenia napisów, które pozwalają na dodanie takich informacji. Upewnij się, że napisy są zsynchronizowane z dźwiękiem i czytelne dla odbiorców.
 </p>
-	  <h4>Przykłady błędów 1.2.2</h4>
+	  <h4>Przykłady błędów</h4>
 	  <ul>
 		<li>Film wgrany na stronę nie ma włączonych ani dołączonych napisów.</li>
-		<li>Osadzone wideo z YouTube nie zawiera żadnych napisów ani automatyczne są błędne.</li>
+		<li>Osadzone wideo z YouTube nie zawiera żadnych napisów a napisy automatyczne są błędne.</li>
 		<li>Brak możliwości włączenia napisów przez użytkownika.</li>
 	</ul>
-	 <h4>Komentarze do 1.2.2</h4>
-	  <ul>
-		<li>Wideo z dźwiękiem osadzone na stronie nie zawiera napisów.</li>
-		<li>Napisy w osadzonym filmie są automatyczne i zawierają liczne błędy, co utrudnia zrozumienie treści.</li>
-	</ul>
-      <button class="back-button">Zwiń opis</button>
     </div>
   </article>
 
@@ -438,20 +445,20 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
 	muszą wiedzieć, co się dzieje na ekranie. Dlatego trzeba dodać audiodeskrypcję (czyli lektor opisujący obraz) lub pełny opis tekstowy, 
 	który wyjaśnia całą akcję.</p>
 	</div>
-    <button id="show-more-1_2_3" class="show-more-btn">Przeczytaj więcej o 1.2.3</button>
+    <button id="show-more-1_2_3" class="show-more-btn">Rozwiń opis 1.2.3</button>
     <div class="full-text" style="display:none;">
       
-  <p><strong>Co to znaczy?</strong><br>
+  <p>
   Jeśli na stronie jest wcześniej nagrany film, program telewizyjny albo inny materiał wideo, który ma obraz i dźwięk, ważne jest, żeby osoby niewidome lub słabowidzące mogły zrozumieć, co się na nim dzieje. Niektóre informacje są przekazywane tylko przez obraz, więc trzeba je opisać słownie. Można to zrobić na dwa sposoby:</p>
   <ul>
     <li>dodać <strong>opis audio</strong> (czyli lektora, który opowiada, co się dzieje na ekranie)</li>
     <li>albo przygotować <strong>pełny opis tekstowy</strong>, który wyjaśnia wszystkie ważne zdarzenia i akcje.</li>
   </ul>
 
-  <p><strong>Po co to jest?</strong><br>
-  Niektóre ważne rzeczy w filmie widoczne są tylko na obrazku – na przykład kto co robi, jak wyglądają osoby, jakie zmienia się tło albo co jest napisane na ekranie. Dla osoby, która nie widzi obrazu, te informacje są niedostępne, jeśli nie mają opisu. Dzięki audiodeskrypcji lub opisowi tekstowemu mogą zrozumieć cały kontekst i to, co dzieje się w filmie.</p>
+  <p>
+  Niektóre ważne rzeczy w filmie widoczne są tylko na obrazku, na przykład kto co robi, jak wyglądają osoby, jakie zmienia się tło albo co jest napisane na ekranie. Dla osoby, która nie widzi obrazu, te informacje są niedostępne, jeśli nie mają opisu. Dzięki audiodeskrypcji lub opisowi tekstowemu mogą zrozumieć cały kontekst i to, co dzieje się w filmie.</p>
 
-  <p><strong>Co dokładnie trzeba opisać?</strong></p>
+  <h4>Co dokładnie trzeba opisać?</h4>
   <ul>
     <li>Ruchy i działania na ekranie (np. ktoś coś robi ważnego)</li>
     <li>Wyraz twarzy i gesty osób</li>
@@ -461,35 +468,30 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <li>Efekty dźwiękowe, takie jak odgłosy natury (deszcz, wiatr), hałasy tła (pisanie na klawiaturze), muzyka i nagłe głośne dźwięki</li>
   </ul>
 
-  <p><strong>Dlaczego to jest ważne?</strong><br>
-  Osoby niewidome i słabowidzące często korzystają z czytników ekranu lub innych technologii, które mogą odczytać dla nich tekst albo opisać dźwięk. Jeśli nie ma opisów audio lub tekstu, nie mają dostępu do wszystkich informacji, które dla innych widzących są oczywiste. Dzięki temu kryterium sukcesu WCAG, strona jest bardziej dostępna i wszyscy mogą korzystać z filmów.</p>
+  <h4>Dlaczego to jest ważne?</h4>
+  <p>Osoby niewidome i słabowidzące często korzystają z czytników ekranu lub innych technologii, które mogą odczytać dla nich tekst albo opisać dźwięk. Jeśli nie ma opisów audio lub tekstu, nie mają dostępu do wszystkich informacji, które dla innych widzących są oczywiste. Dzięki temu kryterium, strona jest bardziej dostępna i wszyscy mogą korzystać z filmów.</p>
 
-  <p><strong>Jak to zrobić?</strong></p>
+  <h4>Jak to zrobić?</h4>
   <ul>
     <li>Dodaj ścieżkę dźwiękową z opisem audio, która mówi, co dzieje się na ekranie, obok oryginalnego dźwięku.</li>
     <li>Albo przygotuj alternatywny plik wideo z wbudowanym opisem audio.</li>
     <li>Możesz też dodać osobny, szczegółowy opis w formie tekstu, jeśli opis audio nie jest możliwy.</li>
   </ul>
 
-  <p><strong>Kto tego potrzebuje?</strong>
+  <h4>Kto tego potrzebuje?</h4>
   <ul>
-  <li>soby niewidome lub słabowidzące</li>
+  <li>Osoby niewidome lub słabowidzące</li>
   <li>Osoby mające trudności z rozumieniem informacji wizualnych</li>
 	</ul>
 	
-  <h4>Przykłady błędów 1.2.3</h4>
+  <h4>Przykłady błędów</h4>
   <ul>
     <li>Wideo pokazuje ważne rzeczy wizualne (np. postacie gestykulują, zmieniają miejsce), ale nie ma opisu dźwiękowego ani tekstowego.</li>
     <li>Brakuje ścieżki z audiodeskrypcją lub odnośnika do transkrypcji, która opisywałaby treść wizualną.</li>
     <li>Film dla dzieci pokazujący sceny bez słów, ale z akcją, nie ma opisu dla osób niewidomych.</li>
-  </ul>
-
-  <h4>Komentarze 1.2.3</h4>
-  <ul>
     <li>Osadzony materiał wideo zawiera elementy wizualne istotne dla zrozumienia treści, ale nie posiada audiodeskrypcji ani alternatywnego opisu tekstowego.</li>
     <li>Nie zapewniono żadnej formy alternatywnej dla osób, które nie mogą zobaczyć materiału filmowego.</li>
   </ul>
-      <button class="back-button">Zwiń opis</button>
     </div>
   </article>
 
@@ -498,14 +500,11 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <h3>1.2.4 Napisy rozszerzone (na żywo) (AA)</h3>
   <p> Napisy na żywo muszą przekazywać mowę oraz ważne dźwięki podczas transmisji audio-wideo, aby osoby niesłyszące i niedosłyszące mogły zrozumieć treść na bieżąco.</p>
   </div>
-  <button id="show-more-1_2_4" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 1.2.4
-  </button>
+  <button id="show-more-1_2_4" class="show-more-btn" aria-expanded="false">Rozwiń opis 1.2.4</button>
   
   <div class="full-text" style="display:none;">
     <p>Do wszystkich treści audio w transmisjach na żywo, które mają obraz i dźwięk zsynchronizowany, muszą być zapewnione napisy rozszerzone.</p>
 
-    <h4>Co to jest?</h4>
     <p>Napisy rozszerzone to tekst wyświetlany podczas transmisji na żywo, który dokładnie oddaje słowa oraz ważne dźwięki i efekty audio, takie jak dźwięki otoczenia czy reakcje publiczności. Są one zsynchronizowane z obrazem i dźwiękiem na żywo.</p>
 
     <h4>Dlaczego to jest ważne?</h4>
@@ -529,20 +528,13 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Pełna dostępność treści na żywo dla osób z problemami słuchu oraz ułatwienie odbioru dla szerszej publiczności.</p>
 
-    <h4>Przykłady błędów 1.2.4</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Brak napisów podczas transmisji na żywo.</li>
       <li>Napisy nie zawierają istotnych dźwięków (np. reakcji publiczności).</li>
       <li>Napisy są opóźnione względem obrazu.</li>
     </ul>
 
-    <h4>Komentarze do audytu 1.2.4</h4>
-    <ul>
-      <li>Transmisje na żywo nie posiadają napisów rozszerzonych.</li>
-      <li>Napisy nie zawierają pełnych informacji o dźwiękach.</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -552,11 +544,10 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p> Zapewniona jest audiodeskrypcja dla wszystkich nagrań wideo.</p>
   </div>
   <button id="show-more-1_2_5" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 1.2.5
+    Rozwiń opis 1.2.5
   </button>
   
   <div class="full-text" style="display:none;">
-    <h4>Co to jest?</h4>
     <p>Audiodeskrypcja to dodatkowy komentarz dźwiękowy, który opisuje ważne elementy wizualne w nagranych filmach z dźwiękiem, jeśli nie są one wyjaśnione w głównym nagraniu audio.</p>
 
     <h4>Dlaczego to jest ważne?</h4>
@@ -578,19 +569,14 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
       <li>Dla prostych nagrań typu „mówiąca głowa” można użyć statycznego opisu tekstowego.</li>
     </ul>
 
-    <h4>Przykłady błędów 1.2.5</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Brak audiodeskrypcji w filmach.</li>
       <li>Audiodeskrypcja nie obejmuje wszystkich istotnych elementów wizualnych.</li>
-    </ul>
-
-    <h4>Komentarze do audytu 1.2.5</h4>
-    <ul>
       <li>Nagrania wideo nie posiadają dodatkowej ścieżki audiodeskrypcji.</li>
       <li>Audiodeskrypcja jest zbyt ogólna lub niepełna.</li>
     </ul>
 
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -601,11 +587,10 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p> Zapewnione jest tłumaczenie w języku migowym wszystkich nagrań audio.</p>
   </div>
   <button id="show-more-1_2_6" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 1.2.6
+    Rozwiń opis 1.2.6
   </button>
   
   <div class="full-text" style="display:none;">
-    <h4>Co to jest?</h4>
     <p>Wszystkie nagrania audio w filmach muszą mieć tłumaczenie na język migowy.</p>
 
     <h4>Dlaczego to jest ważne?</h4>
@@ -614,7 +599,6 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Kto jest dotknięty?</h4>
     <ul>
       <li>Osoby niesłyszące</li>
-      <li>Osoby głuche</li>
       <li>Osoby korzystające z języka migowego</li>
     </ul>
 
@@ -627,19 +611,13 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Dodanie języka migowego sprawia, że film jest w pełni zrozumiały dla osób niesłyszących i głuchych, nie tylko przez napisy, ale także pełne, wizualne tłumaczenie.</p>
 
-    <h4>Przykłady błędów 1.2.6</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Brak tłumaczenia na język migowy w filmach.</li>
       <li>Tłumacz jest źle widoczny lub niewyraźny.</li>
+      <li>Tłumaczenie filmu jest niedokładne lub niepełne.</li>
     </ul>
 
-    <h4>Komentarze do audytu 1.2.6</h4>
-    <ul>
-      <li>Filmy nie posiadają wersji z tłumaczem języka migowego.</li>
-      <li>Tłumaczenie jest niedokładne lub niepełne.</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -650,11 +628,10 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Filmy muszą mieć rozszerzone opisy dźwiękowe, które zatrzymują obraz, by dokładniej wyjaśnić ważne wizualne elementy.</p>
   </div>
   <button id="show-more-1_2_7" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 1.2.7
+    Rozwiń opis 1.2.7
   </button>
   
   <div class="full-text" style="display:none;">
-    <h4>Co to jest?</h4>
     <p>Rozszerzona audiodeskrypcja to dodatkowe opisy dźwiękowe, które mogą zatrzymać obraz, aby szczegółowo wyjaśnić ważne elementy wizualne w nagraniach wideo.</p>
 
     <h4>Dlaczego to jest ważne?</h4>
@@ -674,18 +651,13 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
       <li>Unikaj nakładania opisów na dialogi lub ważne dźwięki.</li>
     </ul>
 
-    <h4>Przykłady błędów 1.2.7</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Brak rozszerzonej audiodeskrypcji w materiałach wymagających szczegółowego opisu.</li>
       <li>Opisy nie obejmują wszystkich kluczowych elementów wizualnych.</li>
-    </ul>
-
-    <h4>Komentarze do audytu 1.2.7</h4>
-    <ul>
       <li>Wideo nie zawiera rozszerzonej audiodeskrypcji pomimo złożonych scen wizualnych.</li>
     </ul>
 
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -696,11 +668,10 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Zapewniona jest alternatywa tekstowa dla wszystkich nagrań multimedialnych zsynchronizowanych (dźwięk i obraz) oraz nagrań tylko wideo.</p>
   </div>
   <button id="show-more-1_2_8" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 1.2.8
+    Rozwiń opis 1.2.8
   </button>
   
   <div class="full-text" style="display:none;">
-    <h4>Co to jest?</h4>
     <p>Alternatywa dla mediów (nagranie) to pełny opis tekstowy, który przekazuje wszystkie informacje z nagrania audio-wideo lub samego wideo.</p>
 
     <h4>Dlaczego to jest ważne?</h4>
@@ -719,18 +690,13 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
       <li>Udostępnij opis w łatwo dostępnym formacie, np. HTML lub pliku tekstowym.</li>
     </ul>
 
-    <h4>Przykłady błędów 1.2.8</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Brak alternatywy tekstowej dla wideo.</li>
       <li>Opis jest niepełny i nie obejmuje wszystkich elementów.</li>
-    </ul>
-
-    <h4>Komentarze do audytu 1.2.8</h4>
-    <ul>
       <li>Nagrania wideo nie posiadają pełnego opisu tekstowego.</li>
     </ul>
 
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -741,11 +707,10 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Zapewniona jest alternatywa dla przekazów tylko audio na żywo, która przekazuje te same informacje.</p>
   </div>
   <button id="show-more-1_2_9" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 1.2.9
+    Rozwiń opis 1.2.9
   </button>
   
   <div class="full-text" style="display:none;">
-    <h4>Co to jest?</h4>
     <p>Alternatywa dla przekazu tylko audio na żywo to treść, która w czasie rzeczywistym przekazuje te same informacje co dźwięk.</p>
 
     <h4>Dlaczego to jest ważne?</h4>
@@ -763,17 +728,9 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
       <li>Udostępnij pisemne streszczenie wydarzenia równolegle z transmisją.</li>
     </ul>
 
-    <h4>Przykłady błędów 1.2.9</h4>
-    <ul>
-      <li>Brak napisów lub alternatywy tekstowej dla transmisji audio na żywo.</li>
-    </ul>
+    <h4>Przykłady błędów</h4>
+    <p>Brak napisów lub alternatywy tekstowej dla transmisji audio na żywo.</p>
 
-    <h4>Komentarze do audytu 1.2.9</h4>
-    <ul>
-      <li>Brak równoległego przekazu tekstowego w transmisjach audio na żywo.</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 </section>
@@ -786,7 +743,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h3>1.3.1 Informacje i relacje (A)</h3>
     <p>Struktura strony jest jasna i logiczna.</p>
 	</div>
-    <button id="show-more-1_3_1" class="show-more-btn">Przeczytaj więcej o 1.3.1</button>
+    <button id="show-more-1_3_1" class="show-more-btn">Rozwiń opis 1.3.1</button>
     <div class="full-text" style="display:none;">
       <p>Na stronach internetowych bardzo często używamy różnych elementów wizualnych lub dźwiękowych, aby pokazać, jak poszczególne części treści są ze sobą powiązane. Mogą to być na przykład nagłówki, pogrubienia, grupowanie elementów, kolory czy nawet efekty dźwiękowe. Takie wskazówki pomagają osobom widzącym lub słyszącym szybciej zrozumieć strukturę i znaczenie informacji.</p>
 
@@ -811,24 +768,15 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
 </ul>
 
 <p>Dzięki temu Twoja strona będzie dostępna dla szerszej grupy odbiorców i zgodna z wytycznymi WCAG, co nie tylko pomaga użytkownikom z niepełnosprawnościami, ale często poprawia także SEO i użyteczność dla wszystkich.</p>
- <h4>Przykłady błędów 1.3.1</h4>
+ <h4>Przykłady błędów</h4>
 <ul>
   <li>Na stronie są duże pogrubione napisy wyglądające jak nagłówki, ale nie są oznaczone jako <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code> itp.</li>
   <li>Lista elementów (np. kroków) nie jest oznaczona jako lista (<code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>), tylko jako zwykły tekst.</li>
   <li>Pola formularza nie mają etykiet (<code>&lt;label&gt;</code>).</li>
   <li>Tabela nie ma nagłówków kolumn (<code>&lt;th&gt;</code>) ani powiązań między danymi a nagłówkami.</li>
-  <li>Ważne informacje są pokazane tylko przez kolor lub pozycję, a nie są opisane w kodzie.</li>
-</ul>
-
-<h4>Komentarze 1.3.1</h4>
-<ul>
-  <li>Na stronie zastosowano elementy wyglądające jak nagłówki, ale nie oznaczono ich za pomocą znaczników semantycznych (<code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code> itd.).</li>
-  <li>Informacje przedstawione wizualnie jako lista nie są zakodowane przy użyciu znaczników listy (<code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>).</li>
-  <li>Pola formularza nie posiadają widocznych lub powiązanych etykiet (<code>&lt;label&gt;</code>), co utrudnia obsługę przy użyciu czytników ekranu.</li>
-  <li>Tabela danych nie zawiera nagłówków (<code>&lt;th&gt;</code>) ani powiązań między komórkami danych i nagłówkami.</li>
+  <li>Ważne informacje są pokazane tylko przez kolor lub pozycję, a nie są opisane w kodzie.</li>  
 </ul>     
 	  
-	  <button class="back-button">Zwiń opis</button>
     </div>
   </article>
 
@@ -837,7 +785,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h3>1.3.2 Zrozumiała kolejność (A)</h3>
     <p>Jeśli kolejność, w jakiej przedstawiona jest treść, ma znaczenie dla zrozumienia treści - prawidłowa kolejność odczytu musi być określona programowo</p>
    </div>
-   <button id="show-more-1_3_2" class="show-more-btn" aria-expanded="false">Przeczytaj więcej o 1.3.2</button>
+   <button id="show-more-1_3_2" class="show-more-btn" aria-expanded="false">Rozwiń opis 1.3.2</button>
     <div class="full-text" style="display:none;">
   <p>Zawartość musi być ułożona w logicznym i sensownym porządku w kodzie, aby technologia wspomagająca mogła ją prawidłowo odczytać, nawet jeśli układ wizualny jest inny.</p>
   
@@ -857,20 +805,16 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <li>Unikaj rozbijania słów lub zdań w sposób, który zmienia ich znaczenie podczas odczytu.</li>
   </ul>
   
-  <h4>Przykłady błędów 1.3.2</h4>
+  <h4>Przykłady błędów</h4>
   <ul>
     <li>Kolejność pól formularza jest inna w kodzie niż wizualnie, co myli użytkowników korzystających z czytników ekranu.</li>
     <li>Nagłówki i powiązane paragrafy są oddzielone innymi elementami, przez co odczyt jest chaotyczny.</li>
     <li>Tekst jest podzielony na różne linijki, które wizualnie są czytelne, ale czytnik ekranu odczytuje je w złej kolejności.</li>
-  </ul>
-  
-  <h4>Komentarze do audytu 1.3.2</h4>
-  <ul>
+ 
     <li>Na stronie głównej tekst powitalny jest rozbity na kilka linijek, a czytnik ekranu odczytuje fragmenty w kolejności: „Witaj”, „na”, „naszej stronie”, zamiast „Witaj na naszej stronie”.</li>
     <li>Menu nawigacyjne jest zorganizowane wizualnie w kolumny, ale w kodzie HTML jest liniowo ułożone inaczej, przez co czytnik ekranu odczytuje elementy w nieintucyjnej kolejności.</li>
     <li>Instrukcja krok po kroku jest rozsiana po stronie, co sprawia, że osoby korzystające z czytników ekranu muszą wyszukiwać kolejność samodzielnie.</li>
   </ul>
-      <button class="back-button" aria-expanded="true">Zwiń opis</button>
     </div>
   </article>
   
@@ -880,7 +824,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Instrukcje i informacje nie mogą opierać się wyłącznie na właściwościach zmysłowych, takich jak kształt, kolor, rozmiar czy dźwięk.</p>
   </div>
   <button id="show-more-1_3_3" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 1.3.3
+    Rozwiń opis 1.3.3
   </button>
   <div class="full-text" style="display:none;">
     <p>Informacje i instrukcje powinny być przedstawione tak, aby osoby z różnymi niepełnosprawnościami mogły je zrozumieć, bez polegania tylko na bodźcach zmysłowych, np. kolorze czy dźwięku.</p>
@@ -903,20 +847,12 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <li>Używaj kontrastu i innych środków wizualnych wraz z dodatkowymi informacjami.</li>
   </ul>
   
-  <h4>Przykłady błędów 1.3.3</h4>
+  <h4>Przykłady błędów</h4>
   <ul>
     <li>W formularzu błąd jest sygnalizowany tylko czerwonym kolorem obramowania pola bez żadnego tekstu lub ikony.</li>
     <li>W quizie odpowiedzi oznaczone są tylko kolorem (zielony = prawidłowa, czerwony = błędna) bez dodatkowego oznaczenia.</li>
     <li>Informacje o stanie systemu podawane są tylko za pomocą dźwięku bez wizualnego wskaźnika.</li>
   </ul>
-  
-  <h4>Komentarze do audytu 1.3.3</h4>
-  <ul>
-    <li>Na stronie formularza przy błędnych polach jest tylko czerwone podkreślenie, brak komunikatu tekstowego lub ikony informującej o błędzie.</li>
-    <li>Test wyboru odpowiedzi oznacza prawidłowe i błędne opcje wyłącznie kolorem, co może być nieczytelne dla osób z daltonizmem.</li>
-    <li>Powiadomienia o ważnych zdarzeniach pojawiają się tylko w formie dźwiękowej, bez wizualnego potwierdzenia.</li>
-  </ul>
-   <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -926,7 +862,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p> Treść nie ogranicza swojego widoku i działania do jednej orientacji wyświetlania, takiej jak pionowa lub pozioma, chyba że określona orientacja jest istotna.</p>
   </div>
   <button id="show-more-1_3_4" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 1.3.4
+    Rozwiń opis 1.3.4
   </button>
   
   <div class="full-text" style="display:none;">
@@ -951,17 +887,9 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Dzięki temu strona jest bardziej dostępna i wygodna dla użytkowników na różnych urządzeniach i w różnych warunkach użytkowania.</p>
 
-    <h4>Przykłady błędów 1.3.4</h4>
-    <ul>
-      <li>Strona mobilna działa tylko w orientacji pionowej i blokuje obrót ekranu, przez co tekst lub elementy są nieczytelne w orientacji poziomej.</li>
-    </ul>
+    <h4>Przykłady błędów</h4>
+      <p>Strona mobilna działa tylko w orientacji pionowej i blokuje obrót ekranu, przez co tekst lub elementy są nieczytelne w orientacji poziomej.</p>
 
-    <h4>Komentarze do audytu 1.3.4</h4>
-    <ul>
-      <li>Na stronie nie umożliwiono zmiany orientacji ekranu, co utrudnia korzystanie osobom, które potrzebują orientacji poziomej.</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -971,7 +899,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p> Formularze powinny mieć pola, które programowo określają, jakiego rodzaju dane są w nich wpisywane, aby ułatwić wypełnianie i automatyczne uzupełnianie.</p>
   </div>
   <button id="show-more-1_3_5" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 1.3.5
+    Rozwiń opis 1.3.5
   </button>
   
   <div class="full-text" style="display:none;">
@@ -996,19 +924,12 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Dzięki temu wypełnianie formularzy jest szybsze, mniej męczące i mniej podatne na błędy, szczególnie dla osób z niepełnosprawnościami.</p>
 
-    <h4>Przykłady błędów 1.3.5</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
-      <li>Pole imienia bez atrybutu <code>autocomplete</code> i niejasną etykietą, co utrudnia automatyczne uzupełnianie i zrozumienie.</li>
-      <li>Brak etykiet lub ich nieczytelność, przez co użytkownik nie wie, co powinien wpisać.</li>
-    </ul>
-
-    <h4>Komentarze do audytu 1.3.5</h4>
-    <ul>
-      <li>Formularz nie wykorzystuje atrybutu <code>autocomplete</code>, co powoduje konieczność ręcznego wpisywania powtarzalnych danych.</li>
+      <li>Pole imienia nie posiada atrybutu <code>autocomplete</code> i ma niejasną etykietę, co utrudnia automatyczne uzupełnianie i zrozumienie.</li>
       <li>Brak jasnych etykiet przy polach, co może mylić użytkowników korzystających z czytników ekranu.</li>
     </ul>
 
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -1018,7 +939,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Komponenty interfejsu, ikony i obszary strony powinny mieć programowo określone przeznaczenie, by ułatwić ich zrozumienie i personalizację przez technologie wspomagające.</p>
   </div>
   <button id="show-more-1_3_6" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 1.3.6
+    Rozwiń opis 1.3.6
   </button>
   
   <div class="full-text" style="display:none;">
@@ -1044,21 +965,13 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Dzięki temu użytkownicy mogą lepiej rozumieć funkcje elementów, a technologie wspomagające mogą oferować spersonalizowane sposoby przeglądania i obsługi strony, co zwiększa komfort i dostępność.</p>
 
-    <h4>Przykłady błędów 1.3.6</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Przycisk oznaczony tylko jako "button" bez informacji o jego funkcji.</li>
       <li>Ikony z niejasnym lub brakującym tekstem alternatywnym.</li>
       <li>Brak użycia semantycznych tagów i ARIA, co powoduje, że sekcje strony nie są rozpoznawalne dla czytników ekranu.</li>
     </ul>
 
-    <h4>Komentarze do audytu 1.3.6</h4>
-    <ul>
-      <li>Elementy interfejsu nie mają opisowych nazw, co utrudnia ich identyfikację przez użytkowników z czytnikami ekranu.</li>
-      <li>Brak odpowiednich ról ARIA i semantycznych tagów struktury strony.</li>
-      <li>Ikony są opisane nieprecyzyjnie lub wcale, co powoduje dezorientację użytkowników.</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -1073,7 +986,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Kolor nie może być jedynym sposobem przekazywania informacji lub wyróżniania elementów.</p>
   </div>
   <button id="show-more-1_4_1" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 1.4.1
+    Rozwiń opis 1.4.1
   </button>
   
   <div class="full-text" style="display:none;">
@@ -1098,19 +1011,13 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Strona staje się bardziej dostępna i zrozumiała dla wszystkich użytkowników, nie tylko tych, którzy widzą kolory dobrze.</p>
 
-    <h4>Przykłady błędów 1.4.1</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Linki oznaczone tylko czerwonym kolorem, bez podkreślenia</li>
       <li>Błędy w formularzu widoczne tylko jako czerwone obramowanie pola</li>
+
     </ul>
 
-    <h4>Komentarze do audytu 1.4.1</h4>
-    <ul>
-      <li>Kolor jest jedynym sposobem przekazywania informacji w elemencie [nazwa elementu] - dodaj też tekst lub ikonę</li>
-      <li>Informacje oznaczone tylko kolorem są niedostępne dla osób z zaburzeniami rozróżniania barw</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -1120,7 +1027,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Jeśli dźwięk odtwarza się automatycznie dłużej niż 3 sekundy, użytkownik musi mieć możliwość jego zatrzymania lub wyciszenia.</p>
   </div>
   <button id="show-more-1_4_2" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 1.4.2
+    Rozwiń opis 1.4.2
   </button>
   
   <div class="full-text" style="display:none;">
@@ -1132,7 +1039,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Kto jest dotknięty?</h4>
     <ul>
       <li>Osoby z niepełnosprawnościami słuchu i wzroku</li>
-      <li>Osoby z problemami poznawczymi i sensorycznymi</li>
+      <li>Osoby z trudnościami poznawczymi i sensorycznymi</li>
     </ul>
 
     <h4>Jak to zrobić?</h4>
@@ -1145,19 +1052,14 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Użytkownicy mają pełną kontrolę nad dźwiękiem, co poprawia komfort korzystania ze strony i dostępność dla wszystkich.</p>
 
-    <h4>Przykłady błędów 1.4.2</h4>
-    <ul>
-      <li>Strona odtwarza muzykę automatycznie bez możliwości zatrzymania</li>
-      <li>Brak przycisku do wyciszenia dźwięku</li>
-      <li>Dźwięk odtwarzany automatycznie bez kontroli głośności</li>
-    </ul>
-
-    <h4>Komentarze do audytu 1.4.2</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Na stronie występuje automatyczne odtwarzanie dźwięku bez dostępnej kontroli (zatrzymania, wyciszenia lub pauzy)</li>
+      <li>Brak przycisku do wyciszenia dźwięku</li>
+      <li>Dźwięk odtwarzany automatycznie bez kontroli głośności</li>
+   
     </ul>
 
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -1167,7 +1069,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Tekst i obrazy tekstu muszą mieć odpowiedni kontrast kolorów, aby były czytelne dla osób z wadą wzroku.</p>
   </div>
   <button id="show-more-1_4_3" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 1.4.3
+    Rozwiń opis 1.4.3
   </button>
   
   <div class="full-text" style="display:none;">
@@ -1178,7 +1080,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
 
     <h4>Kto jest dotknięty?</h4>
     <ul>
-      <li>Osoby z niedowidzeniem i słabym wzrokiem</li>
+      <li>Osoby niedowidzące i ze słabym wzrokiem</li>
       <li>Osoby starsze</li>
       <li>Osoby z daltonizmem i innymi zaburzeniami percepcji kolorów</li>
     </ul>
@@ -1194,20 +1096,13 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Zwiększa się czytelność i komfort użytkowania strony dla osób ze słabym wzrokiem, co przekłada się na lepszą dostępność i użyteczność.</p>
 
-    <h4>Przykłady błędów 1.4.3</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Tekst w kolorze jasnoszarym na białym tle z kontrastem poniżej 4.5:1</li>
       <li>Napis na kolorowym tle bez wystarczającego kontrastu</li>
       <li>Mały tekst z kontrastem 2:1 zamiast 4.5:1</li>
     </ul>
 
-    <h4>Komentarze do audytu 1.4.3</h4>
-    <ul>
-      <li>Elementy tekstowe na stronie nie spełniają minimalnego kontrastu</li>
-      <li>Kontrast dużego tekstu jest poniżej wymaganego minimum 3:1</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -1217,7 +1112,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Użytkownik powinien móc powiększyć tekst na stronie do 200% bez utraty czytelności lub funkcjonalności.</p>
   </div>
   <button id="show-more-1_4_4" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 1.4.4
+     Rozwiń opis 1.4.4
   </button>
   
   <div class="full-text" style="display:none;">
@@ -1228,7 +1123,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
 
     <h4>Kto jest dotknięty?</h4>
     <ul>
-      <li>Osoby z niedowidzeniem i słabym wzrokiem</li>
+      <li>Osoby niedowidzące i ze słabym wzrokiem</li>
       <li>Osoby starsze, które potrzebują większych liter</li>
       <li>Użytkownicy z dysleksją i innymi trudnościami w czytaniu</li>
     </ul>
@@ -1244,20 +1139,14 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Umożliwienie powiększenia tekstu poprawia dostępność strony i komfort jej użytkowania przez osoby z różnymi potrzebami wzrokowymi.</p>
 
-    <h4>Przykłady błędów 1.4.4</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Powiększony tekst zachodzi na inne elementy strony</li>
       <li>Tekst jest rozmyty lub obcinany po powiększeniu</li>
       <li>Elementy strony nie dostosowują się do większego rozmiaru tekstu</li>
+    
     </ul>
 
-    <h4>Komentarze do audytu 1.4.4</h4>
-    <ul>
-      <li>Strona nie umożliwia powiększenia tekstu do 200% bez utraty czytelności lub funkcjonalności</li>
-      <li>Tekst po powiększeniu zachodzi na inne elementy interfejsu</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 <article id="k1_4_5">
@@ -1266,7 +1155,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Tekst powinien być używany zamiast obrazów tekstu, z wyjątkiem sytuacji, gdy obraz tekstu jest istotny lub możliwy do dostosowania.</p>
   </div>
   <button id="show-more-1_4_5" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 1.4.5
+     Rozwiń opis 1.4.5
   </button>
   
   <div class="full-text" style="display:none;">
@@ -1277,9 +1166,9 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
 
     <h4>Kto jest dotknięty?</h4>
     <ul>
-      <li>Osoby z niedowidzeniem lub słabym wzrokiem</li>
-      <li>Osoby z problemami ze śledzeniem wzroku</li>
-      <li>Użytkownicy z niepełnosprawnościami poznawczymi</li>
+      <li>Osoby ze słabym wzrokiem</li>
+      <li>Osoby z problemem percepcji wzroku</li>
+      <li>Użytkownicy z trudnościami poznawczymi</li>
     </ul>
 
     <h4>Jak to zrobić?</h4>
@@ -1293,21 +1182,13 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Używanie prawdziwego tekstu zamiast obrazów tekstu poprawia czytelność, pozwala użytkownikom dostosować wygląd tekstu do swoich potrzeb i zapewnia lepszą dostępność treści.</p>
 
-    <h4>Przykłady błędów 1.4.5</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Obrazy zawierające tekst bez opisu alternatywnego</li>
       <li>Użycie obrazów tekstu zamiast rzeczywistego tekstu bez uzasadnienia</li>
       <li>Brak możliwości dostosowania tekstu osadzonego w obrazach</li>
     </ul>
 
-    <h4>Komentarze do audytu 1.4.5</h4>
-    <ul>
-      <li>Na stronie użyto obrazków z tekstem bez opisu alternatywnego</li>
-      <li>Tekst w formie grafiki powinien mieć opis lub być zastąpiony zwykłym tekstem</li>
-      <li>Obrazy tekstu utrudniają dostępność dla użytkowników korzystających z technologii wspomagających</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 <article id="k1_4_6">
@@ -1316,7 +1197,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Tekst i obrazy tekstu muszą mieć współczynnik kontrastu co najmniej 7:1 (normalny tekst) lub 4,5:1 (duży tekst), z pewnymi wyjątkami.</p>
   </div>
   <button id="show-more-1_4_6" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 1.4.6
+     Rozwiń opis 1.4.6
   </button>
   
   <div class="full-text" style="display:none;">
@@ -1327,7 +1208,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
 
     <h4>Kto jest dotknięty?</h4>
     <ul>
-      <li>Osoby z niskim widzeniem</li>
+      <li>Osoby ze słabym wzrokiem</li>
       <li>Osoby z daltonizmem i innymi zaburzeniami rozpoznawania kolorów</li>
     </ul>
 
@@ -1336,26 +1217,19 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
       <li>Zapewnij współczynnik kontrastu minimum 7:1 dla normalnego tekstu i 4,5:1 dla dużego tekstu</li>
       <li>Unikaj łączenia kolorów o niskim kontraście</li>
       <li>Używaj narzędzi do testowania kontrastu, by sprawdzić zgodność</li>
-      <li>W przypadku logo i tekstów dekoracyjnych stosuj wyjątki, ale upewnij się, że nie wpływa to na czytelność ważnej treści</li>
+      <li>W przypadku logo i tekstów dekoracyjnych możesz zastosować wyjątki, ale upewnij się, że nie wpływa to na czytelność ważnej treści</li>
     </ul>
 
     <h4>Korzyści</h4>
     <p>Silniejszy kontrast zwiększa czytelność tekstu, redukuje zmęczenie wzroku i ułatwia korzystanie z witryny osobom z różnymi problemami wzrokowymi.</p>
 
-    <h4>Przykłady błędów 1.4.6</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Tekst ma kontrast niższy niż 7:1 (lub 4,5:1 dla dużego tekstu)</li>
       <li>Używanie kolorów, które zlewają się ze sobą i utrudniają odczyt</li>
       <li>Brak testów kontrastu przy projektowaniu strony</li>
     </ul>
-
-    <h4>Komentarze do audytu 1.4.6</h4>
-    <ul>
-      <li>Elementy tekstowe na stronie nie spełniają wymagań wzmocnionego kontrastu</li>
-      <li>Kontrast pomiędzy tekstem a tłem jest zbyt niski, co utrudnia odczytanie treści</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+    
   </div>
 </article>
 
@@ -1365,7 +1239,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Audio z mową nie powinno mieć uciążliwych dźwięków w tle lub użytkownik powinien mieć możliwość ich wyłączenia.</p>
   </div>
   <button id="show-more-1_4_7" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 1.4.7
+     Rozwiń opis 1.4.7
   </button>
   
   <div class="full-text" style="display:none;">
@@ -1376,7 +1250,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
 
     <h4>Kto jest dotknięty?</h4>
     <ul>
-      <li>Osoby z ubytkiem słuchu</li>
+      <li>Osoby słabosłyszące</li>
       <li>Osoby z zaburzeniami przetwarzania słuchowego</li>
     </ul>
 
@@ -1391,19 +1265,13 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Lepsza zrozumiałość nagrań audio, mniejsze zmęczenie słuchowe i większa dostępność dla osób z różnymi potrzebami słuchowymi.</p>
 
-    <h4>Przykłady błędów 1.4.7</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
-      <li>Nagranie z głośną muzyką w tle bez możliwości wyłączenia</li>
       <li>Dźwięki tła o podobnej głośności co mowa, utrudniające zrozumienie</li>
-    </ul>
-
-    <h4>Komentarze do audytu 1.4.7</h4>
-    <ul>
       <li>Na stronie znajdują się nagrania audio z nieusuwalnymi dźwiękami tła, które utrudniają odbiór mowy</li>
       <li>Brak wersji nagrań bez podkładu muzycznego lub opcji wyłączenia dźwięków tła</li>
     </ul>
 
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -1413,7 +1281,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Bloki tekstu powinny być łatwe do czytania — z odpowiednim odstępem, szerokością wiersza, bez pełnego justowania oraz z możliwością zmiany kolorów przez użytkownika.</p>
   </div>
   <button id="show-more-1_4_8" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 1.4.8
+    Rozwiń opis 1.4.8
   </button>
   
   <div class="full-text" style="display:none;">
@@ -1441,25 +1309,16 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Lepsza czytelność, mniejsze zmęczenie wzroku, łatwiejsze śledzenie tekstu i dostępność dla szerszej grupy użytkowników.</p>
 
-    <h4>Przykłady błędów 1.4.8</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
-      <li>Pełne justowanie dużych bloków tekstu</li>
       <li>Linie dłuższe niż 80 znaków</li>
-      <li>Brak możliwości zmiany kolorów przez użytkownika</li>
-      <li>Zbyt małe odstępy między wierszami i akapitami</li>
       <li>Tekst wymagający przewijania w poziomie po powiększeniu</li>
-    </ul>
-
-    <h4>Komentarze do audytu 1.4.8</h4>
-    <ul>
-      <li>Długość wierszy przekracza 80 znaków (lub 40 dla języków CJK).</li>
   <li>Tekst jest pełnojustowany zamiast wyrównany do lewej lub prawej.</li>
   <li>Kolor tekstu i tła nie można zmienić za pomocą stylów użytkownika lub przeglądarki.</li>
   <li>Odstępy między wierszami są zbyt małe (mniej niż 1,5 wysokości linii).</li>
   <li>Odstępy między akapitami są zbyt małe (mniejsze niż 1,5 razy odstęp między wierszami).</li>
     </ul>
 
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -1469,7 +1328,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Tekst na stronie powinien być prawdziwym tekstem, a nie obrazem tekstu. Wyjątek dotyczy tylko sytuacji, gdy obraz tekstu jest niezbędny (np. logo).</p>
   </div>
   <button id="show-more-1_4_9" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 1.4.9
+    Rozwiń opis 1.4.9
   </button>
   
   <div class="full-text" style="display:none;">
@@ -1496,22 +1355,16 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Umożliwienie powiększania, zmiany kolorów, korzystania z czytników ekranu oraz lepsze dopasowanie treści do różnych urządzeń i potrzeb użytkowników.</p>
 
-    <h4>Przykłady błędów 1.4.9</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Nagłówki na stronie są w formie grafik zamiast tekstu HTML.</li>
       <li>Przyciski zawierają tekst zapisany w pliku PNG bez wersji tekstowej.</li>
       <li>Brak alternatywnej treści dla obrazów tekstu.</li>
-    </ul>
-
-    <h4>Komentarze do audytu 1.4.9</h4>
-    <ul>
       <li>Tekst w logo jest jedyną wersją informacji i nie ma opisu alternatywnego.</li>
       <li>Elementy nawigacji zawierają tekst w formie obrazów bez wersji tekstowej.</li>
-      <li>Obraz tekstu użyty w treści artykułu nie jest istotny dla przekazu i powinien być zamieniony na HTML.</li>
       <li>Przy powiększeniu do 200% obraz tekstu staje się rozmazany i trudny do odczytania.</li>
     </ul>
 
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -1521,11 +1374,11 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Treść strony powinna być dostępna bez utraty informacji i funkcji oraz bez konieczności przewijania w dwóch wymiarach na ekranie o szerokości 320 px lub wysokości 256 px (przy powiększeniu do 400%).</p>
   </div>
   <button id="show-more-1_4_10" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 1.4.10
+    Rozwiń opis 1.4.10
   </button>
   
   <div class="full-text" style="display:none;">
-    <p>Strona powinna działać poprawnie na małych ekranach (np. telefonach) oraz po dużym powiększeniu (do 400%), bez potrzeby przewijania w bok. Użytkownik musi móc zobaczyć i obsłużyć całą treść w jednym wymiarze przewijania (pionowo lub poziomo — w zależności od orientacji treści).</p>
+    <p>Strona powinna działać poprawnie na małych ekranach (np. telefonach) oraz po dużym powiększeniu (do 400%), bez potrzeby przewijania w bok. Użytkownik musi móc zobaczyć i obsłużyć całą treść w jednym wymiarze przewijania (pionowo lub poziomo - w zależności od orientacji treści).</p>
 
     <h4>Dlaczego to jest ważne?</h4>
     <p>Osoby z wadami wzroku, które powiększają widok strony, oraz użytkownicy urządzeń mobilnych mogą mieć trudności z odbiorem treści, jeśli wymaga ona przewijania w dwóch kierunkach. Utrudnia to czytanie, zrozumienie i korzystanie z funkcji strony.</p>
@@ -1539,7 +1392,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
 
     <h4>Jak to zrobić?</h4>
     <ul>
-      <li>Projektuj responsywnie — stosuj elastyczne układy i jednostki względne.</li>
+      <li>Projektuj responsywnie, stosuj elastyczne układy i jednostki względne.</li>
       <li>Testuj stronę w szerokości widoku 320 px i przy powiększeniu 400%.</li>
       <li>Unikaj sztywnych szerokości elementów, które mogą powodować poziome przewijanie.</li>
       <li>Przemyśl układ tabel, formularzy i grafik, aby mieściły się w jednym wymiarze przewijania.</li>
@@ -1548,21 +1401,14 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Strona jest wygodna w obsłudze na urządzeniach mobilnych i przy dużym powiększeniu, co poprawia dostępność dla osób słabowidzących i ogólne doświadczenie użytkownika.</p>
 
-    <h4>Przykłady błędów 1.4.10</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Tekst lub obrazy wychodzą poza ekran na telefonie, zmuszając do przewijania w bok.</li>
       <li>Przy powiększeniu do 400% część treści „ucina się” i wymaga przewijania w obu kierunkach.</li>
       <li>Formularze mają stałą szerokość, która nie mieści się w widoku mobilnym.</li>
+    
     </ul>
 
-    <h4>Komentarze do audytu 1.4.10</h4>
-    <ul>
-      <li>Przy szerokości widoku 320 px konieczne jest przewijanie poziome, aby zobaczyć pełny tekst.</li>
-      <li>Po powiększeniu do 400% tracona jest część treści lub funkcji strony.</li>
-      <li>Niektóre elementy interfejsu nie dostosowują się do małych ekranów i zasłaniają treść.</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -1572,7 +1418,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Elementy interfejsu i grafiki zawierające informacje muszą mieć kontrast co najmniej 3:1 względem sąsiednich kolorów, aby były czytelne i rozpoznawalne.</p>
   </div>
   <button id="show-more-1_4_11" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 1.4.11
+   Rozwiń opis 1.4.11
   </button>
   
   <div class="full-text" style="display:none;">
@@ -1583,7 +1429,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
 
     <h4>Kto jest dotknięty?</h4>
     <ul>
-      <li>Osoby z osłabionym wzrokiem lub chorobami oczu</li>
+      <li>Osoby ze słabym wzrokiem lub chorobami oczu</li>
       <li>Osoby starsze</li>
       <li>Użytkownicy korzystający z urządzeń w jasnym świetle lub z niską jakością ekranu</li>
     </ul>
@@ -1592,27 +1438,20 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <ul>
       <li>Zapewnij kontrast co najmniej 3:1 między kolorem elementu a tłem.</li>
       <li>Używaj wyraźnych krawędzi i wystarczającej grubości linii dla obrysów.</li>
-      <li>Testuj kontrast narzędziami takimi jak Contrast Checker lub wtyczki do przeglądarek.</li>
+      <li>Testuj kontrast narzędziami lub wtyczkami do przeglądarek.</li>
       <li>Unikaj pastelowych i bardzo zbliżonych kolorów dla elementów interaktywnych.</li>
     </ul>
 
     <h4>Korzyści</h4>
     <p>Poprawa widoczności elementów ułatwia nawigację i obsługę strony wszystkim użytkownikom, nie tylko osobom z niepełnosprawnościami. Wysoki kontrast zwiększa też użyteczność w trudnych warunkach oświetleniowych.</p>
 
-    <h4>Przykłady błędów 1.4.11</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Cienka, szara ramka pola formularza na jasnym tle jest trudna do zauważenia.</li>
       <li>Ikony (np. lupa, kosz, strzałka) mają niski kontrast w stosunku do tła.</li>
       <li>Przyciski bez wyraźnych granic lub różnic w kolorze w trybie aktywnym i nieaktywnym.</li>
     </ul>
 
-    <h4>Komentarze do audytu 1.4.11</h4>
-    <ul>
-      <li>Na stronie występują elementy graficzne i interfejsu (np. ikony, ramki, przyciski) z kontrastem mniejszym niż 3:1 względem tła.</li>
-      <li>Niektóre obiekty graficzne wymagane do zrozumienia treści mają zbyt niski kontrast, co utrudnia ich interpretację.</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -1622,7 +1461,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Użytkownicy muszą mieć możliwość zwiększenia odstępów w tekście (między liniami, akapitami, literami i słowami) bez utraty treści lub funkcjonalności.</p>
   </div>
   <button id="show-more-1_4_12" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 1.4.12
+    Rozwiń opis 1.4.12
   </button>
   
   <div class="full-text" style="display:none;">
@@ -1656,20 +1495,14 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Dostosowanie odstępów poprawia komfort czytania dla wszystkich użytkowników i nie wymaga specjalnych ustawień tylko dla osób z niepełnosprawnościami.</p>
 
-    <h4>Przykłady błędów 1.4.12</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Po zwiększeniu line-height do 1.5 część tekstu nachodzi na inne elementy.</li>
       <li>Zwiększenie odstępów powoduje ucięcie fragmentów treści w blokach o stałej wysokości.</li>
       <li>Odstępy między wyrazami są zablokowane w CSS i nie można ich zmienić.</li>
+ 
     </ul>
 
-    <h4>Komentarz do audytu 1.4.12</h4>
-    <ul>
-      <li>Zwiększenie odstępów między liniami, akapitami, znakami lub wyrazami powoduje utratę czytelności lub obcinanie treści.</li>
-      <li>Brak elastycznego skalowania elementów przy dostosowaniu parametrów odstępów.</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -1679,11 +1512,11 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Treść wyświetlana po najechaniu kursorem lub ustawieniu fokusu musi być czytelna, dostępna i możliwa do odczytania bez pośpiechu.</p>
   </div>
   <button id="show-more-1_4_13" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 1.4.13
+    Rozwiń opis 1.4.13
   </button>
   
   <div class="full-text" style="display:none;">
-    <p>To kryterium dotyczy dodatkowej treści pojawiającej się, gdy użytkownik najedzie kursorem lub ustawi fokus (np. tooltipy, podpowiedzi, podmenu). Taka treść musi być dostępna dla wszystkich użytkowników — w tym korzystających z klawiatury — i spełniać trzy zasady: możliwość odrzucenia, możliwość najechania oraz trwałość do czasu zamknięcia przez użytkownika.</p>
+    <p>To kryterium dotyczy dodatkowej treści pojawiającej się, gdy użytkownik najedzie kursorem lub ustawi fokus (np. tooltipy, podpowiedzi, podmenu). Taka treść musi być dostępna dla wszystkich użytkowników, w tym korzystających z klawiatury, i spełniać trzy zasady: możliwość odrzucenia, możliwość najechania oraz trwałość do czasu zamknięcia przez użytkownika.</p>
 
     <h4>Warunki zgodności</h4>
     <ul>
@@ -1718,15 +1551,9 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
       <li>Treść pojawiająca się pod kursorem jest zbyt mała lub ma niski kontrast.</li>
       <li>Treść znika natychmiast po przesunięciu kursora.</li>
       <li>Tooltip jest zasłonięty przez inne elementy strony.</li>
-    </ul>
-
-    <h4>Komentarz do audytu 1.4.13</h4>
-    <ul>
       <li>Treść pojawiająca się pod kursorem lub w momencie fokusu jest nieczytelna z powodu niskiego kontrastu lub zasłaniania.</li>
-      <li>Brak możliwości odrzucenia treści bez utraty fokusu lub pozycji kursora.</li>
     </ul>
 
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -1742,7 +1569,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Wszystkie funkcje strony muszą być dostępne i obsługiwane wyłącznie za pomocą klawiatury, bez potrzeby używania myszy.</p>
   </div>
   <button id="show-more-2_1_1" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 2.1.1
+    Rozwiń opis 2.1.1
   </button>
   
   <div class="full-text" style="display:none;">
@@ -1762,27 +1589,20 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <ul>
       <li>Zapewnij obsługę wszystkich elementów przez <code>Tab</code>, <code>Enter</code>, <code>Spację</code> i klawisze strzałek.</li>
       <li>Używaj semantycznych elementów HTML (<code>button</code>, <code>a</code>, <code>input</code>), które domyślnie obsługują klawiaturę.</li>
-      <li>Unikaj pułapek klawiaturowych — użytkownik powinien móc łatwo opuścić każdy element.</li>
+      <li>Unikaj pułapek klawiaturowych, użytkownik powinien móc łatwo opuścić każdy element.</li>
       <li>Umożliw zamykanie okien modalnych za pomocą <code>Esc</code>.</li>
     </ul>
 
     <h4>Korzyści</h4>
     <p>Zapewnia dostępność treści dla użytkowników, którzy nie mogą korzystać z myszy. Poprawia też ogólną ergonomię i obsługę strony.</p>
 
-    <h4>Przykłady błędów 2.1.1</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Przycisk nie reaguje na <code>Enter</code> lub <code>Spację</code>.</li>
       <li>Element formularza nie otrzymuje fokusu po naciśnięciu <code>Tab</code>.</li>
       <li>Okno modalne nie może być zamknięte za pomocą klawiatury.</li>
     </ul>
 
-    <h4>Komentarz do audytu 2.1.1</h4>
-    <ul>
-      <li>Część elementów interaktywnych nie jest obsługiwana wyłącznie klawiaturą.</li>
-      <li>Brak możliwości zamknięcia niektórych okienek bez użycia myszy.</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -1792,7 +1612,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Użytkownik musi móc swobodnie poruszać się po stronie za pomocą klawiatury, bez blokowania się na żadnym elemencie.</p>
   </div>
   <button id="show-more-2_1_2" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 2.1.2
+    Rozwiń opis 2.1.2
   </button>
   
   <div class="full-text" style="display:none;">
@@ -1822,13 +1642,6 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
       <li>Fokus klawiatury blokuje się w zamkniętym menu lub polu formularza.</li>
     </ul>
 
-    <h4>Komentarze do audytu 2.1.2</h4>
-    <ul>
-      <li>Na stronie wykryto pułapki klawiatury, które uniemożliwiają swobodne poruszanie się bez użycia myszy.</li>
-      <li>Elementy takie jak modale, menu czy formularze blokują fokus, co utrudnia lub uniemożliwia dalszą nawigację.</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -1838,7 +1651,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Cała zawartość i funkcje strony muszą być dostępne i obsługiwalne wyłącznie za pomocą klawiatury, bez żadnych wyjątków.</p>
   </div>
   <button id="show-more-2_1_3" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 2.1.3
+    Rozwiń opis 2.1.3
   </button>
   
   <div class="full-text" style="display:none;">
@@ -1864,20 +1677,13 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Strona staje się dostępna dla szerokiego grona użytkowników, zwiększa się jej użyteczność oraz spełnia najwyższe standardy dostępności.</p>
 
-    <h4>Przykłady błędów 2.1.3</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Elementy interaktywne działają tylko po kliknięciu myszy.</li>
       <li>Obsługa funkcji wymaga szybkiego lub złożonego naciskania klawiszy.</li>
       <li>Formularze nie można wypełnić bez myszy.</li>
     </ul>
 
-    <h4>Komentarze do audytu 2.1.3</h4>
-    <ul>
-      <li>Strona wymagała użycia myszy do korzystania z części funkcji.</li>
-      <li>Niektóre funkcje nie działają poprawnie przy obsłudze tylko za pomocą klawiatury.</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -1887,7 +1693,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Jeśli na stronie używane są skróty klawiaturowe składające się z jednego znaku, muszą istnieć mechanizmy wyłączania, zmiany lub aktywacji tylko przy fokusie.</p>
   </div>
   <button id="show-more-2_1_4" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 2.1.4
+    Rozwiń opis 2.1.4
   </button>
   
   <div class="full-text" style="display:none;">
@@ -1914,20 +1720,14 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Ułatwia to korzystanie z witryny i zapobiega przypadkowym uruchomieniom funkcji, zwiększając dostępność i komfort użytkowników.</p>
 
-    <h4>Przykłady błędów 2.1.4</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Skrót „S” otwierający wyszukiwarkę bez konieczności dodatkowego klawisza.</li>
       <li>Skrót „H” przechodzący do nagłówków od razu po naciśnięciu.</li>
       <li>Skróty działające natychmiast po pojedynczym wciśnięciu litery.</li>
+      <li>Jednoliterowe skróty klawiaturowe kolidujące z innymi funkcjami systemu.</li>
     </ul>
 
-    <h4>Komentarze do audytu 2.1.4</h4>
-    <ul>
-      <li>Wykryto jednoliterowe skróty klawiaturowe kolidujące z innymi funkcjami systemu.</li>
-      <li>Zaleca się stosowanie skrótów z kombinacją klawiszy i zapewnienie ich wyłączania.</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -1943,14 +1743,14 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Jeśli czas na wykonanie czynności jest ograniczony, użytkownik powinien mieć możliwość wyłączenia, wydłużenia lub dostosowania tego limitu.</p>
   </div>
   <button id="show-more-2_2_1" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 2.2.1
+    Rozwiń opis 2.2.1
   </button>
   
   <div class="full-text" style="display:none;">
     <p>W sytuacjach, gdy na stronie jest ograniczony czas na wykonanie zadania, użytkownik musi mieć szansę wyłączyć limit czasowy, przedłużyć go lub dostosować, aby móc spokojnie ukończyć czynność. Wyjątkiem są sytuacje, gdy limit jest częścią działania w czasie rzeczywistym lub gdy jego zmiana zaburzyłaby funkcjonalność.</p>
 
     <h4>Dlaczego to jest ważne?</h4>
-    <p>Nie każdy użytkownik pracuje z tym samym tempem — niektóre osoby potrzebują więcej czasu, aby wykonać zadania. Brak kontroli nad limitem czasowym może prowadzić do frustracji, błędów lub całkowitej utraty dostępu do treści.</p>
+    <p>Nie każdy użytkownik pracuje z tym samym tempem, niektóre osoby potrzebują więcej czasu, aby wykonać zadania. Brak kontroli nad limitem czasowym może prowadzić do frustracji, błędów lub całkowitej utraty dostępu do treści.</p>
 
     <h4>Kto jest dotknięty?</h4>
     <ul>
@@ -1970,20 +1770,13 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Dzięki temu każdy użytkownik ma szansę dokończyć zadania na stronie bez stresu i presji czasu, co zwiększa dostępność i komfort korzystania z serwisu.</p>
 
-    <h4>Przykłady błędów 2.2.1</h4>
+    <h4>Przykłady błędów </h4>
     <ul>
       <li>Automatyczne wylogowanie po określonym czasie bez możliwości przedłużenia sesji.</li>
       <li>Quiz lub test kończący się automatycznie bez opcji przedłużenia czasu.</li>
       <li>Brak ostrzeżenia przed zamknięciem sesji lub końcem limitu czasowego.</li>
     </ul>
 
-    <h4>Komentarze do audytu 2.2.1</h4>
-    <ul>
-      <li>Stwierdzono ograniczenia czasowe, których użytkownik nie może wyłączyć ani wydłużyć.</li>
-      <li>Zaleca się wprowadzenie mechanizmów kontroli limitu czasowego przez użytkownika.</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -1993,7 +1786,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Użytkownik powinien mieć możliwość wstrzymania, zatrzymania lub ukrycia ruchomych, migających lub automatycznie aktualizowanych treści, które mogą rozpraszać lub utrudniać korzystanie ze strony.</p>
   </div>
   <button id="show-more-2_2_2" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 2.2.2
+    Rozwiń opis 2.2.2
   </button>
   
   <div class="full-text" style="display:none;">
@@ -2019,21 +1812,13 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Użytkownicy z różnymi ograniczeniami mogą korzystać ze strony bez nadmiernego rozproszenia i ryzyka zdrowotnego, co znacząco zwiększa dostępność i użyteczność witryny.</p>
 
-    <h4>Przykłady błędów 2.2.2</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Automatycznie odtwarzające się karuzele obrazów, których nie można zatrzymać ani wstrzymać.</li>
-      <li>Migające bannery bez opcji wyłączenia animacji.</li>
+      <li>Migające banery bez opcji wyłączenia animacji.</li>
       <li>Ruchome tła lub przewijające się elementy bez możliwości ich zatrzymania lub ukrycia.</li>
     </ul>
 
-    <h4>Komentarze do audytu 2.2.2</h4>
-    <ul>
-      <li>Na stronie znajdują się ruchome elementy, które użytkownik nie może kontrolować.</li>
-      <li>Brak opcji pauzy lub zatrzymania utrudnia korzystanie i może stanowić zagrożenie dla osób z padaczką fotogenną.</li>
-      <li>Zaleca się dodanie przycisków umożliwiających zatrzymanie ruchomych treści.</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -2042,46 +1827,39 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
 <h3>2.2.3 Bez ograniczeń czasowych (AAA)</h3> 
 <p>Na stronie nie powinny być nakładane ograniczenia czasowe, chyba że są one istotną częścią działania, np. transmisje na żywo lub wydarzenia w czasie rzeczywistym.</p> 
 </div>
-<button id="show-more-2_2_3" class="show-more-btn" aria-expanded="false"> Przeczytaj więcej o 2.2.3 </button> 
+<button id="show-more-2_2_3" class="show-more-btn" aria-expanded="false"> Rozwiń opis 2.2.3 </button> 
 <div class="full-text" style="display:none;"> 
 <p>Użytkownicy powinni mieć dowolną ilość czasu na korzystanie z treści i wykonywanie zadań bez presji ograniczonego czasu.</p>
 
 <h4>Dlaczego to jest ważne?</h4>
-<p>Ograniczenia czasowe tworzą bariery dla osób, które potrzebują więcej czasu na przeczytanie, nawigację lub interakcję z zawartością — np. osoby z niepełnosprawnościami, starsze lub z zaburzeniami poznawczymi. Presja czasu może prowadzić do frustracji, błędów lub wykluczenia.</p>
+<p>Ograniczenia czasowe tworzą bariery dla osób, które potrzebują więcej czasu na przeczytanie, nawigację lub interakcję z zawartością, np. osoby z niepełnosprawnościami, starsze lub z zaburzeniami poznawczymi. Presja czasu może prowadzić do frustracji, błędów lub wykluczenia.</p>
 
 <h4>Kto jest dotknięty?</h4>
 <ul>
   <li>Osoby z niepełnosprawnościami ruchowymi, które potrzebują więcej czasu na sterowanie urządzeniami wejściowymi.</li>
   <li>Osoby niewidome korzystające z czytników ekranu.</li>
-  <li>Osoby z niskim wzrokiem, które potrzebują więcej czasu na znalezienie i przeczytanie informacji.</li>
+  <li>Osoby ze słabym wzrokiem, które potrzebują więcej czasu na znalezienie i przeczytanie informacji.</li>
   <li>Osoby z niepełnosprawnościami poznawczymi, które potrzebują więcej czasu na zrozumienie treści.</li>
   <li>Osoby niesłyszące, które mogą potrzebować więcej czasu na czytanie lub tłumaczenie.</li>
 </ul>
 
 <h4>Jak spełnić kryterium?</h4>
 <ul>
-  <li>Projektuj bez limitów czasowych — nie nakładaj timerów lub kar za wolniejsze działanie.</li>
+  <li>Projektuj bez limitów czasowych - nie nakładaj timerów lub kar za wolniejsze działanie.</li>
   <li>Unikaj automatycznego wylogowywania lub kończenia sesji bez opcji zapisu i wznowienia.</li>
   <li>Jeśli ograniczenia czasowe są konieczne (np. aukcje, wydarzenia na żywo), wyraźnie je komunikuj i oferuj alternatywne sposoby uczestnictwa.</li>
   <li>W przypadku multimediów nieinteraktywnych (np. filmy, podcasty) zapewnij napisy, transkrypcje i informacje o dostępności nagrania później.</li>
-  <li>Dla interaktywnych doświadczeń oferuj tryb turn-based lub możliwość pauzy.</li>
+  <li>Dla interaktywnych doświadczeń oferuj możliwość pauzy.</li>
 </ul>
 
-<h4>Przykłady błędów 2.2.3</h4>
+<h4>Przykłady błędów</h4>
 <ul>
   <li>Formularze, które automatycznie kończą sesję po określonym czasie bez możliwości zapisu lub wznowienia.</li>
   <li>Testy lub quizy z timerem bez opcji wydłużenia lub pauzy.</li>
   <li>Strony z automatycznie wygaszanymi popupami, które utrudniają dłuższe czytanie.</li>
 </ul>
 
-<h4>Komentarz do audytu 2.2.3</h4>
-<ul>
-  <li>Na stronie zastosowano ograniczenia czasowe, które nie są niezbędne do działania funkcjonalności.</li>
-  <li>Brak opcji wydłużenia lub wyłączenia limitu czasu może wykluczać użytkowników z dostępem do treści.</li>
-  <li>Zaleca się całkowite usunięcie limitów lub zaoferowanie ich wyraźnej kontroli i alternatyw.</li>
-</ul>
 
-<button class="back-button" aria-expanded="true">Zwiń opis</button>
 </div>
 </article>
 
@@ -2090,7 +1868,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
 <h3>2.2.4 Przerywanie (AAA)</h3> 
 <p>Przerywania (np. wyskakujące okna, alerty, powiadomienia) muszą być możliwe do opóźnienia, wyłączenia lub kontrolowania przez użytkownika, chyba że dotyczą sytuacji wyjątkowej (np. zagrożenia zdrowia lub bezpieczeństwa).</p> 
 </div>
-<button id="show-more-2_2_4" class="show-more-btn" aria-expanded="false"> Przeczytaj więcej o 2.2.4 </button> 
+<button id="show-more-2_2_4" class="show-more-btn" aria-expanded="false"> Rozwiń opis 2.2.4 </button> 
 <div class="full-text" style="display:none;">  
 <p>Strony internetowe nie powinny nagle przerywać pracy użytkownika, np. pojawianiem się wyskakujących okien, banerów czy automatycznych odświeżeń, chyba że jest to sytuacja awaryjna (zagrożenie zdrowia, bezpieczeństwa, mienia lub danych).</p>
 
@@ -2099,9 +1877,9 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
 
 <h4>Kto jest dotknięty?</h4>
 <ul>
-  <li>Osoby z zaburzeniami uwagi (np. ADHD).</li>
-  <li>Osoby niewidome korzystające z czytników ekranu.</li>
-  <li>Osoby z niskim wzrokiem, które czytają powoli lub powiększają tekst.</li>
+  <li>Osoby z zaburzeniami uwagi</li>
+  <li>Osoby niewidome korzystające z czytników ekranu</li>
+  <li>Osoby z niskim wzrokiem, które czytają powoli lub powiększają tekst</li>
 </ul>
 
 <h4>Jak spełnić kryterium?</h4>
@@ -2112,21 +1890,14 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <li>W sytuacjach awaryjnych (zagrożenia zdrowia, bezpieczeństwa) przerywania są dozwolone i powinny być wyraźnie oznaczone (np. aria-live="assertive").</li>
 </ul>
 
-<h4>Przykłady błędów 2.2.4</h4>
+<h4>Przykłady błędów</h4>
 <ul>
   <li>Automatyczne odświeżanie strony bez możliwości opóźnienia lub wyłączenia.</li>
   <li>Wyskakujące powiadomienia pojawiające się nagle i odrywające uwagę użytkownika.</li>
   <li>Przenoszenie fokusu na nowy element bez zgody użytkownika.</li>
+
 </ul>
 
-<h4>Komentarze do audytu 2.2.4</h4>
-<ul>
-  <li>Na stronie występują automatyczne powiadomienia i odświeżenia, których nie można wstrzymać lub opóźnić.</li>
-  <li>Brak kontroli nad przerywaniem może dezorientować i utrudniać korzystanie, szczególnie osobom z niepełnosprawnościami.</li>
-  <li>Zaleca się dodanie mechanizmów pozwalających użytkownikom zarządzać powiadomieniami i odświeżeniami.</li>
-</ul>
-
-<button class="back-button" aria-expanded="true">Zwiń opis</button>
 </div> 
 </article> 
 
@@ -2136,7 +1907,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Po wygaśnięciu sesji użytkownik może ponownie się zalogować i kontynuować pracę bez utraty wcześniej wprowadzonych danych.</p>
   </div>
   <button id="show-more-2_2_5" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 2.2.5
+    Rozwiń opis 2.2.5
   </button>
   
   <div class="full-text" style="display:none;">
@@ -2157,26 +1928,20 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <ul>
       <li>Zachowuj dane użytkownika do momentu ponownego zalogowania</li>
       <li>Przywracaj użytkownika do miejsca, w którym przerwał pracę</li>
-      <li>Unikaj kasowania formularzy, koszyków zakupowych czy wpisów po timeoutcie</li>
+      <li>Unikaj kasowania formularzy, koszyków zakupowych czy wpisów po zakończeniu sesji</li>
     </ul>
 
     <h4>Korzyści</h4>
     <p>Użytkownicy mogą bez stresu i frustracji kontynuować swoje zadania, nawet jeśli sesja wygaśnie, co poprawia dostępność i komfort korzystania z serwisu.</p>
 
-    <h4>Przykłady błędów 2.2.5</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Formularz restartuje się od początku po ponownym zalogowaniu</li>
-      <li>Koszyk zakupowy opróżnia się po timeoutcie sesji</li>
-    </ul>
-
-    <h4>Komentarze do audytu 2.2.5</h4>
-    <ul>
       <li>Użytkownik nie wraca do miejsca, w którym przerwał pracę po ponownym zalogowaniu</li>
       <li>Dane koszyka nie są zapisywane w sesji i po wylogowaniu zostają utracone</li>
       <li>Wypełnione pola formularza są czyszczone po ponownej autoryzacji</li>
     </ul>
 
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -2186,7 +1951,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Użytkownicy muszą być ostrzeżeni, zanim upłynie limit czasu bezczynności, jeśli jego przekroczenie może spowodować utratę danych, chyba że dane są przechowywane przez co najmniej 20 godzin bez interakcji.</p>
   </div>
   <button id="show-more-2_2_6" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 2.2.6
+    Rozwiń opis 2.2.6
   </button>
   
   <div class="full-text" style="display:none;">
@@ -2212,20 +1977,14 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Użytkownicy mogą uniknąć utraty danych i kontynuować pracę w sposób przewidywalny, bez stresu i nagłych przerw w wykonywaniu zadań.</p>
 
-    <h4>Przykłady błędów 2.2.6</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Sesja wygasa bez wcześniejszego ostrzeżenia, co powoduje utratę wprowadzonych danych</li>
       <li>Ostrzeżenie o końcu sesji pojawia się w formie niedostępnego modala, którego nie można obsłużyć klawiaturą</li>
-    </ul>
-
-    <h4>Komentarze do audytu 2.2.6</h4>
-    <ul>
-      <li>Brak komunikatu o zbliżającym się wygaśnięciu sesji</li>
       <li>Ostrzeżenie jest zbyt krótkie, aby użytkownik mógł zareagować</li>
       <li>Po wygaśnięciu sesji dane formularza/koszyka zostają utracone</li>
     </ul>
 
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -2241,7 +2000,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Treści na stronie nie mogą błyskać częściej niż trzy razy na sekundę, chyba że natężenie błysku mieści się w bezpiecznych granicach dla ogólnych i czerwonych błysków.</p>
   </div>
   <button id="show-more-2_3_1" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 2.3.1
+    Rozwiń opis 2.3.1
   </button>
   
   <div class="full-text" style="display:none;">
@@ -2267,19 +2026,13 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Zmniejszenie ryzyka wywołania napadów padaczkowych oraz zwiększenie komfortu przeglądania strony dla wszystkich użytkowników.</p>
 
-    <h4>Przykłady błędów 2.3.1</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Baner reklamowy błyska 5 razy na sekundę</li>
       <li>Intro wideo zawiera intensywne czerwone błyski w szybkim tempie</li>
-    </ul>
-
-    <h4>Komentarze do audytu 2.3.1</h4>
-    <ul>
-      <li>Wideo w sekcji głównej zawiera fragment przekraczający próg bezpiecznych błysków</li>
       <li>Animacja tła migocze zbyt szybko i może stanowić zagrożenie</li>
     </ul>
 
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -2289,7 +2042,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Treści na stronie nie mogą błyskać częściej niż trzy razy na sekundę - bez żadnych wyjątków.</p>
   </div>
   <button id="show-more-2_3_2" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 2.3.2
+    Rozwiń opis 2.3.2
   </button>
   
   <div class="full-text" style="display:none;">
@@ -2315,19 +2068,13 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Zapewnienie maksymalnego bezpieczeństwa wszystkim użytkownikom, bez ryzyka wystąpienia napadów padaczkowych spowodowanych treścią na stronie.</p>
 
-    <h4>Przykłady błędów 2.3.2</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Intro wideo zawiera sekwencję błysków 4 razy na sekundę</li>
       <li>Animowany przycisk miga bardzo szybko w celu zwrócenia uwagi</li>
-    </ul>
-
-    <h4>Komentarze do audytu 2.3.2</h4>
-    <ul>
-      <li>Element dekoracyjny w tle miga z częstotliwością powyżej 3 Hz</li>
       <li>Efekt przejścia między slajdami generuje szybkie błyski</li>
     </ul>
 
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -2337,7 +2084,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Użytkownik powinien mieć możliwość wyłączenia animacji ruchowej uruchamianej po interakcji, chyba że jest ona kluczowa dla funkcji lub przekazu treści.</p>
   </div>
   <button id="show-more-2_3_3" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 2.3.3
+    Rozwiń opis 2.3.3
   </button>
   
   <div class="full-text" style="display:none;">
@@ -2348,7 +2095,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
 
     <h4>Kto jest dotknięty?</h4>
     <ul>
-      <li>Osoby z zaburzeniami równowagi (np. choroba Meniere’a)</li>
+      <li>Osoby z zaburzeniami równowagi</li>
       <li>Osoby podatne na chorobę lokomocyjną</li>
       <li>Osoby z problemami neurologicznymi wrażliwymi na ruch</li>
     </ul>
@@ -2363,19 +2110,13 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Większa kontrola nad doświadczeniem użytkownika, zmniejszenie ryzyka dyskomfortu oraz zwiększenie dostępności dla osób wrażliwych na ruch.</p>
 
-    <h4>Przykłady błędów 2.3.3</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
-      <li>Efekt paralaksy przewijania nie może być wyłączony</li>
       <li>Formularz po wysłaniu generuje intensywną animację potwierdzenia bez opcji jej wyłączenia</li>
-    </ul>
-
-    <h4>Komentarze do audytu 2.3.3</h4>
-    <ul>
       <li>Brak opcji wyłączenia animacji przewijania</li>
       <li>Ignorowanie preferencji systemowych <code>prefers-reduced-motion</code></li>
     </ul>
 
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -2391,7 +2132,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Użytkownik powinien móc łatwo pominąć powtarzające się elementy strony, takie jak menu czy nagłówki, i szybko przejść do głównej treści.</p>
   </div>
   <button id="show-more-2_4_1" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 2.4.1
+    Rozwiń opis 2.4.1
   </button>
   
   <div class="full-text" style="display:none;">
@@ -2422,31 +2163,25 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <ul>
       <li>Brak linku „Przejdź do treści” na początku strony</li>
       <li>Menu, które trzeba w całości przewijać, zanim dotrze się do treści</li>
-    </ul>
-
-    <h4>Komentarze do audytu 2.4.1</h4>
-    <ul>
-      <li>Na stronie brak mechanizmu pozwalającego pominąć powtarzające się bloki</li>
       <li>Istniejący link „Przejdź do treści” nie działa prawidłowo</li>
     </ul>
 
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 <article id="k2_4_2">
 <div>
-  <h3>2.4.2 Tytuł strony(A)</h3>
+  <h3>2.4.2 Tytuł strony (A)</h3>
   <p>Każda strona powinna mieć unikalny i opisowy tytuł, który jasno mówi, o czym jest strona. Dzięki temu użytkownicy i wyszukiwarki łatwiej zrozumieją jej zawartość.</p>
   </div>
   <button id="show-more-2_4_2" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 2.4.2
+    Rozwiń opis 2.4.2
   </button>
   
   <div class="full-text" style="display:none;">
     <p>To kryterium wymaga, aby w kodzie strony w znaczniku <code>&lt;title&gt;</code> znajdował się krótki, unikalny opis treści danej podstrony. Tytuł powinien od razu informować użytkownika, czego dotyczy strona, nawet jeśli nie widzi jej zawartości.</p>
 
     <h4>Dlaczego to jest ważne?</h4>
-    <p>Tytuł strony jest pierwszą informacją, jaką widzi (lub słyszy) użytkownik. Pomaga w nawigacji, odnajdywaniu treści i zapamiętywaniu, gdzie się znajduje — szczególnie gdy ma otwartych wiele kart w przeglądarce.</p>
+    <p>Tytuł strony jest pierwszą informacją, jaką widzi (lub słyszy) użytkownik. Pomaga w nawigacji, odnajdywaniu treści i zapamiętywaniu, gdzie się znajduje, szczególnie gdy ma otwartych wiele kart w przeglądarce.</p>
 
     <h4>Kto jest dotknięty?</h4>
     <ul>
@@ -2466,7 +2201,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Łatwiejsza nawigacja po stronie, lepsza dostępność, wyższa pozycja w wynikach wyszukiwania i lepsze doświadczenie dla wszystkich użytkowników.</p>
 
-    <h4>Przykłady błędów 2.4.2</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Pusty tag <code>&lt;title&gt;</code></li>
       <li>Tytuł zbyt ogólny, np. „Strona główna”</li>
@@ -2474,13 +2209,6 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
       <li>Tytuł nie odpowiada treści strony</li>
     </ul>
 
-    <h4>Komentarze do audytu 2.4.2</h4>
-    <ul>
-      <li>Brak unikalnych i opisowych tytułów</li>
-      <li>Zalecany format: „Tytuł zawartości podstrony – nazwa głównej strony”</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 <article id="k2_4_3">
@@ -2489,7 +2217,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Kolejność przechodzenia fokusu (np. klawiszem Tab) po stronie powinna być logiczna i przewidywalna, zgodna z układem treści na stronie.</p>
   </div>
   <button id="show-more-2_4_3" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 2.4.3
+    Rozwiń opis 2.4.3
   </button>
   
   <div class="full-text" style="display:none;">
@@ -2516,20 +2244,15 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Użytkownicy mogą łatwiej i szybciej korzystać ze strony, nie tracąc orientacji. Strona staje się bardziej dostępna dla osób z różnymi potrzebami.</p>
 
-    <h4>Przykłady błędów 2.4.3</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Fokus przeskakuje w losowe miejsca na stronie</li>
       <li>Elementy ważne są pomijane podczas tabulacji</li>
       <li>Elementy ukryte są dostępne dla fokusu</li>
-    </ul>
-
-    <h4>Komentarze do audytu 2.4.3</h4>
-    <ul>
       <li>Zdublowany fokus na elementach interaktywnych</li>
       <li>Nielogiczna kolejność tabulacji w stosunku do układu wizualnego</li>
     </ul>
 
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -2539,20 +2262,20 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Każdy link powinien jasno mówić, dokąd prowadzi lub co robi – nawet jeśli czytamy go osobno, bez reszty tekstu.</p>
   </div>
   <button id="show-more-2_4_4" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 2.4.4
+   Rozwiń opis 2.4.4
   </button>
   
   <div class="full-text" style="display:none;">
     <p>Cel linku powinien być zrozumiały bez konieczności zgadywania. Osoba korzystająca z czytnika ekranu powinna móc zdecydować, czy chce go kliknąć, na podstawie samego tekstu linku lub jego najbliższego kontekstu.</p>
 
     <h4>Dlaczego to jest ważne?</h4>
-    <p>Niejasne linki dezorientują użytkowników i utrudniają nawigację. Zamiast przewidywalnego działania mamy efekt „drzwi do nie wiadomo gdzie”. Dla osób niewidomych lub słabowidzących to szczególnie frustrujące, bo często słuchają listy samych linków, bez otaczającego tekstu.</p>
+    <p>Niejasne linki dezorientują użytkowników i utrudniają nawigację. Zamiast przewidywalnego działania mamy "drzwi", które nie wiadomo dokąd prowadzą. Dla osób niewidomych lub słabowidzących to szczególnie frustrujące, bo często słuchają listy samych linków, bez otaczającego tekstu.</p>
 
     <h4>Kto jest dotknięty?</h4>
     <ul>
-      <li>Osoby z ograniczoną mobilnością – mogą uniknąć zbędnych kliknięć i skrócić drogę do celu</li>
-      <li>Osoby z trudnościami poznawczymi – jasne linki zmniejszają ryzyko dezorientacji</li>
-      <li>Osoby niewidome lub słabowidzące – czytniki ekranu mogą czytać linki w izolacji</li>
+      <li>Osoby z ograniczoną mobilnością (mogą uniknąć zbędnych kliknięć i skrócić drogę do celu)</li>
+      <li>Osoby z trudnościami poznawczymi (jasne linki zmniejszają ryzyko dezorientacji)</li>
+      <li>Osoby niewidome lub słabowidzące (czytniki ekranu mogą czytać linki w izolacji)</li>
     </ul>
 
     <h4>Jak to zrobić?</h4>
@@ -2562,13 +2285,13 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
       <li>Jeśli link jest tylko ikoną, dodaj <code>alt</code> lub <code>aria-label</code> z opisem</li>
       <li>Unikaj powielania tych samych tekstów linków, jeśli prowadzą w różne miejsca</li>
       <li>Dla plików podawaj format i rozmiar (np. „PDF, 2&nbsp;MB”)</li>
-      <li>Jeżeli obrazek i tekst prowadzą w to samo miejsce – umieść je razem w jednym linku</li>
+      <li>Jeżeli obrazek i tekst prowadzą w to samo miejsce - umieść je razem w jednym linku</li>
     </ul>
 
     <h4>Korzyści</h4>
     <p>Użytkownicy szybko rozumieją, co zrobi link, i mogą łatwiej podjąć decyzję, czy w niego kliknąć. Strona staje się bardziej przyjazna i przewidywalna.</p>
 
-    <h4>Przykłady błędów 2.4.4</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>„Kliknij tutaj” lub „Więcej” bez dodatkowego opisu</li>
       <li>Ikona linku bez tekstu lub opisu alternatywnego</li>
@@ -2576,17 +2299,9 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
       <li>Link do pliku bez informacji o formacie i rozmiarze</li>
       <li>Pusty link (brak treści tekstowej lub alternatywy)</li>
       <li>Atrybut <code>title</code> powielający dokładnie treść linku</li>
-    </ul>
-
-    <h4>Komentarze do audytu 2.4.4</h4>
-    <ul>
-      <li>Nadmierne użycie <code>title</code> bez dodatkowych informacji</li>
       <li>Brak ostrzeżenia o otwieraniu nowego okna/karty</li>
-      <li>Nieunikalna treść linków</li>
-      <li>Brak informacji o formacie i rozmiarze pobieranych plików</li>
     </ul>
 
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -2596,7 +2311,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Użytkownik powinien móc dotrzeć do każdej ważnej treści na stronie na co najmniej dwa różne sposoby, np. przez menu i wyszukiwarkę.</p>
   </div>
   <button id="show-more-2_4_5" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 2.4.5
+    Rozwiń opis 2.4.5
   </button>
   
   <div class="full-text" style="display:none;">
@@ -2623,19 +2338,13 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Użytkownicy łatwiej odnajdują treści, mniej się gubią i mogą korzystać z metody, która najlepiej odpowiada ich potrzebom.</p>
 
-    <h4>Przykłady błędów 2.4.5</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Brak wyszukiwarki i brak mapy strony.</li>
       <li>Ukrycie kluczowych sekcji wyłącznie w rozwijanym menu.</li>
       <li>Brak alternatywnych linków do tej samej treści w innych miejscach serwisu.</li>
     </ul>
 
-    <h4>Komentarze do audytu 2.4.5</h4>
-    <ul>
-      <li>Brak alternatywnych dróg dostępu do ważnych sekcji strony.</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -2645,7 +2354,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Nagłówki i etykiety powinny być jasne i opisowe, aby użytkownik łatwo zrozumiał strukturę strony i funkcję elementów.</p>
   </div>
   <button id="show-more-2_4_6" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 2.4.6
+    Rozwiń opis 2.4.6
   </button>
   
   <div class="full-text" style="display:none;">
@@ -2672,20 +2381,14 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Strona staje się bardziej przejrzysta i intuicyjna, użytkownicy szybciej znajdują potrzebne informacje, a korzystanie z formularzy i przycisków jest bezbłędne i mniej stresujące.</p>
 
-    <h4>Przykłady błędów 2.4.6</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Nagłówki są niejasne, np. „Kliknij tutaj” zamiast „Kontakt z działem obsługi”.</li>
       <li>Etykiety przy formularzach są puste lub nieopisowe, np. „Pole1”.</li>
       <li>Nagłówki lub etykiety nie pasują do zawartości lub są mylące.</li>
-    </ul>
-
-    <h4>Komentarze do audytu 2.4.6</h4>
-    <ul>
-      <li>Nagłówki na stronie są zbyt ogólne i nie pomagają użytkownikowi zorientować się w strukturze treści.</li>
       <li>Etykiety formularzy są nieczytelne lub brak ich wcale, co utrudnia korzystanie z formularzy.</li>
     </ul>
 
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -2695,7 +2398,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Elementy interaktywne muszą mieć wyraźny wskaźnik fokusu, aby użytkownik wiedział, który element jest aktywny podczas nawigacji klawiaturą.</p>
   </div>
   <button id="show-more-2_4_7" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 2.4.7
+    Rozwiń opis 2.4.7
   </button>
   
   <div class="full-text" style="display:none;">
@@ -2720,19 +2423,13 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Użytkownicy mogą łatwiej i bezpieczniej poruszać się po stronie bez użycia myszy, a dostępność serwisu wzrasta dla osób z różnymi niepełnosprawnościami.</p>
 
-    <h4>Przykłady błędów 2.4.7</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Brak widocznego wskaźnika fokusu na przyciskach lub linkach.</li>
       <li>Fokus jest słabo kontrastowy i trudno zauważalny.</li>
       <li>Niektóre elementy interaktywne w ogóle nie reagują na fokus klawiatury.</li>
     </ul>
 
-    <h4>Komentarze do audytu 2.4.7</h4>
-    <ul>
-      <li>Brak widocznego wskaźnika fokusu na części elementów interaktywnych.</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -2742,7 +2439,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Użytkownik powinien zawsze wiedzieć, w którym miejscu zestawu stron internetowych się znajduje.</p>
   </div>
   <button id="show-more-2_4_8" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 2.4.8
+    Rozwiń opis 2.4.8
   </button>
   
   <div class="full-text" style="display:none;">
@@ -2767,19 +2464,13 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Użytkownicy mogą szybko zrozumieć strukturę serwisu, odnaleźć potrzebne treści i wrócić do wcześniejszych sekcji bez zagubienia.</p>
 
-    <h4>Przykłady błędów 2.4.8</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Brak breadcrumbs lub innych wskaźników lokalizacji w serwisie.</li>
       <li>Niejasne nagłówki lub brak tytułów wskazujących położenie w strukturze strony.</li>
       <li>Menu lub spis treści nie pokazują aktywnej strony lub sekcji.</li>
     </ul>
 
-    <h4>Komentarze do audytu 2.4.8</h4>
-    <ul>
-      <li>Użytkownik nie ma jasnej informacji, w którym miejscu witryny się znajduje.</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -2789,11 +2480,11 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Każdy link musi mieć jasno określony cel, który wynika wprost z jego treści, bez konieczności odczytywania kontekstu otaczającego.</p>
   </div>
   <button id="show-more-2_4_9" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 2.4.9
+    Rozwiń opis 2.4.9
   </button>
   
   <div class="full-text" style="display:none;">
-    <h4>Co to jest?</h4>
+    
     <p>Linki w serwisach internetowych powinny być jasne i pomocne, tak aby sama treść linku wskazywała jego cel. Nie mogą polegać na otaczającym kontekście, aby użytkownicy korzystający z czytników ekranu mogli zrozumieć, dokąd prowadzi dany link.</p>
 
     <h4>Dlaczego to jest ważne?</h4>
@@ -2801,9 +2492,9 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
 
     <h4>Kto jest dotknięty?</h4>
     <ul>
-      <li>Osoby z ograniczeniami motorycznymi – mogą szybciej pominąć nieistotne linki.</li>
-      <li>Osoby z niepełnosprawnością poznawczą – jasne linki pomagają uniknąć dezorientacji.</li>
-      <li>Osoby z ograniczonym wzrokiem – linki muszą być zrozumiałe dla czytników ekranu.</li>
+      <li>Osoby z ograniczeniami motorycznymi</li>
+      <li>Osoby z niepełnosprawnością poznawczą</li>
+      <li>Osoby z ograniczonym wzrokiem</li>
     </ul>
 
     <h4>Jak to zrobić?</h4>
@@ -2819,12 +2510,6 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <p>Niepoprawnie: <code>&lt;a href="/report"&gt;Pobierz&lt;/a&gt;</code><br>
        Poprawnie: <code>&lt;a href="/report"&gt;Pobierz raport o mrównikach 2025 (PDF)&lt;/a&gt;</code></p>
 
-    <h4>Komentarz do audytu 2.4.9</h4>
-    <ul>
-      <li>Niektóre linki nie mają jasnego celu określonego w samym tekście, co utrudnia orientację użytkownikom korzystającym z czytników ekranu.</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -2834,7 +2519,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Nagłówki sekcji porządkują treść, ułatwiając użytkownikom zrozumienie struktury strony i szybkie odnalezienie informacji.</p>
   </div>
   <button id="show-more-2_4_10" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 2.4.10
+    Rozwiń opis 2.4.10
   </button>
   
   <div class="full-text" style="display:none;">
@@ -2861,21 +2546,14 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Dzięki nagłówkom użytkownicy szybciej odnajdują informacje, łatwiej przetwarzają treść i mogą korzystać ze strony efektywnie niezależnie od swoich ograniczeń.</p>
 
-    <h4>Przykłady błędów 2.4.10</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Brak nagłówków sekcji na stronie długiej lub złożonej</li>
       <li>Nagłówki w złej hierarchii (<code>&lt;h3&gt;</code> bez wcześniejszego <code>&lt;h2&gt;</code>)</li>
       <li>Nieinformacyjne nagłówki typu „Sekcja 1” lub „Część A”</li>
     </ul>
 
-    <h4>Komentarze do audytu 2.4.10</h4>
-    <ul>
-  <li>Brakuje nagłówków dla wszystkich sekcji tekstu</li>
-  <li>Nagłówki są w złej hierarchii</li>
-  <li>Nagłówki są nieinformacyjne lub ogólne</li>
-</ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+   
   </div>
   
 </article>
@@ -2890,7 +2568,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Strona nie powinna wymagać wykonywania skomplikowanych gestów dotykowych. Funkcje powinny być dostępne przy prostych dotknięciach lub alternatywnych metodach nawigacji.</p>
   </div>
   <button id="show-more-2_5_1" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 2.5.1
+    Rozwiń opis 2.5.1
   </button>
   
   <div class="full-text" style="display:none;">
@@ -2917,20 +2595,13 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Wdrożenie tego kryterium pozwala użytkownikom z różnymi ograniczeniami korzystać ze strony bez przeszkód, poprawia użyteczność i zmniejsza frustrację.</p>
 
-    <h4>Przykłady błędów 2.5.1</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Konieczność wykonania gestu przesunięcia dwoma palcami do aktywacji funkcji.</li>
       <li>Elementy interaktywne działają tylko przy użyciu złożonych gestów.</li>
       <li>Brak alternatywy dla gestów wielopunktowych.</li>
     </ul>
 
-    <h4>Komentarze do audytu 2.5.1</h4>
-    <ul>
-      <li>Wykryto elementy wymagające złożonych gestów dotykowych, co utrudnia lub uniemożliwia dostęp użytkownikom z ograniczoną sprawnością manualną.</li>
-      <li>Brak alternatywnych sposobów sterowania dla gestów ścieżkowych i wielopunktowych.</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -2940,7 +2611,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Użytkownik powinien mieć możliwość anulowania lub zatrzymania akcji, którą rozpoczął dotknięciem ekranu, zanim zostanie ona w pełni wykonana.</p>
   </div>
   <button id="show-more-2_5_2" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 2.5.2
+    Rozwiń opis 2.5.2
   </button>
   
   <div class="full-text" style="display:none;">
@@ -2960,23 +2631,18 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
       <li>Jeżeli używasz down-event, zapewnij możliwość anulowania lub cofnięcia akcji, np. przycisk „Cofnij” lub okno potwierdzenia.</li>
       <li>Dla elementów przeciąganych (drag & drop) umożliw użytkownikowi przerwanie akcji poprzez puszczenie elementu poza obszarem docelowym lub cofnięcie go po up-event.</li>
     </ul>
-
-    <h4>Przykłady błędów 2.5.2</h4>
+	
+<h4>Korzyści</h4>
+    <p>Implementacja przewidywalnego anulowania działań zwiększa dostępność strony dla wszystkich użytkowników, zwłaszcza tych z ograniczeniami wzroku i poznawczymi, oraz minimalizuje ryzyko frustracji spowodowanej przypadkowymi akcjami.</p>
+	
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Brak możliwości przerwania działania po dotknięciu, np. przesunięcie elementu lub przeciągnięcie bez opcji cofnięcia.</li>
       <li>Elementy interaktywne natychmiast wykonują akcję bez szansy na anulowanie.</li>
       <li>Brak opcji „cofnij” lub przerwania gestu.</li>
     </ul>
 
-    <h4>Komentarz do audytu 2.5.2</h4>
-    <ul>
-      <li>Nie znaleziono możliwości anulowania rozpoczętych działań dotykowych, co może powodować problemy u użytkowników z ograniczoną precyzją ruchów.</li>
-    </ul>
 
-    <h4>Korzyści</h4>
-    <p>Implementacja przewidywalnego anulowania działań zwiększa dostępność strony dla wszystkich użytkowników, zwłaszcza tych z ograniczeniami wzroku i poznawczymi, oraz minimalizuje ryzyko frustracji spowodowanej przypadkowymi akcjami.</p>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -2986,7 +2652,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Jeśli przycisk lub pole ma widoczną etykietę (np. „Szukaj”), to ta sama fraza powinna być zawarta w nazwie programistycznej elementu, czyli tym, co odczytują czytniki ekranu (np. aria-label, alt, name).</p>
   </div>
   <button id="show-more-2_5_3" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 2.5.3
+    Rozwiń opis 2.5.3
   </button>
   
   <div class="full-text" style="display:none;">
@@ -3019,20 +2685,13 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
  <h4>Korzyści</h4>
     <p>Ujednolicenie widocznych etykiet z nazwami programistycznymi zwiększa dostępność dla osób korzystających z rozpoznawania mowy i czytników ekranu, redukuje zamieszanie oraz ułatwia zrozumienie funkcji elementów dla wszystkich użytkowników.</p>
 
-    <h4>Przykłady błędów 2.5.3</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Przycisk wizualnie opisany jako „Szukaj”, ale aria-label="Znajdź".</li>
       <li>Etykieta „Wyślij”, a programistyczna nazwa „Zatwierdź formularz”.</li>
       <li>Brak zgodności między widocznym tekstem a tym, co odczytuje technologia wspomagająca.</li>
     </ul>
 
-    <h4>Komentarz do audytu 2.5.3</h4>
-    <ul>
-      <li>Element „[nazwa przycisku]” ma etykietę „X”, ale aria-label to „Y” - należy je ujednolicić, aby zapewnić spójność i lepszą dostępność.</li>
-    </ul>
-
-  
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -3042,7 +2701,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Jeśli jakaś funkcja na stronie uruchamiana jest przez ruch urządzeniem (np. potrząśnięcie telefonem, przechylenie), to musi istnieć alternatywny sposób aktywacji, np. przycisk.</p>
   </div>
   <button id="show-more-2_5_4" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 2.5.4
+    Rozwiń opis 2.5.4
   </button>
   
   <div class="full-text" style="display:none;">
@@ -3053,7 +2712,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <ul>
       <li>Osoby z ograniczoną mobilnością lub niepełnosprawnością ruchową</li>
       <li>Osoby z problemami motorycznymi, np. drżenia rąk (Parkinson, porażenie mózgowe)</li>
-      <li>Osoby słabo widzące lub niewidome</li>
+      <li>Osoby słabowidzące lub niewidome</li>
     </ul>
 
     <h4>Jak to zrobić?</h4>
@@ -3068,20 +2727,13 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <p>Zapewnienie alternatywnych metod sterowania oraz możliwości wyłączenia aktywacji ruchem zwiększa dostępność, redukuje przypadkowe uruchomienia funkcji i umożliwia wszystkim użytkownikom wygodne korzystanie z interaktywnych elementów strony.</p>
 
 
-    <h4>Przykłady błędów 2.5.4</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Potrząśnięcie telefonem wywołuje akcję, ale brak przycisku do wykonania tego samego.</li>
       <li>Przechylenie urządzenia zmienia widok lub aktywuje funkcję bez możliwości innego sposobu obsługi.</li>
       <li>Brak możliwości wyłączenia funkcji sterowanych ruchem.</li>
     </ul>
 
-    <h4>Komentarz do audytu 2.5.4</h4>
-    <ul>
-      <li>Strona zawiera funkcje sterowane ruchem, ale brakuje alternatywnych metod obsługi dla osób, które nie mogą korzystać z takich gestów.</li>
-    </ul>
-
-   
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -3091,7 +2743,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Rozmiar celu punktu dotykowego wynosi co najmniej 44×44 piksele CSS, chyba że spełnione są wyjątki: cel jest częścią tekstu, ma odpowiednik o odpowiednim rozmiarze lub rozmiar jest istotny dla prezentacji.</p>
   </div>
   <button id="show-more-2_5_5" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 2.5.5
+    Rozwiń opis 2.5.5
   </button>
   
   <div class="full-text" style="display:none;">
@@ -3125,18 +2777,13 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Większe cele dotykowe ułatwiają korzystanie z witryny wszystkim użytkownikom, nie tylko osobom z niepełnosprawnościami. Poprawiają komfort korzystania, zmniejszają błędy kliknięć i zwiększają ogólną użyteczność strony.</p>
 	
-	<h4>Przykłady błędów 2.5.5</h4>
+	<h4>Przykłady błędów</h4>
     <ul>
       <li>Przyciski menu mają wymiary 20×20 px i są umieszczone blisko siebie, co utrudnia trafienie w właściwy przycisk.</li>
       <li>Ikony akcji w pasku narzędzi są mniejsze niż 44×44 px i nie mają dodatkowego obszaru kliknięcia.</li>
+	  <li>Brak wystarczającej przestrzeni między przyciskami powoduje ryzyko przypadkowego kliknięcia niewłaściwego elementu.</li>
     </ul>
 
-    <h4>Komentarze do audytu 2.5.5</h4>
-    <ul>
-      <li>Niektóre elementy interaktywne na stronie mają zbyt mały obszar dotykowy, co może utrudniać korzystanie osobom z ograniczeniami ruchowymi.</li>
-      <li>Brak wystarczającej przestrzeni między przyciskami powoduje ryzyko przypadkowego kliknięcia niewłaściwego elementu.</li>
-    </ul>
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -3146,7 +2793,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Treści internetowe nie ograniczają możliwości korzystania z trybów wprowadzania danych dostępnych na platformie, z wyjątkiem sytuacji, w których ograniczenie jest istotne, wymagane do zapewnienia bezpieczeństwa treści lub ustawień użytkownika.</p>
   </div>
   <button id="show-more-2_5_6" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 2.5.6
+    Rozwiń opis 2.5.6
   </button>
 
   <div class="full-text" style="display:none;"
@@ -3179,20 +2826,13 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Wspieranie równoległych mechanizmów wprowadzania zwiększa dostępność i wygodę użytkowania dla wszystkich użytkowników, niezależnie od sposobu wprowadzania danych.</p>
 
-	<h4>Przykłady błędów 2.5.6</h4>
+	<h4>Przykłady błędów</h4>
     <ul>
       <li>Formularze dostępne tylko za pomocą myszy – nie można ich obsłużyć klawiaturą ani głosem.</li>
       <li>Przycisk „Wyślij” reaguje tylko na dotyk, ignorując kliknięcia myszy lub naciśnięcie Enter na klawiaturze.</li>
       <li>Strona nie działa z urządzeniami wspomagającymi (switch controls, eye-tracking) mimo że obsługuje mysz i dotyk.</li>
     </ul>
 
-    <h4>Komentarze do audytu 2.5.6</h4>
-    <ul>
-      <li>Wiele elementów interaktywnych wymaga wyłącznie jednego sposobu wprowadzania danych, co ogranicza dostępność.</li>
-      <li>Niektóre funkcje nie reagują na przełączenie między klawiaturą a ekranem dotykowym.</li>
-    </ul>
-	
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -3207,7 +2847,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Strona internetowa powinna mieć określony język główny, dzięki czemu czytniki ekranu wiedzą, jak prawidłowo odczytać tekst (np. po polsku, a nie po angielsku).</p>
   </div>
   <button id="show-more-3_1_1" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 3.1.1
+    Rozwiń opis 3.1.1
   </button>
 
   <div class="full-text" style="display:none;">
@@ -3221,19 +2861,12 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Dlaczego to jest ważne?</h4>
     <p>Poprawne ustawienie języka strony umożliwia czytnikom ekranu prawidłowe odczytywanie treści, co jest kluczowe dla osób z niepełnosprawnościami wzrokowymi.</p>
 
-	 <h4>Przykłady błędów 3.1.1</h4>
+	 <h4>Przykłady błędów</h4>
     <ul>
       <li>Brak atrybutu <code>lang</code> w tagu <code>&lt;html&gt;</code>.</li>
       <li>Strona ustawiona domyślnie na <code>lang="en"</code>, mimo że cała treść jest po polsku.</li>
     </ul>
 
-    <h4>Komentarze do audytu 3.1.1</h4>
-    <ul>
-      <li>Brakuje atrybutu <code>lang</code> w znaczniku <code>&lt;html&gt;</code>, co utrudnia czytnikom ekranu prawidłowe odczytanie treści.</li>
-      <li>Atrybut <code>lang</code> ustawiono na inny język niż język treści strony, należy go poprawić, np. <code>lang="pl"</code>.</li>
-    </ul>
-	
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 <article id="k3_1_2">
@@ -3242,7 +2875,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Jeśli na stronie są fragmenty tekstu w innym języku (np. cytat po angielsku na polskiej stronie), trzeba je odpowiednio oznaczyć, bo dzięki temu czytniki ekranu przeczytają je poprawnie.</p>
   </div>
   <button id="show-more-3_1_2" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 3.1.2
+    Rozwiń opis 3.1.2
   </button>
 
   <div class="full-text" style="display:none;">
@@ -3257,17 +2890,12 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Dlaczego to jest ważne?</h4>
     <p>Poprawne oznaczenie języka fragmentów tekstu zapewnia, że czytniki ekranu odczytują je w odpowiedniej wymowie i tonacji, co jest kluczowe dla dostępności treści.</p>
 
-	<h4>Przykłady błędów 3.1.2</h4>
+	<h4>Przykłady błędów</h4>
     <ul>
       <li>Na polskiej stronie występuje angielskie zdanie, ale nie oznaczono go np. <code>lang="en"</code>.</li>
+	   <li>Występujące fragmenty obcojęzyczne zostały oznaczone błędnym kodem językowym ISO.</li>
     </ul>
-
-    <h4>Komentarze do audytu 3.1.2</h4>
-    <ul>
-      <li>Na stronie występują fragmenty w obcym języku, które nie są oznaczone atrybutem <code>lang</code>.</li>
-      <li>Występujące fragmenty obcojęzyczne zostały oznaczone błędnym kodem językowym ISO.</li>
-    </ul>
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+    
   </div>
 </article>
 
@@ -3277,7 +2905,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Istnieje mechanizm, za pomocą którego można sprawdzić definicje słów użytych w nietypowy lub ograniczony sposób, w tym idiomów i żargonu.</p>
   </div>
   <button id="show-more-3_1_3" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 3.1.3
+    Rozwiń opis 3.1.3
   </button>
 
   <div class="full-text" style="display:none;">
@@ -3293,19 +2921,12 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Dlaczego to jest ważne?</h4>
     <p>Zapewnienie definicji dla nietypowych słów, idiomów i żargonu pozwala wszystkim użytkownikom zrozumieć treść strony, w tym osobom z ograniczonym słownictwem, uczniom, osobom uczącym się języka lub z trudnościami poznawczymi.</p>
 
-	<h4>Przykłady błędów 3.1.3</h4>
+	<h4>Przykłady błędów</h4>
     <ul>
       <li>Strona używa idiomów lub terminów branżowych bez podania definicji lub wyjaśnienia.</li>
       <li>Żargon techniczny jest użyty w treści dla użytkowników ogólnych, bez możliwości sprawdzenia znaczenia.</li>
     </ul>
-
-    <h4>Komentarze do audytu 3.1.3</h4>
-    <ul>
-      <li>Użyto słów specjalistycznych lub idiomów, które nie mają dostępnej definicji lub wyjaśnienia.</li>
-      <li>Brak mechanizmu umożliwiającego użytkownikowi sprawdzenie znaczenia nietypowych słów.</li>
-    </ul>
-	
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+ 
   </div>
 </article>
 
@@ -3315,7 +2936,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Istnieje mechanizm, który pozwala sprawdzić znaczenie skrótów użytych na stronie.</p>
   </div>
   <button id="show-more-3_1_4" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 3.1.4
+   Rozwiń opis 3.1.4
   </button>
   
   <div class="full-text" style="display:none;">
@@ -3341,19 +2962,13 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Użytkownicy szybciej rozumieją treść, zwiększa się dostępność strony dla osób z różnym poziomem wiedzy i języka, a interakcja z serwisem staje się bardziej intuicyjna.</p>
 
-    <h4>Przykłady błędów 3.1.4</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Skrót „API” użyty w tekście bez wyjaśnienia znaczenia.</li>
       <li>Skróty branżowe w artykułach naukowych bez linku do glosariusza.</li>
+	   <li>Brak mechanizmu umożliwiającego sprawdzenie znaczenia skrótów, co utrudnia zrozumienie treści.</li>
     </ul>
 
-    <h4>Komentarze do audytu 3.1.4</h4>
-    <ul>
-      <li>Na stronie występują skróty, których znaczenie nie jest udostępnione użytkownikom.</li>
-      <li>Brak mechanizmu umożliwiającego sprawdzenie znaczenia skrótów, co utrudnia zrozumienie treści.</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -3363,7 +2978,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Jeżeli tekst jest trudny do zrozumienia, powinna istnieć uproszczona wersja lub dodatkowe wyjaśnienia.</p>
   </div>
   <button id="show-more-3_1_5" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 3.1.5
+    Rozwiń opis 3.1.5
   </button>
   
   <div class="full-text" style="display:none;">
@@ -3389,19 +3004,13 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Większa dostępność treści dla szerszego grona odbiorców, lepsze zrozumienie informacji i bardziej inkluzyjne doświadczenie użytkownika.</p>
 
-    <h4>Przykłady błędów 3.1.5</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Artykuł pełen złożonych terminów naukowych bez żadnych wyjaśnień.</li>
       <li>Instrukcje obsługi w trudnym języku bez uproszczonej wersji dla początkujących użytkowników.</li>
+	  <li>Tekst wymaga umiejętności czytania na poziomie wyższym niż gimnazjalny, brak wersji uproszczonej.</li>
     </ul>
 
-    <h4>Komentarze do audytu 3.1.5</h4>
-    <ul>
-      <li>Tekst wymaga umiejętności czytania na poziomie wyższym niż gimnazjalny, brak wersji uproszczonej.</li>
-      <li>Brak dodatkowych wyjaśnień dla skomplikowanych terminów, co utrudnia zrozumienie treści.</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -3411,7 +3020,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Użytkownik powinien mieć możliwość sprawdzenia, jak wymawiać trudne lub niejasne słowa.</p>
   </div>
   <button id="show-more-3_1_6" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 3.1.6
+    Rozwiń opis 3.1.6
   </button>
   
   <div class="full-text" style="display:none;">
@@ -3437,19 +3046,12 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Ułatwia naukę i poprawną wymowę trudnych słów, zwiększa dostępność treści edukacyjnych i poprawia komfort korzystania z witryny.</p>
 
-    <h4>Przykłady błędów 3.1.6</h4>
+    <h4>Przykłady błędów </h4>
     <ul>
       <li>Trudne słowa w tekście nie mają podpowiedzi wymowy ani audio.</li>
       <li>Brak mechanizmu wsparcia dla wymowy skrótów lub terminów specjalistycznych.</li>
     </ul>
 
-    <h4>Komentarze do audytu 3.1.6</h4>
-    <ul>
-      <li>Nie zapewniono żadnego sposobu sprawdzenia wymowy słów trudnych do odczytania.</li>
-      <li>Brak wsparcia dla użytkowników korzystających z technologii tekst-na-mowę w przypadku słów o niejasnej wymowie.</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -3464,7 +3066,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Ustawienie fokusu na elemencie nie powinno powodować nieoczekiwanych zmian, takich jak automatyczne przekierowania, otwieranie okien czy wysyłanie formularzy.</p>
   </div>
   <button id="show-more-3_2_1" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 3.2.1
+    Rozwiń opis 3.2.1
   </button>
   
   <div class="full-text" style="display:none;">
@@ -3491,20 +3093,14 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Strona staje się bardziej przewidywalna, łatwiejsza w nawigacji i mniej frustrująca dla użytkowników korzystających z klawiatury lub technologii wspomagających.</p>
 
-    <h4>Przykłady błędów 3.2.1</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Fokus na rozwijanym menu automatycznie przekierowuje na inną stronę.</li>
       <li>Ustawienie fokusu powoduje odświeżenie strony lub zmianę zawartości bez działania użytkownika.</li>
       <li>Formularz wysyła dane tylko po ustawieniu fokusu na przycisk, bez jego aktywacji.</li>
     </ul>
 
-    <h4>Komentarze do audytu 3.2.1</h4>
-    <ul>
-      <li>Ustawienie fokusu powoduje nieoczekiwane zmiany interfejsu.</li>
-      <li>Nie zapewniono, że akcje występują dopiero po świadomej aktywacji elementu.</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+   
   </div>
 </article>
 <article id="k3_2_2">
@@ -3513,7 +3109,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Podczas wpisywania danych w formularzu (np. wybierania opcji, wpisywania tekstu), zmiany na stronie nie mogą dziać się automatycznie, chyba że użytkownik sam je zatwierdzi (np. kliknie przycisk).</p>
   </div>
   <button id="show-more-3_2_2" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 3.2.2
+    Rozwiń opis 3.2.2
   </button>
   
   <div class="full-text" style="display:none;">
@@ -3536,19 +3132,13 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
       <li>Testuj formularze, sprawdzając, że nic nie zmienia się samoistnie podczas wprowadzania danych.</li>
     </ul>
 
-    <h4>Przykłady błędów 3.2.2</h4>
+    <h4>Przykłady błędów </h4>
     <ul>
       <li>Po wybraniu opcji z rozwijanej listy strona automatycznie się przeładowuje.</li>
       <li>Formularz jest wysyłany natychmiast po wpisaniu danych w pole, bez możliwości ich sprawdzenia.</li>
       <li>Wybór daty powoduje zmianę widoku, zanim użytkownik zatwierdzi wybór.</li>
     </ul>
 
-    <h4>Komentarze do audytu 3.2.2</h4>
-    <ul>
-      <li>Wykryto automatyczne zmiany interfejsu podczas wprowadzania danych bez wyraźnego działania użytkownika (np. kliknięcia przycisku).</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -3558,7 +3148,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Jeśli na wielu stronach powtarzają się elementy nawigacyjne (np. menu, linki, wyszukiwarka), powinny zawsze wyglądać i działać tak samo oraz być umieszczone w tym samym miejscu.</p>
   </div>
   <button id="show-more-3_2_3" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 3.2.3
+    Rozwiń opis 3.2.3
   </button>
   
   <div class="full-text" style="display:none;">
@@ -3589,20 +3179,13 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
       <li>Nie przenoś przycisków ani linków do innych miejsc na różnych stronach – np. przycisk „Kontakt” nie powinien raz prowadzić do formularza, a raz do stopki.</li>
     </ul>
 
-    <h4>Przykłady błędów 3.2.3</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Menu główne znajduje się raz po lewej stronie, a na innych podstronach – na górze.</li>
       <li>Link „Kontakt” prowadzi do różnych miejsc na różnych podstronach.</li>
       <li>Przycisk „Zaloguj się” wygląda i działa inaczej na różnych podstronach.</li>
     </ul>
 
-    <h4>Komentarze do audytu 3.2.3</h4>
-    <ul>
-      <li>Elementy nawigacyjne nie są spójnie umieszczone na wszystkich podstronach, co może utrudniać orientację użytkownikom.</li>
-      <li>Zalecamy ujednolicenie działania linków, np. link „[nazwa linku]” powinien zawsze prowadzić do tej samej lokalizacji.</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -3612,7 +3195,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Elementy, które pełnią tę samą funkcję na różnych stronach (np. link, przycisk, ikona), powinny być oznaczone w taki sam sposób – tą samą nazwą, etykietą lub symbolem.</p>
 </div>
   <button id="show-more-3_2_4" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 3.2.4
+    Rozwiń opis 3.2.4
   </button>
 
   <div class="full-text" style="display:none;">
@@ -3645,19 +3228,13 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
       </li>
     </ul>
 
-    <h4>Przykłady błędów 3.2.4</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Na jednej stronie przycisk „Szukaj” ma etykietę „Szukaj”, a na innej „Znajdź”.</li>
       <li>Link do koszyka raz ma ikonę z koszykiem, a raz z torbą, mimo że prowadzi do tego samego miejsca.</li>
       <li>Ten sam formularz zapisany jest raz jako „Zarejestruj się”, a raz jako „Dołącz”.</li>
     </ul>
 
-    <h4>Komentarze do audytu 3.2.4</h4>
-    <ul>
-      <li>Elementy pełniące tę samą funkcję mają różne etykiety na różnych podstronach, co może być mylące dla użytkowników.</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -3667,11 +3244,11 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Zmiany kontekstu inicjowane są tylko na żądanie użytkownika lub istnieje mechanizm pozwalający na wyłączenie takich zmian.</p>
 </div>
   <button id="show-more-3_2_5" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 3.2.5
+    Rozwiń opis 3.2.5
   </button>
 
   <div class="full-text" style="display:none;">
-    <p>Każda istotna zmiana kontekstu – jak otwarcie nowego okna, zmiana strony lub aktualizacja zawartości – powinna nastąpić tylko wtedy, gdy użytkownik ją wyraźnie zainicjuje lub gdy jest przewidywalna. Oznacza to brak nieoczekiwanych przekierowań, wyskakujących okien czy automatycznego wysyłania formularzy.</p>
+    <p>Każda istotna zmiana kontekstu jak otwarcie nowego okna, zmiana strony lub aktualizacja zawartości powinna nastąpić tylko wtedy, gdy użytkownik ją wyraźnie zainicjuje lub gdy jest przewidywalna. Oznacza to brak nieoczekiwanych przekierowań, wyskakujących okien czy automatycznego wysyłania formularzy.</p>
 
     <h4>Dlaczego to jest ważne?</h4>
     <p>Niespodziewane zmiany mogą dezorientować, szczególnie osoby korzystające z technologii wspomagających lub potrzebujące przewidywalnych interakcji. Umożliwienie użytkownikowi inicjowania zmian daje poczucie kontroli i stabilności.</p>
@@ -3683,7 +3260,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
       <li>Osoby z niepełnosprawnością poznawczą – mogą mieć trudności z nadążaniem za nagłymi zmianami w interfejsie</li>
     </ul>
 
-    <h4>Jak spełnić 3.2.5?</h4>
+    <h4>Jak spełnić kryterium?</h4>
     <ul>
       <li>Żadne zmiany kontekstu nie powinny zachodzić automatycznie bez inicjatywy użytkownika.</li>
       <li>Przykłady zmian kontekstu: przekierowania, zmiana części interfejsu, automatyczne wysyłanie formularzy.</li>
@@ -3699,7 +3276,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
       <li>Niektóre automatyczne zmiany, np. karuzele lub pokazy slajdów, są dozwolone, jeśli użytkownik może je wstrzymać (WCAG 2.2.2) i są zgodne z preferencjami animacji (WCAG 2.3.3).</li>
     </ul>
 
-    <h4>Komentarze do audytu 3.2.5</h4>
+    <h4>Przykładowe błędy</h4>
     <ul>
       <li>Nieoczekiwane przekierowania występują na stronie głównej przy wybraniu produktu.</li>
       <li>Modal z informacją o subskrypcji otwiera się automatycznie bez interakcji użytkownika.</li>
@@ -3721,7 +3298,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Formularz musi wyraźnie informować użytkownika o popełnionych błędach, wskazując, co jest nie tak i w którym polu.</p>
   </div>
   <button id="show-more-3_3_1" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 3.3.1
+    Rozwiń opis 3.3.1
   </button>
   
   <div class="full-text" style="display:none;">
@@ -3732,7 +3309,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
 
     <h4>Kto jest dotknięty?</h4>
     <ul>
-      <li>Ludzie z ograniczoną widocznością (np. daltoniści)</li>
+      <li>Osoby z ograniczoną widocznością (np. daltoniści)</li>
       <li>Osoby korzystające z czytników ekranu</li>
       <li>Osoby z niepełnosprawnością poznawczą</li>
     </ul>
@@ -3751,21 +3328,13 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Dzięki prawidłowej identyfikacji błędów użytkownicy szybciej poprawiają formularze, zmniejsza się liczba błędnych danych, a strona staje się bardziej dostępna i przyjazna dla wszystkich użytkowników.</p>
 
-    <h4>Przykłady błędów 3.3.1</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Formularz nie informuje, że pole „Email” jest obowiązkowe.</li>
       <li>Użytkownik wpisuje niepoprawny numer telefonu, ale nie pojawia się komunikat.</li>
       <li>Komunikat o błędzie jest tylko wizualny (np. czerwone obramowanie) i nie jest odczytywany przez czytniki ekranu.</li>
     </ul>
-
-    <h4>Komentarze do audytu 3.3.1</h4>
-    <ul>
-      <li>Formularz nie informuje, że pole „Email” jest obowiązkowe.</li>
-      <li>Komunikaty błędów nie są powiązane z konkretnymi polami formularza i nie są czytane przez czytniki ekranu.</li>
-      <li>Informacja o błędzie w formularzu niejednoznacznie identyfikuje problem.</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+   
   </div>
 </article>
 
@@ -3775,7 +3344,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Każde pole formularza powinno być jasno opisane, aby użytkownik wiedział, jakie dane wpisać i w jakim formacie. Jeśli pole jest obowiązkowe, warto to zaznaczyć.</p>
   </div>
   <button id="show-more-3_3_2" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 3.3.2
+    Rozwiń opis 3.3.2
   </button>
   
   <div class="full-text" style="display:none;">
@@ -3805,33 +3374,24 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Jasne etykiety i instrukcje ułatwiają użytkownikom wypełnianie formularzy, zmniejszają liczbę błędów i poprawiają dostępność strony dla osób z różnymi niepełnosprawnościami.</p>
 
-    <h4>Przykłady błędów 3.3.2</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Brak etykiety przy polu – użytkownik widzi tylko puste pole.</li>
       <li>Etykieta jest tylko wizualna (placeholder), który znika po rozpoczęciu pisania.</li>
       <li>Brak informacji o wymaganym formacie danych.</li>
       <li>Nie wiadomo, które pola są obowiązkowe.</li>
     </ul>
-
-    <h4>Komentarze do audytu 3.3.2</h4>
-    <ul>
-      <li>Brakuje czytelnych etykiet lub instrukcji dla pól formularza, co może utrudniać korzystanie osobom z niepełnosprawnościami.</li>
-      <li>Część pól formularzy nie posiada etykiety lub etykieta jest ukryta wizualnie.</li>
-      <li>Informacje o formacie i polach obowiązkowych powinny być dostępne zarówno wizualnie, jak i dla czytników ekranu.</li>
-      <li>Pola formularza posiadają puste etykiety <code>&lt;label&gt;</code>.</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
+   
   </div>
 </article>
 
-<article id="3_3_3">
+<article id="k3_3_3">
 <div>
   <h3>3.3.3 Sugestie korekty błędów (AA)</h3>
   <p>Kiedy użytkownik popełni błąd w formularzu, system powinien jasno podpowiedzieć, jak go poprawić.</p>
   </div>
   <button id="show-more-3_3_3" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 3.3.3
+    Rozwiń opis 3.3.3
   </button>
   
   <div class="full-text" style="display:none;">
@@ -3859,20 +3419,13 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Dzięki wdrożeniu kryterium użytkownicy szybciej poprawiają błędy, zmniejsza się liczba nieprawidłowych danych, a formularze stają się bardziej przyjazne i dostępne dla wszystkich.</p>
 
-    <h4>Przykłady błędów 3.3.3</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Komunikat „Błąd” bez wyjaśnienia, co jest nieprawidłowe</li>
       <li>„Nieprawidłowy format” bez informacji o wymaganym wzorze</li>
       <li>Sugestie dostępne tylko wizualnie, niewidoczne dla czytników ekranu</li>
     </ul>
 
-    <h4>Komentarze do audytu 3.3.3</h4>
-    <ul>
-      <li>Brak komunikatów sugerujących, jak poprawić dane w formularzu</li>
-      <li>Użytkownicy nie wiedzą, jakie dane są prawidłowe ani w jakim formacie je wpisać</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -3882,11 +3435,11 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>System powinien pomagać użytkownikom unikać błędów podczas wypełniania formularzy, np. przez potwierdzenia, walidację na bieżąco albo ograniczenia wprowadzanych danych.</p>
   </div>
   <button id="show-more-3_3_4" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 3.3.4
+    Rozwiń opis 3.3.4
   </button>
   
   <div class="full-text" style="display:none;">
-    <p>Kryterium 3.3.4 mówi, że formularze i systemy online powinny minimalizować ryzyko błędów. Obejmuje to walidację w czasie rzeczywistym, potwierdzenia akcji i ograniczenia wprowadzanych danych, aby użytkownik mógł uniknąć poważnych konsekwencji, np. przy transakcjach finansowych, podpisywaniu dokumentów prawnych lub usuwaniu danych.</p>
+    <p>Kryterium to mówi, że formularze i systemy online powinny minimalizować ryzyko błędów. Obejmuje to walidację w czasie rzeczywistym, potwierdzenia akcji i ograniczenia wprowadzanych danych, aby użytkownik mógł uniknąć poważnych konsekwencji, np. przy transakcjach finansowych, podpisywaniu dokumentów prawnych lub usuwaniu danych.</p>
 
     <h4>Dlaczego to jest ważne?</h4>
     <p>Błędy zdarzają się każdemu, a dla osób z niepełnosprawnościami mogą być trudniejsze do wykrycia i poprawienia. Brak mechanizmów zapobiegających błędom może prowadzić do poważnych problemów, frustracji użytkowników lub utraty ważnych danych.</p>
@@ -3911,7 +3464,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Użytkownicy mogą łatwiej poprawić błędy przed wysłaniem danych, co zmniejsza ryzyko poważnych problemów i frustracji. Formularze stają się bardziej przyjazne i bezpieczne dla wszystkich użytkowników.</p>
 
-    <h4>Przykłady błędów 3.3.4</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Brak walidacji w czasie rzeczywistym – użytkownik wysyła formularz z błędami</li>
       <li>Pola tekstowe pozwalają wpisywać nieprawidłowe znaki lub formaty</li>
@@ -3919,14 +3472,6 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
       <li>Formularz akceptuje błędne dane, które później generują problemy</li>
     </ul>
 
-    <h4>Komentarze do audytu 3.3.4</h4>
-    <ul>
-      <li>Brak mechanizmów zapobiegających błędom utrudnia poprawne wypełnienie formularzy</li>
-      <li>Użytkownicy mogą nieświadomie wysłać błędne lub niepełne dane</li>
-      <li>Brak potwierdzeń i możliwości cofnięcia działań zwiększa ryzyko problemów</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -3936,11 +3481,11 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Użytkownicy powinni mieć dostęp do pomocy przy polach lub zadaniach, które mogą być niejasne lub trudne do wykonania.</p>
   </div>
   <button id="show-more-3_3_5" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 3.3.5
+    Rozwiń opis 3.3.5
   </button>
   
   <div class="full-text" style="display:none;">
-    <p>Pomoc kontekstowa oznacza wskazówki, linki lub krótkie wyjaśnienia pokazane dokładnie tam, gdzie użytkownik ich potrzebuje — np. przy polach formularza, które wymagają szczególnego formatu lub mogą być interpretowane na różne sposoby.</p>
+    <p>Pomoc kontekstowa oznacza wskazówki, linki lub krótkie wyjaśnienia pokazane dokładnie tam, gdzie użytkownik ich potrzebuje np. przy polach formularza, które wymagają szczególnego formatu lub mogą być interpretowane na różne sposoby.</p>
 
     <h4>Dlaczego to jest ważne?</h4>
     <p>Pomoc pozwala użytkownikom zrozumieć trudne pola formularzy, uniknąć błędów i wypełnić zadania bez frustracji. Dzięki temu strona staje się bardziej dostępna i przyjazna.</p>
@@ -3962,19 +3507,13 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Użytkownicy mogą wypełniać formularze poprawnie i samodzielnie, co zmniejsza liczbę błędów i zwiększa satysfakcję z korzystania ze strony.</p>
 
-    <h4>Przykłady błędów 3.3.5</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Brak wyjaśnienia, jaki format daty jest wymagany</li>
       <li>Niejasna instrukcja przy polu „Numer identyfikacyjny”</li>
     </ul>
+  
 
-    <h4>Komentarze do audytu 3.3.5</h4>
-    <ul>
-      <li>Dodano link „Pomoc” przy polu numeru telefonu, aby użytkownik wiedział, jak wpisać numer międzynarodowy</li>
-      <li>Tooltipy dla pól daty i numeru dokumentu działają poprawnie dla klawiatury i czytników ekranu</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -3984,7 +3523,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Przed wysłaniem formularza użytkownicy powinni mieć możliwość sprawdzenia, poprawienia lub cofnięcia swoich danych.</p>
   </div>
   <button id="show-more-3_3_6" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 3.3.6
+    Rozwiń opis 3.3.6
   </button>
   
   <div class="full-text" style="display:none;">
@@ -4012,21 +3551,14 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Użytkownicy mogą poprawnie wysyłać formularze, unikając błędów i frustracji. Poprawia to pewność siebie użytkowników i zwiększa dostępność strony dla wszystkich.</p>
 
-    <h4>Przykłady błędów 3.3.6</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Formularz rejestracyjny bez możliwości przeglądu i edycji danych przed wysłaniem</li>
       <li>Brak mechanizmu cofania dla zamówień lub wprowadzonych danych</li>
       <li>Brak potwierdzenia lub ostrzeżenia przed finalnym wysłaniem formularza</li>
     </ul>
+   
 
-    <h4>Komentarze do audytu 3.3.6</h4>
-   <ul>
-  <li>Nie dodano strony podsumowania w formularzu kontaktowym — użytkownicy nie mogą sprawdzić ani poprawić danych przed wysłaniem.</li>
-  <li>Brak modalnego okna potwierdzenia przy finalizacji zamówienia — użytkownicy nie mają możliwości weryfikacji danych przed wysłaniem.</li>
-  <li>Nie zastosowano timerów ani opcji anulowania w formularzach rezerwacyjnych — błędy nie są łatwe do cofnięcia.</li>
-</ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -4042,7 +3574,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Kod strony musi być poprawnie napisany, aby przeglądarki i technologie wspomagające mogły go prawidłowo „zrozumieć”.</p>
   </div>
   <button id="show-more-4_1_1" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 4.1.1
+    Rozwiń opis 4.1.1
   </button>
   
   <div class="full-text" style="display:none;">
@@ -4068,21 +3600,13 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
     <h4>Korzyści</h4>
     <p>Poprawny kod zwiększa kompatybilność ze wszystkimi przeglądarkami i technologiami wspomagającymi, co poprawia dostępność strony i jej stabilność.</p>
 
-    <h4>Przykłady błędów 4.1.1</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Niezamknięty tag &lt;p&gt;</li>
       <li>Zdublowane ID lub atrybuty w tym samym elemencie</li>
       <li>Niepoprawne zagnieżdżenie tagów (np. &lt;p&gt; w &lt;span&gt;)</li>
     </ul>
 
-    <h4>Komentarze do audytu 4.1.1</h4>
-    <ul>
-      <li>Serwis nie przechodzi walidacji HTML — występują błędy składniowe w kodzie</li>
-      <li>Niektóre elementy mają zdublowane atrybuty ID</li>
-      <li>W kodzie znaleziono niezamknięte tagi, np. &lt;p&gt; bez odpowiadającego &lt;/p&gt;</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -4092,7 +3616,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Każdy element interaktywny na stronie powinien mieć jasną nazwę, określoną rolę i, jeśli to możliwe, wartość, które mogą być odczytane przez technologie wspomagające (np. czytniki ekranu).</p>
   </div>
   <button id="show-more-4_1_2" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 4.1.2
+    Rozwiń opis 4.1.2
   </button>
   
   <div class="full-text" style="display:none;">
@@ -4106,42 +3630,21 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
       <li>Użytkownicy urządzeń alternatywnych do standardowej obsługi strony</li>
     </ul>
 
-    <h4>Jak wdrożyć 4.1.2?</h4>
-    <ul>
+    <h4>Jak to wdrożyć?</h4>
+    <ul> 
       <li>Używać standardowych komponentów HTML, które automatycznie mają Name, Role i Value</li>
       <li>Poprawnie etykietować pola formularzy za pomocą <code>&lt;label&gt;</code></li>
       <li>Zapewnić tytuł (<code>&lt;title&gt;</code>) dla elementów <code>&lt;iframe&gt;</code></li>
       <li>Stosować atrybuty ARIA (<code>aria-label</code>, <code>aria-labelledby</code>, <code>role</code>, <code>aria-checked</code>) dla elementów niestandardowych</li>
     </ul>
 
-    <h4>Przykłady błędów 4.1.2</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Przycisk tylko z ikoną, bez tekstu alternatywnego (<code>aria-label</code>)</li>
       <li>Pole formularza bez poprawnie zdefiniowanej roli lub etykiety</li>
       <li>Element <code>&lt;iframe&gt;</code> bez atrybutu <code>title</code></li>
     </ul>
 
-    <h4>Przykłady poprawnego kodu</h4>
-    <pre>
-<label for="data_urodzenia">Wprowadź datę urodzenia (dd-mm-rrrr)</label>
-<input type="text" name="data_urodzenia" id="data_urodzenia">
-
-<div id="okno-popup">
-    To jest okno pop-up.
-    <button aria-label="Zamknij">X</button>
-</div>
-
-    </pre>
-
-    <h4>Komentarze do audytu 4.1.2</h4>
-    <ul>
-      <li>Niektóre elementy interaktywne nie mają przypisanej nazwy lub roli</li>
-      <li>Brak widocznych etykiet dla pól formularzy i przycisków</li>
-      <li>Elementy <code>&lt;iframe&gt;</code> nie mają tytułów opisujących zawartość</li>
-      <li>Brak atrybutów ARIA tam, gdzie komponenty są niestandardowe</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 <article id="k4_1_3">
@@ -4150,7 +3653,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
   <p>Strona powinna informować użytkownika o ważnych zmianach na stronie, które nie wymagają przeładowania, np. wynik akcji lub zmiana statusu. Te komunikaty muszą być dostępne dla technologii wspomagających, takich jak czytniki ekranu, aby użytkownik wiedział, co się dzieje.</p>
   </div>
   <button id="show-more-4_1_3" class="show-more-btn" aria-expanded="false">
-    Przeczytaj więcej o 4.1.3
+    Rozwiń opis 4.1.3
   </button>
 
   <div class="full-text" style="display:none;">
@@ -4163,7 +3666,7 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
       <li>Osoby z ograniczoną percepcją wizualną</li>
     </ul>
 
-    <h4>Jak wdrożyć 4.1.3?</h4>
+    <h4>Jak to wdrożyć?</h4>
     <ul>
       <li>Używać ról ARIA do komunikatów: <code>role="status"</code>, <code>role="alert"</code>, <code>role="progressbar"</code>, <code>role="log"</code></li>
       <li>Stosować atrybuty <code>aria-live</code> i <code>aria-atomic</code> dla dynamicznych zmian</li>
@@ -4171,37 +3674,14 @@ Aby zapewnić napisy rozszerzone, dodaj do materiału wideo tekst zawierający n
       <li>Dla błędów formularzy używać <code>aria-describedby</code> lub <code>aria-errormessage</code></li>
     </ul>
 
-    <h4>Przykłady błędów 4.1.3</h4>
+    <h4>Przykłady błędów</h4>
     <ul>
       <li>Brak powiadomień o zmianach dla czytników ekranu</li>
       <li>Komunikaty o stanie bez atrybutów ARIA (<code>aria-live</code>)</li>
       <li>Błędy formularzy lub potwierdzenia akcji nie są ogłaszane dynamicznie</li>
     </ul>
+    
 
-    <h4>Przykłady poprawnego kodu</h4>
-    <pre>
-<!-- Komunikat o sukcesie -->
-<div role="status">Gratulacje! Formularz został wysłany pomyślnie.</div>
-
-<!-- Komunikat o błędzie -->
-<div role="alert">Błąd: Hasło musi mieć co najmniej 8 znaków.</div>
-
-<!-- Pasek postępu -->
-<div role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">Przesyłanie 50%</div>
-
-<!-- Aktualizacja kolejki lub log -->
-<div role="log" aria-live="polite">Otrzymano nową wiadomość.</div>
-
-    </pre>
-
-    <h4>Komentarze do audytu 4.1.3</h4>
-    <ul>
-      <li>Na stronie brakuje komunikatów o stanie odczytywanych przez czytniki ekranu</li>
-      <li>Potwierdzenia akcji nie mają atrybutu <code>aria-live</code></li>
-      <li>Formularze nie informują dynamicznie o błędach</li>
-    </ul>
-
-    <button class="back-button" aria-expanded="true">Zwiń opis</button>
   </div>
 </article>
 
@@ -4231,15 +3711,18 @@ document.querySelectorAll('.show-more-btn').forEach(button => {
     const fullText = section.querySelector('.full-text');
 
     const isExpanded = button.getAttribute('aria-expanded') === 'true';
+    const idPart = sectionId.replace(/_/g, '.'); // np. 1.1.1
 
     if (!isExpanded) {
+      // Rozwijamy
       fullText.style.display = 'block';
       button.setAttribute('aria-expanded', 'true');
-      button.textContent = 'Zwiń';
+      button.textContent = `Zwiń opis ${idPart}`;
     } else {
+      // Zwijamy
       fullText.style.display = 'none';
       button.setAttribute('aria-expanded', 'false');
-      button.textContent = `Przeczytaj więcej o ${sectionId.replace(/_/g, '.')}`;
+      button.textContent = `Rozwiń opis ${idPart}`;
     }
   });
 });
@@ -4255,7 +3738,7 @@ document.querySelectorAll('.back-button').forEach(button => {
       showMoreBtn.style.display = 'inline-block';
       showMoreBtn.setAttribute('aria-expanded', 'false');
       const idPart = showMoreBtn.id.replace('show-more-', '').replace(/_/g, '.');
-      showMoreBtn.textContent = `Przeczytaj więcej o ${idPart}`;
+      showMoreBtn.textContent = `Rozwiń opis ${idPart}`;
     }
   });
 });
@@ -4336,8 +3819,6 @@ nav.querySelectorAll('a').forEach(link => {
 
 </body>
 </html>
-
-
 
 
 
